@@ -14,5 +14,20 @@ namespace Universal_Launcher {
         public Form1() {
             InitializeComponent();
         }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
