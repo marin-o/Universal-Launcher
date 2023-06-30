@@ -21,17 +21,21 @@ namespace Universal_Launcher {
             }
         }
         private uint lblAppNameCount = 0;
-        private void btnAddFlow_Click(object sender, EventArgs e) {
-            UserControl uc = new ucTest(lblAppNameCount);
-            uc.BackColor = colors[r.Next(colors.Count)];
-            uc.Controls.Find("lblAppName", true)[0].Text = $"Test{lblAppNameCount++}";
-            tpTestChildren.Controls.Find("flowLayoutPanel1", true)[0].Controls.Add(uc);
+        
+
+        private void btnRemove_Click(object sender, EventArgs e) { 
+            if (aaaaa.Controls.Count > 0)
+                aaaaa.Controls.RemoveAt(aaaaa.Controls.Count - 1);
 
         }
 
-        private void btnRemove_Click(object sender, EventArgs e) { 
-            if (flowLayoutPanel1.Controls.Count > 0)
-                flowLayoutPanel1.Controls.RemoveAt(flowLayoutPanel1.Controls.Count - 1);
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
 
         }
     }
