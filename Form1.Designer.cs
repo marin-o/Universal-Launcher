@@ -23,16 +23,23 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Name:"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Segoe UI", 8F));
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Size:"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Home = new MetroFramework.Controls.MetroTabPage();
-            this.panelFavorites = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelFavorites = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.metroListView1 = new MetroFramework.Controls.MetroListView();
             this.metroTabControl1.SuspendLayout();
             this.Home.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -65,27 +72,24 @@
             this.Home.VerticalScrollbarHighlightOnWheel = false;
             this.Home.VerticalScrollbarSize = 10;
             // 
-            // panelFavorites
+            // metroLabel1
             // 
-            this.panelFavorites.Location = new System.Drawing.Point(3, 23);
-            this.panelFavorites.Name = "panelFavorites";
-            this.panelFavorites.Size = new System.Drawing.Size(390, 320);
-            this.panelFavorites.TabIndex = 2;
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(3, 1);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(60, 19);
+            this.metroLabel1.TabIndex = 6;
+            this.metroLabel1.Text = "Favorites";
+            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click_1);
             // 
-            // panel2
+            // metroLabel3
             // 
-            this.panel2.Location = new System.Drawing.Point(408, 23);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(321, 145);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
-            this.panel3.Location = new System.Drawing.Point(408, 198);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(321, 145);
-            this.panel3.TabIndex = 4;
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(408, 176);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(71, 19);
+            this.metroLabel3.TabIndex = 5;
+            this.metroLabel3.Text = "Reminders";
             // 
             // metroLabel2
             // 
@@ -97,36 +101,66 @@
             this.metroLabel2.Text = "Notes";
             this.metroLabel2.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
-            // metroLabel3
+            // panel3
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(408, 176);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(71, 19);
-            this.metroLabel3.TabIndex = 5;
-            this.metroLabel3.Text = "Reminders";
+            this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
+            this.panel3.Location = new System.Drawing.Point(408, 198);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(321, 145);
+            this.panel3.TabIndex = 4;
             // 
-            // metroLabel1
+            // panel2
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(3, 1);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(60, 19);
-            this.metroLabel1.TabIndex = 6;
-            this.metroLabel1.Text = "Favorites";
-            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click_1);
+            this.panel2.Controls.Add(this.metroListView1);
+            this.panel2.Controls.Add(this.richTextBox1);
+            this.panel2.Location = new System.Drawing.Point(408, 23);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(321, 145);
+            this.panel2.TabIndex = 3;
+            // 
+            // panelFavorites
+            // 
+            this.panelFavorites.Location = new System.Drawing.Point(3, 23);
+            this.panelFavorites.Name = "panelFavorites";
+            this.panelFavorites.Size = new System.Drawing.Size(390, 320);
+            this.panelFavorites.TabIndex = 2;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(18, 24);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(113, 104);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // metroListView1
+            // 
+            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.metroListView1.FullRowSelect = true;
+            this.metroListView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem3,
+            listViewItem4});
+            this.metroListView1.Location = new System.Drawing.Point(148, 24);
+            this.metroListView1.Name = "metroListView1";
+            this.metroListView1.OwnerDraw = true;
+            this.metroListView1.Size = new System.Drawing.Size(151, 102);
+            this.metroListView1.TabIndex = 1;
+            this.metroListView1.UseCompatibleStateImageBehavior = false;
+            this.metroListView1.UseSelectable = true;
+            this.metroListView1.SelectedIndexChanged += new System.EventHandler(this.metroListView1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(787, 450);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.metroTabControl1.ResumeLayout(false);
             this.Home.ResumeLayout(false);
             this.Home.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -141,6 +175,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroListView metroListView1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

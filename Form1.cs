@@ -29,5 +29,10 @@ namespace Universal_Launcher {
         {
 
         }
+
+        private void metroListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
