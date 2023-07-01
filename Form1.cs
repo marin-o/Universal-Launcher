@@ -21,29 +21,9 @@ namespace Universal_Launcher {
             InitializeComponent();
         }
 
-        private void metroLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroLabel1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroListView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddNote_Click(object sender, EventArgs e)
         {
-            Notes notes = new Notes();
+            CreateNote notes = new CreateNote();
             if (notes.ShowDialog() == DialogResult.OK)
             {
                 lbNotes.Items.Add(notes.note);
@@ -77,11 +57,6 @@ namespace Universal_Launcher {
                     rtbNotes.Text = activeNote.Text;
                 }
             }
-        }
-
-        private void lvReminders_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

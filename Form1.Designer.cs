@@ -50,6 +50,9 @@
             // 
             // metroTabControl1
             // 
+            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.Home);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 54);
             this.metroTabControl1.Name = "metroTabControl1";
@@ -86,7 +89,6 @@
             this.metroLabel1.Size = new System.Drawing.Size(60, 19);
             this.metroLabel1.TabIndex = 6;
             this.metroLabel1.Text = "Favorites";
-            this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click_1);
             // 
             // metroLabel3
             // 
@@ -105,10 +107,12 @@
             this.metroLabel2.Size = new System.Drawing.Size(43, 19);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "Notes";
-            this.metroLabel2.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.btnAddReminder);
             this.panel3.Controls.Add(this.lvReminders);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
@@ -119,6 +123,7 @@
             // 
             // btnAddReminder
             // 
+            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddReminder.Location = new System.Drawing.Point(261, 131);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
@@ -128,6 +133,9 @@
             // 
             // lvReminders
             // 
+            this.lvReminders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -139,7 +147,6 @@
             this.lvReminders.TabIndex = 0;
             this.lvReminders.UseCompatibleStateImageBehavior = false;
             this.lvReminders.View = System.Windows.Forms.View.Details;
-            this.lvReminders.SelectedIndexChanged += new System.EventHandler(this.lvReminders_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -158,6 +165,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.btnAddNote);
             this.panel2.Controls.Add(this.btnRemoveNotes);
             this.panel2.Controls.Add(this.lbNotes);
@@ -169,6 +178,7 @@
             // 
             // btnAddNote
             // 
+            this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddNote.Location = new System.Drawing.Point(151, 124);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(104, 23);
@@ -179,6 +189,7 @@
             // 
             // btnRemoveNotes
             // 
+            this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnRemoveNotes.Location = new System.Drawing.Point(261, 124);
             this.btnRemoveNotes.Name = "btnRemoveNotes";
             this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
@@ -189,6 +200,7 @@
             // 
             // lbNotes
             // 
+            this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbNotes.FormattingEnabled = true;
             this.lbNotes.Location = new System.Drawing.Point(151, 23);
             this.lbNotes.Name = "lbNotes";
@@ -198,6 +210,7 @@
             // 
             // rtbNotes
             // 
+            this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNotes.Location = new System.Drawing.Point(20, 23);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.Size = new System.Drawing.Size(113, 104);
@@ -207,6 +220,8 @@
             // 
             // panelFavorites
             // 
+            this.panelFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelFavorites.Controls.Add(this.listView1);
             this.panelFavorites.Location = new System.Drawing.Point(3, 23);
             this.panelFavorites.Name = "panelFavorites";
@@ -215,6 +230,8 @@
             // 
             // listView1
             // 
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(18, 23);
             this.listView1.Name = "listView1";
@@ -228,6 +245,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 504);
             this.Controls.Add(this.metroTabControl1);
+            this.MinimumSize = new System.Drawing.Size(872, 504);
             this.Name = "Form1";
             this.Text = "Form1";
             this.metroTabControl1.ResumeLayout(false);

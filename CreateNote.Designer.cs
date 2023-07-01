@@ -108,7 +108,7 @@
             // 
             // 
             this.mtbTitle.CustomButton.Image = null;
-            this.mtbTitle.CustomButton.Location = new System.Drawing.Point(286, 1);
+            this.mtbTitle.CustomButton.Location = new System.Drawing.Point(290, 1);
             this.mtbTitle.CustomButton.Name = "";
             this.mtbTitle.CustomButton.Size = new System.Drawing.Size(19, 19);
             this.mtbTitle.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -133,9 +133,8 @@
             this.mtbTitle.WaterMark = "Title:";
             this.mtbTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbTitle.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.mtbTitle.Click += new System.EventHandler(this.mtbTitle_Click_1);
             // 
-            // Notes
+            // CreateNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -144,9 +143,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.mtbNote);
-            this.Name = "Notes";
+            this.Name = "CreateNote";
+            this.Resizable = false;
             this.Text = "Create Note";
-            this.Load += new System.EventHandler(this.Notes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderText)).EndInit();
             this.ResumeLayout(false);
@@ -154,11 +153,11 @@
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTextBox mtbNote;
         private System.Windows.Forms.ErrorProvider errorProviderTitle;
         private System.Windows.Forms.ErrorProvider errorProviderText;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private MetroFramework.Controls.MetroTextBox mtbTitle;
+        internal MetroFramework.Controls.MetroTextBox mtbNote;
     }
 }

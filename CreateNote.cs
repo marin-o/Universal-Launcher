@@ -53,10 +53,6 @@ namespace Universal_Launcher
             }
         }
 
-        private void mtbTitle_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -69,21 +65,11 @@ namespace Universal_Launcher
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if(!ValidateChildren())
+            if(ValidateChildren())
             {
                 DialogResult = DialogResult.Cancel;
                 Close();
             }
-        }
-
-        private void mtbTitle_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Notes_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
