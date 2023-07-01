@@ -23,10 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Name:"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Segoe UI", 8F));
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Size:"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.Empty, new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))));
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Home = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -34,12 +30,22 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.metroListView1 = new MetroFramework.Controls.MetroListView();
+            this.lbNotes = new System.Windows.Forms.ListBox();
+            this.btnRemoveNotes = new System.Windows.Forms.Button();
+            this.btnAddNote = new System.Windows.Forms.Button();
+            this.lvReminders = new System.Windows.Forms.ListView();
+            this.btnAddReminder = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView1 = new System.Windows.Forms.ListView();
             this.metroTabControl1.SuspendLayout();
             this.Home.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelFavorites.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -48,7 +54,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(23, 54);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(737, 385);
+            this.metroTabControl1.Size = new System.Drawing.Size(801, 400);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -65,7 +71,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(729, 343);
+            this.Home.Size = new System.Drawing.Size(793, 358);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -103,64 +109,133 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnAddReminder);
+            this.panel3.Controls.Add(this.lvReminders);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(321, 145);
+            this.panel3.Size = new System.Drawing.Size(382, 157);
             this.panel3.TabIndex = 4;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.metroListView1);
-            this.panel2.Controls.Add(this.richTextBox1);
+            this.panel2.Controls.Add(this.btnAddNote);
+            this.panel2.Controls.Add(this.btnRemoveNotes);
+            this.panel2.Controls.Add(this.lbNotes);
+            this.panel2.Controls.Add(this.rtbNotes);
             this.panel2.Location = new System.Drawing.Point(408, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(321, 145);
+            this.panel2.Size = new System.Drawing.Size(382, 150);
             this.panel2.TabIndex = 3;
+            // 
+            // rtbNotes
+            // 
+            this.rtbNotes.Location = new System.Drawing.Point(20, 23);
+            this.rtbNotes.Name = "rtbNotes";
+            this.rtbNotes.Size = new System.Drawing.Size(113, 104);
+            this.rtbNotes.TabIndex = 0;
+            this.rtbNotes.Text = "";
+            this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
             // 
             // panelFavorites
             // 
+            this.panelFavorites.Controls.Add(this.listView1);
             this.panelFavorites.Location = new System.Drawing.Point(3, 23);
             this.panelFavorites.Name = "panelFavorites";
-            this.panelFavorites.Size = new System.Drawing.Size(390, 320);
+            this.panelFavorites.Size = new System.Drawing.Size(390, 332);
             this.panelFavorites.TabIndex = 2;
             // 
-            // richTextBox1
+            // lbNotes
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(18, 24);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(113, 104);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.lbNotes.FormattingEnabled = true;
+            this.lbNotes.Location = new System.Drawing.Point(151, 23);
+            this.lbNotes.Name = "lbNotes";
+            this.lbNotes.Size = new System.Drawing.Size(214, 95);
+            this.lbNotes.TabIndex = 1;
+            this.lbNotes.SelectedIndexChanged += new System.EventHandler(this.lbNotes_SelectedIndexChanged);
             // 
-            // metroListView1
+            // btnRemoveNotes
             // 
-            this.metroListView1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.metroListView1.FullRowSelect = true;
-            this.metroListView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
-            this.metroListView1.Location = new System.Drawing.Point(148, 24);
-            this.metroListView1.Name = "metroListView1";
-            this.metroListView1.OwnerDraw = true;
-            this.metroListView1.Size = new System.Drawing.Size(151, 102);
-            this.metroListView1.TabIndex = 1;
-            this.metroListView1.UseCompatibleStateImageBehavior = false;
-            this.metroListView1.UseSelectable = true;
-            this.metroListView1.SelectedIndexChanged += new System.EventHandler(this.metroListView1_SelectedIndexChanged);
+            this.btnRemoveNotes.Location = new System.Drawing.Point(261, 124);
+            this.btnRemoveNotes.Name = "btnRemoveNotes";
+            this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
+            this.btnRemoveNotes.TabIndex = 2;
+            this.btnRemoveNotes.Text = "Remove";
+            this.btnRemoveNotes.UseVisualStyleBackColor = true;
+            this.btnRemoveNotes.Click += new System.EventHandler(this.btnRemoveNotes_Click);
+            // 
+            // btnAddNote
+            // 
+            this.btnAddNote.Location = new System.Drawing.Point(151, 124);
+            this.btnAddNote.Name = "btnAddNote";
+            this.btnAddNote.Size = new System.Drawing.Size(104, 23);
+            this.btnAddNote.TabIndex = 3;
+            this.btnAddNote.Text = "Add";
+            this.btnAddNote.UseVisualStyleBackColor = true;
+            this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
+            // 
+            // lvReminders
+            // 
+            this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.lvReminders.HideSelection = false;
+            this.lvReminders.Location = new System.Drawing.Point(20, 16);
+            this.lvReminders.Name = "lvReminders";
+            this.lvReminders.Size = new System.Drawing.Size(345, 113);
+            this.lvReminders.TabIndex = 0;
+            this.lvReminders.UseCompatibleStateImageBehavior = false;
+            this.lvReminders.View = System.Windows.Forms.View.Details;
+            this.lvReminders.SelectedIndexChanged += new System.EventHandler(this.lvReminders_SelectedIndexChanged);
+            // 
+            // btnAddReminder
+            // 
+            this.btnAddReminder.Location = new System.Drawing.Point(261, 131);
+            this.btnAddReminder.Name = "btnAddReminder";
+            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddReminder.TabIndex = 4;
+            this.btnAddReminder.Text = "Add";
+            this.btnAddReminder.UseVisualStyleBackColor = true;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Check";
+            this.columnHeader1.Width = 45;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Task";
+            this.columnHeader2.Width = 213;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Time";
+            this.columnHeader3.Width = 81;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(18, 23);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(349, 283);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 450);
+            this.ClientSize = new System.Drawing.Size(872, 504);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.metroTabControl1.ResumeLayout(false);
             this.Home.ResumeLayout(false);
             this.Home.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panelFavorites.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -175,8 +250,16 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroListView metroListView1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbNotes;
+        private System.Windows.Forms.Button btnRemoveNotes;
+        private System.Windows.Forms.ListBox lbNotes;
+        private System.Windows.Forms.Button btnAddNote;
+        private System.Windows.Forms.Button btnAddReminder;
+        private System.Windows.Forms.ListView lvReminders;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 
