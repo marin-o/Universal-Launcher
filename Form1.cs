@@ -19,8 +19,6 @@ namespace Universal_Launcher {
         private Note activeNote = null;
         public Form1() {
             InitializeComponent();
-            lvReminders.Items.Add("test");
-            lvReminders.Items[0].SubItems.Add("test2");
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -57,6 +55,7 @@ namespace Universal_Launcher {
             if(lbNotes.SelectedIndex != -1)
             {
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
+                rtbNotes.Text = "";
             }
         }
 
