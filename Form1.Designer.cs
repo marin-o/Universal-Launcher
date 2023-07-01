@@ -54,10 +54,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.Home);
-            this.metroTabControl1.Location = new System.Drawing.Point(23, 54);
+            this.metroTabControl1.Location = new System.Drawing.Point(212, 63);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(801, 400);
+            this.metroTabControl1.Size = new System.Drawing.Size(801, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -74,7 +74,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(793, 358);
+            this.Home.Size = new System.Drawing.Size(793, 376);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -118,13 +118,13 @@
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(382, 157);
+            this.panel3.Size = new System.Drawing.Size(382, 175);
             this.panel3.TabIndex = 4;
             // 
             // btnAddReminder
             // 
             this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(261, 131);
+            this.btnAddReminder.Location = new System.Drawing.Point(261, 149);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
             this.btnAddReminder.TabIndex = 4;
@@ -143,7 +143,7 @@
             this.lvReminders.HideSelection = false;
             this.lvReminders.Location = new System.Drawing.Point(20, 16);
             this.lvReminders.Name = "lvReminders";
-            this.lvReminders.Size = new System.Drawing.Size(345, 113);
+            this.lvReminders.Size = new System.Drawing.Size(345, 131);
             this.lvReminders.TabIndex = 0;
             this.lvReminders.UseCompatibleStateImageBehavior = false;
             this.lvReminders.View = System.Windows.Forms.View.Details;
@@ -225,7 +225,7 @@
             this.panelFavorites.Controls.Add(this.listView1);
             this.panelFavorites.Location = new System.Drawing.Point(3, 23);
             this.panelFavorites.Name = "panelFavorites";
-            this.panelFavorites.Size = new System.Drawing.Size(390, 332);
+            this.panelFavorites.Size = new System.Drawing.Size(390, 350);
             this.panelFavorites.TabIndex = 2;
             // 
             // listView1
@@ -235,7 +235,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(18, 23);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(349, 283);
+            this.listView1.Size = new System.Drawing.Size(349, 301);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
@@ -243,9 +243,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 504);
+            this.ClientSize = new System.Drawing.Size(1036, 504);
             this.Controls.Add(this.metroTabControl1);
-            this.MinimumSize = new System.Drawing.Size(872, 504);
+            this.MinimumSize = new System.Drawing.Size(1036, 504);
             this.Name = "Form1";
             this.Text = "Form1";
             this.metroTabControl1.ResumeLayout(false);
