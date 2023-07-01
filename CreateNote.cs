@@ -63,13 +63,9 @@ namespace Universal_Launcher
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if(ValidateChildren())
-            {
-                DialogResult = DialogResult.Cancel;
-                Close();
-            }
+        private void btnCancel_Click(object sender, EventArgs e) {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }
