@@ -1,5 +1,5 @@
 ﻿namespace Universal_Launcher {
-    partial class ucTest {
+    partial class AppUserControl {
         /// <summary> 
         /// Required designer variable.
         /// </summary>

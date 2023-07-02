@@ -11,5 +11,8 @@ namespace Universal_Launcher.AppClasses {
         public override void Launch() {
             System.Diagnostics.Process.Start(Path);
         }
+        public void AddApp(App app) {
+            SubApps.Add(app);
+        }
     }
 }

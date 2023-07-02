@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using Universal_Launcher.AppClasses;
 
 namespace Universal_Launcher {
-    public partial class ucTest : UserControl {
+    public partial class AppUserControl : UserControl {
         private App mainApp;
         public string Id { get; set; }
-        public ucTest(string id) {
+        public AppUserControl(string id) {
             InitializeComponent();
             Id = id;
         }
