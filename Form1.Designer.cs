@@ -59,7 +59,6 @@
             this.mpSidePanel.VerticalScrollbarBarColor = true;
             this.mpSidePanel.VerticalScrollbarHighlightOnWheel = false;
             this.mpSidePanel.VerticalScrollbarSize = 10;
-            this.mpSidePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.mpSidePanel_Paint);
             // 
             // mpAccount
             // 
