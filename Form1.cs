@@ -14,5 +14,10 @@ namespace Universal_Launcher {
         public Form1() {
             InitializeComponent();
         }
+
+        private void mpSidePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
