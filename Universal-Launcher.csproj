@@ -104,11 +104,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\ucTest.cs">
+    <Compile Include="Resources\AppUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Resources\ucTest.Designer.cs">
-      <DependentUpon>ucTest.cs</DependentUpon>
+    <Compile Include="Resources\AppUserControl.Designer.cs">
+      <DependentUpon>AppUserControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -122,8 +122,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Resources\ucTest.resx">
-      <DependentUpon>ucTest.cs</DependentUpon>
+    <EmbeddedResource Include="Resources\AppUserControl.resx">
+      <DependentUpon>AppUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
