@@ -10,15 +10,15 @@ namespace Universal_Launcher.AppClasses {
     public abstract class App {
         public Icon Icon { get; set; }
         public string Name { get; set; }
-        public string Path { get; set; }
         public string IconPath { get; set; }
+        public string Path { get; set; }
 
 
-        public App(string name, string path, Icon icon, string iconPath) {
+        public App(string name, string path, string iconPath, Icon icon) {
             Name = name;
             Path = path;
-            Icon = icon;
             IconPath = iconPath;
+            Icon = icon;
         }
         public abstract void Launch();
 

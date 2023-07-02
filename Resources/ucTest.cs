@@ -12,8 +12,8 @@ using Universal_Launcher.AppClasses;
 namespace Universal_Launcher {
     public partial class ucTest : UserControl {
         private App mainApp;
-        public uint Id { get; set; }
-        public ucTest(uint id) {
+        public string Id { get; set; }
+        public ucTest(string id) {
             InitializeComponent();
             Id = id;
         }

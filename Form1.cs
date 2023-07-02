@@ -14,46 +14,20 @@ using Universal_Launcher.AppClasses;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
-        private List<Color> colors;
-        private Random r = new Random();
+        private MainAppFactory mainAppFactory;
         public Form1() {
             InitializeComponent();
-            colors = new List<Color>();
-            for (int i = 0; i < 10; i++) {
-                colors.Add(Color.FromArgb(r.Next(0, 255), r.Next(0, 255), r.Next(0, 255)));
-            }
+            mainAppFactory = new MainAppFactory();
         }
-        private uint lblAppNameCount = 0;
+
         private void btnAddFlow_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
-            ofd.Title  = "Select a Shortcut or Executable File";
+            ofd.Title  = "Select an Executable File, Shortcut, or Link File";
             if( ofd.ShowDialog() == DialogResult.OK ) {
-                ucTest uc = new ucTest(lblAppNameCount);
-                string filePath = ofd.FileName;
-                string filename = Path.GetFileNameWithoutExtension(filePath);
-
-                App app;
-
-                Icon icon;
-                string iconPath;
-
-                if(Path.GetExtension(filePath).Equals(".lnk", StringComparison.OrdinalIgnoreCase)) {
-                    IWshShell shell = new WshShell();
-                    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(filePath);
-                    iconPath = link.IconLocation;
-
-                    Icon extractedIcon = Icon.ExtractAssociatedIcon(iconPath);
-                    icon = new Icon(extractedIcon, SystemInformation.SmallIconSize);
-                     
-                    
-                } 
-                else {
-                    iconPath = filePath;
-                    icon = Icon.ExtractAssociatedIcon(filePath);
-                }
-                MainAppFactory mainAppFactory = new MainAppFactory();
-                app = mainAppFactory.CreateApp(filename, filePath, icon, iconPath);
+                ucTest uc = new ucTest(Guid.NewGuid().ToString());
+                ShortcutInfo info = AppUtilities.GetShortcutInfo(ofd.FileName);
+                App app = mainAppFactory.CreateApp(info.Name, info.FilePath, info.IconPath, info.Icon);
                 uc.SetMainApp(app);
                 tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             }

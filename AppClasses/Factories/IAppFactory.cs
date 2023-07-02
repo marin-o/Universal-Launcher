@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace Universal_Launcher.AppClasses {
     public interface IAppFactory {
-        App CreateApp(string name, string path, Icon icon, string iconPath); //todo other app types
+        App CreateApp(string name, string path, string iconPath, Icon icon); //todo other app types
     }
 }
