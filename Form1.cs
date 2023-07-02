@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Universal_Launcher.AppClasses;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
@@ -25,14 +26,12 @@ namespace Universal_Launcher {
             UserControl uc = new ucTest(lblAppNameCount);
             uc.BackColor = colors[r.Next(colors.Count)];
             uc.Controls.Find("lblAppName", true)[0].Text = $"Test{lblAppNameCount++}";
-            tpTestChildren.Controls.Find("flowLayoutPanel1", true)[0].Controls.Add(uc);
-
+            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
         }
 
-        private void btnRemove_Click(object sender, EventArgs e) { 
-            if (flowLayoutPanel1.Controls.Count > 0)
-                flowLayoutPanel1.Controls.RemoveAt(flowLayoutPanel1.Controls.Count - 1);
-
+        private void btnRemove_Click(object sender, EventArgs e) {
+            if( flpLibrary.Controls.Count > 0 )
+                flpLibrary.Controls.RemoveAt(flpLibrary.Controls.Count - 1);
         }
     }
 }
