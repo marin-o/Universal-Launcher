@@ -37,6 +37,7 @@
             this.pbAppIcon.Size = new System.Drawing.Size(51, 42);
             this.pbAppIcon.TabIndex = 2;
             this.pbAppIcon.TabStop = false;
+            this.pbAppIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbAppIcon_MouseDoubleClick);
             // 
             // lblAppName
             // 

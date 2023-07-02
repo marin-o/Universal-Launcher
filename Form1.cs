@@ -1,9 +1,11 @@
-﻿using MetroFramework.Forms;
+﻿using IWshRuntimeLibrary;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +25,38 @@ namespace Universal_Launcher {
         }
         private uint lblAppNameCount = 0;
         private void btnAddFlow_Click(object sender, EventArgs e) {
-            UserControl uc = new ucTest(lblAppNameCount);
-            uc.BackColor = colors[r.Next(colors.Count)];
-            uc.Controls.Find("lblAppName", true)[0].Text = $"Test{lblAppNameCount++}";
-            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
+            ofd.Title  = "Select a Shortcut or Executable File";
+            if( ofd.ShowDialog() == DialogResult.OK ) {
+                ucTest uc = new ucTest(lblAppNameCount);
+                string filePath = ofd.FileName;
+                string filename = Path.GetFileNameWithoutExtension(filePath);
+
+                App app;
+
+                Icon icon;
+                string iconPath;
+
+                if(Path.GetExtension(filePath).Equals(".lnk", StringComparison.OrdinalIgnoreCase)) {
+                    IWshShell shell = new WshShell();
+                    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(filePath);
+                    iconPath = link.IconLocation;
+
+                    Icon extractedIcon = Icon.ExtractAssociatedIcon(iconPath);
+                    icon = new Icon(extractedIcon, SystemInformation.SmallIconSize);
+                     
+                    
+                } 
+                else {
+                    iconPath = filePath;
+                    icon = Icon.ExtractAssociatedIcon(filePath);
+                }
+                MainAppFactory mainAppFactory = new MainAppFactory();
+                app = mainAppFactory.CreateApp(filename, filePath, icon, iconPath);
+                uc.SetMainApp(app);
+                tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {

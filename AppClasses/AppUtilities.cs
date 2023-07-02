@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Universal_Launcher.AppClasses {
+    
     public static class AppUtilities {
         public static bool CheckPath(string filePath) {
             if( System.IO.File.Exists(filePath) ) {
@@ -13,5 +15,13 @@ namespace Universal_Launcher.AppClasses {
             }
             return false;
         }
+        public static string GetTargetPath(string shortcutPath) {
+            string targetPath = string.Empty;
+            if( CheckPath(shortcutPath) ) {
+                
+            }
+            return targetPath;
+        }
     }
+    
 }

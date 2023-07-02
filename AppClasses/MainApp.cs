@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Universal_Launcher.AppClasses {
     public class MainApp : App {
         public List<App> SubApps { get; set; } = new List<App>();
-        public MainApp(string name, string path, System.Drawing.Icon icon) : base(name, path, icon) { }
+        public MainApp(string name, string path, System.Drawing.Icon icon, string iconPath) : base(name, path, icon, iconPath) { }
         public override void Launch() {
             System.Diagnostics.Process.Start(Path);
         }
