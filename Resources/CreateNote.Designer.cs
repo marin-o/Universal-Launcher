@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.mtbNote = new MetroFramework.Controls.MetroTextBox();
-            this.errorProviderTitle = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProviderText = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.mtbTitle = new MetroFramework.Controls.MetroTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTitle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderText)).BeginInit();
             this.SuspendLayout();
             // 
             // mtbNote
@@ -71,16 +66,6 @@
             this.mtbNote.WaterMark = "Text:";
             this.mtbNote.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbNote.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.mtbNote.Click += new System.EventHandler(this.mtbNote_Click);
-            this.mtbNote.Validating += new System.ComponentModel.CancelEventHandler(this.mtbNote_Validating);
-            // 
-            // errorProviderTitle
-            // 
-            this.errorProviderTitle.ContainerControl = this;
-            // 
-            // errorProviderText
-            // 
-            this.errorProviderText.ContainerControl = this;
             // 
             // btnOk
             // 
@@ -146,15 +131,11 @@
             this.Name = "CreateNote";
             this.Resizable = false;
             this.Text = "Create Note";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTitle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderText)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.ErrorProvider errorProviderTitle;
-        private System.Windows.Forms.ErrorProvider errorProviderText;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOk;
         private MetroFramework.Controls.MetroTextBox mtbTitle;

@@ -26,7 +26,7 @@ namespace Universal_Launcher {
             CreateNote notes = new CreateNote();
             if (notes.ShowDialog() == DialogResult.OK)
             {
-                lbNotes.Items.Add(notes.note);
+                lbNotes.Items.Add(notes.Note);
             }
         }
 
@@ -43,7 +43,7 @@ namespace Universal_Launcher {
         {
             if(activeNote != null)
             {
-                activeNote.Text = rtbNotes.Text;
+                activeNote.Body = rtbNotes.Text;
             }
         }
 
@@ -54,7 +54,7 @@ namespace Universal_Launcher {
                 activeNote = lbNotes.SelectedItem as Note;
                 if(activeNote != null)
                 {
-                    rtbNotes.Text = activeNote.Text;
+                    rtbNotes.Text = activeNote.Body;
                 }
             }
         }

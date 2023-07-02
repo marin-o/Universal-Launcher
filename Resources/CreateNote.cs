@@ -13,52 +13,49 @@ namespace Universal_Launcher
 {
     public partial class CreateNote : MetroForm
     {
-       public Note note;
+        public Note Note { get; set; }
         public CreateNote()
         {
             InitializeComponent();
             
         }
 
-        private void mtbTitle_Validating(object sender, CancelEventArgs e)
-        {
-            if (mtbTitle.Text.Trim().Length == 0)
-            {
-                e.Cancel = true;
-                errorProviderTitle.SetError(mtbTitle, "Vnesi Naslov!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderTitle.SetError(mtbTitle, null);
-            }
-        }
+        //private void mtbTitle_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (mtbTitle.Text.Trim().Length == 0)
+        //    {
+        //        e.Cancel = true;
+        //        errorProviderTitle.SetError(mtbTitle, "Vnesi Naslov!");
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //        errorProviderTitle.SetError(mtbTitle, null);
+        //    }
+        //}
 
-        private void mtbNote_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void mtbNote_Validating(object sender, CancelEventArgs e)
-        {
-            if (mtbNote.Text.Trim().Length == 0)
-            {
-                e.Cancel = true;
-                errorProviderTitle.SetError(mtbNote, "Vnesi Naslov!");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderTitle.SetError(mtbNote, null);
-            }
-        }
+        //private void mtbNote_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (mtbNote.Text.Trim().Length == 0)
+        //    {
+        //        e.Cancel = true;
+        //        errorProviderTitle.SetError(mtbNote, "Vnesi Naslov!");
+        //    }
+        //    else
+        //    {
+        //        e.Cancel = false;
+        //        errorProviderTitle.SetError(mtbNote, null);
+        //    }
+        //}
 
 
         private void btnOk_Click(object sender, EventArgs e)
         {
             if(ValidateChildren())
             {
-                note = new Note(mtbTitle.Text, mtbNote.Text);
+                if(mtbNote.Text != string.Empty)
+                    Note = new Note(mtbTitle.Text, mtbNote.Text);
+                else Note = new Note();
                 DialogResult = DialogResult.OK;
             }
         }
