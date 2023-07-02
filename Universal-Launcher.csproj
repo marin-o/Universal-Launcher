@@ -90,10 +90,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateNote.cs">
+    <Compile Include="Resources\CreateNote.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateNote.Designer.cs">
+    <Compile Include="Resources\CreateNote.Designer.cs">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -105,7 +105,7 @@
     <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CreateNote.resx">
+    <EmbeddedResource Include="Resources\CreateNote.resx">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
