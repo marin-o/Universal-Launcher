@@ -72,7 +72,7 @@
             this.btnOk.Location = new System.Drawing.Point(19, 287);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(156, 25);
-            this.btnOk.TabIndex = 3;
+            this.btnOk.TabIndex = 0;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -82,7 +82,7 @@
             this.btnCancel.Location = new System.Drawing.Point(181, 287);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(148, 25);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -113,7 +113,7 @@
             this.mtbTitle.SelectionStart = 0;
             this.mtbTitle.ShortcutsEnabled = true;
             this.mtbTitle.Size = new System.Drawing.Size(310, 21);
-            this.mtbTitle.TabIndex = 5;
+            this.mtbTitle.TabIndex = 1;
             this.mtbTitle.UseSelectable = true;
             this.mtbTitle.WaterMark = "Title:";
             this.mtbTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
