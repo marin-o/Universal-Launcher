@@ -286,7 +286,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(218, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
