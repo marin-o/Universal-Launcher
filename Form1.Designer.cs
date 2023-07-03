@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.Home = new MetroFramework.Controls.MetroTabPage();
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
@@ -38,7 +37,6 @@
             this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTabControl1.Controls.Add(this.Home);
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(204, 63);
             this.metroTabControl1.Name = "metroTabControl1";
@@ -46,20 +44,6 @@
             this.metroTabControl1.Size = new System.Drawing.Size(801, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
-            // 
-            // Home
-            // 
-            this.Home.HorizontalScrollbarBarColor = true;
-            this.Home.HorizontalScrollbarHighlightOnWheel = false;
-            this.Home.HorizontalScrollbarSize = 10;
-            this.Home.Location = new System.Drawing.Point(4, 38);
-            this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(793, 376);
-            this.Home.TabIndex = 0;
-            this.Home.Text = "Home";
-            this.Home.VerticalScrollbarBarColor = true;
-            this.Home.VerticalScrollbarHighlightOnWheel = false;
-            this.Home.VerticalScrollbarSize = 10;
             // 
             // tpTestChildren
             // 
@@ -129,7 +113,6 @@
         #endregion
 
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage Home;
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
         private MetroFramework.Controls.MetroButton btnRemove;
