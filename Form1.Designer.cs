@@ -52,6 +52,10 @@
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
+            this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAddFlow = new MetroFramework.Controls.MetroButton();
+            this.btnRemove = new MetroFramework.Controls.MetroButton();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -62,6 +66,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelFavorites.SuspendLayout();
+            this.tpTestChildren.SuspendLayout();
             this.SuspendLayout();
             // 
             // mpSidePanel
@@ -180,7 +185,7 @@
             this.mpPinnedNote.HorizontalScrollbarSize = 10;
             this.mpPinnedNote.Location = new System.Drawing.Point(0, 89);
             this.mpPinnedNote.Name = "mpPinnedNote";
-            this.mpPinnedNote.Size = new System.Drawing.Size(211, 109);
+            this.mpPinnedNote.Size = new System.Drawing.Size(212, 109);
             this.mpPinnedNote.TabIndex = 2;
             this.mpPinnedNote.VerticalScrollbarBarColor = true;
             this.mpPinnedNote.VerticalScrollbarHighlightOnWheel = false;
@@ -278,10 +283,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.Home);
-            this.metroTabControl1.Location = new System.Drawing.Point(212, 63);
+            this.metroTabControl1.Controls.Add(this.tpTestChildren);
+            this.metroTabControl1.Location = new System.Drawing.Point(218, 63);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(801, 418);
+            this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -298,7 +304,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(793, 376);
+            this.Home.Size = new System.Drawing.Size(779, 376);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -342,13 +348,13 @@
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(382, 175);
+            this.panel3.Size = new System.Drawing.Size(368, 175);
             this.panel3.TabIndex = 4;
             // 
             // btnAddReminder
             // 
             this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(261, 149);
+            this.btnAddReminder.Location = new System.Drawing.Point(247, 149);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
             this.btnAddReminder.TabIndex = 4;
@@ -367,7 +373,7 @@
             this.lvReminders.HideSelection = false;
             this.lvReminders.Location = new System.Drawing.Point(20, 16);
             this.lvReminders.Name = "lvReminders";
-            this.lvReminders.Size = new System.Drawing.Size(345, 131);
+            this.lvReminders.Size = new System.Drawing.Size(331, 131);
             this.lvReminders.TabIndex = 0;
             this.lvReminders.UseCompatibleStateImageBehavior = false;
             this.lvReminders.View = System.Windows.Forms.View.Details;
@@ -397,13 +403,13 @@
             this.panel2.Controls.Add(this.rtbNotes);
             this.panel2.Location = new System.Drawing.Point(408, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(382, 150);
+            this.panel2.Size = new System.Drawing.Size(368, 150);
             this.panel2.TabIndex = 3;
             // 
             // btnAddNote
             // 
             this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddNote.Location = new System.Drawing.Point(151, 124);
+            this.btnAddNote.Location = new System.Drawing.Point(137, 124);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(104, 23);
             this.btnAddNote.TabIndex = 3;
@@ -414,7 +420,7 @@
             // btnRemoveNotes
             // 
             this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveNotes.Location = new System.Drawing.Point(261, 124);
+            this.btnRemoveNotes.Location = new System.Drawing.Point(247, 124);
             this.btnRemoveNotes.Name = "btnRemoveNotes";
             this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
             this.btnRemoveNotes.TabIndex = 2;
@@ -426,7 +432,7 @@
             // 
             this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbNotes.FormattingEnabled = true;
-            this.lbNotes.Location = new System.Drawing.Point(151, 23);
+            this.lbNotes.Location = new System.Drawing.Point(137, 23);
             this.lbNotes.Name = "lbNotes";
             this.lbNotes.Size = new System.Drawing.Size(214, 95);
             this.lbNotes.TabIndex = 1;
@@ -437,7 +443,7 @@
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNotes.Location = new System.Drawing.Point(20, 23);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(113, 104);
+            this.rtbNotes.Size = new System.Drawing.Size(99, 104);
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
             this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
@@ -463,12 +469,62 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // tpTestChildren
+            // 
+            this.tpTestChildren.Controls.Add(this.flpLibrary);
+            this.tpTestChildren.HorizontalScrollbarBarColor = true;
+            this.tpTestChildren.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpTestChildren.HorizontalScrollbarSize = 10;
+            this.tpTestChildren.Location = new System.Drawing.Point(4, 38);
+            this.tpTestChildren.Name = "tpTestChildren";
+            this.tpTestChildren.Size = new System.Drawing.Size(779, 376);
+            this.tpTestChildren.TabIndex = 1;
+            this.tpTestChildren.Text = "Library";
+            this.tpTestChildren.VerticalScrollbarBarColor = true;
+            this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
+            this.tpTestChildren.VerticalScrollbarSize = 10;
+            // 
+            // flpLibrary
+            // 
+            this.flpLibrary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpLibrary.AutoScroll = true;
+            this.flpLibrary.Location = new System.Drawing.Point(0, 0);
+            this.flpLibrary.Name = "flpLibrary";
+            this.flpLibrary.Size = new System.Drawing.Size(779, 376);
+            this.flpLibrary.TabIndex = 4;
+            // 
+            // btnAddFlow
+            // 
+            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddFlow.Location = new System.Drawing.Point(822, 34);
+            this.btnAddFlow.Name = "btnAddFlow";
+            this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFlow.TabIndex = 1;
+            this.btnAddFlow.Text = "add";
+            this.btnAddFlow.UseSelectable = true;
+            this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemove.Location = new System.Drawing.Point(928, 34);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.Text = "remove";
+            this.btnRemove.UseSelectable = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 504);
             this.Controls.Add(this.mpSidePanel);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnAddFlow);
             this.Controls.Add(this.metroTabControl1);
             this.MinimumSize = new System.Drawing.Size(1036, 504);
             this.Name = "Form1";
@@ -484,6 +540,7 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelFavorites.ResumeLayout(false);
+            this.tpTestChildren.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -520,6 +577,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListView listView1;
+
+        private MetroFramework.Controls.MetroTabPage tpTestChildren;
+        private MetroFramework.Controls.MetroButton btnAddFlow;
+        private MetroFramework.Controls.MetroButton btnRemove;
+        private System.Windows.Forms.FlowLayoutPanel flpLibrary;
     }
 }
 

@@ -97,6 +97,12 @@
     <Compile Include="Resources\CreateNote.Designer.cs">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppClasses\App.cs" />
+    <Compile Include="AppClasses\AppDoesNotExistException.cs" />
+    <Compile Include="AppClasses\Factories\IAppFactory.cs" />
+    <Compile Include="AppClasses\AppUtilities.cs" />
+    <Compile Include="AppClasses\Factories\MainAppFactory.cs" />
+    <Compile Include="AppClasses\MainApp.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     <EmbeddedResource Include="Resources\CreateNote.resx">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="Resources\AppUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Resources\AppUserControl.Designer.cs">
+      <DependentUpon>AppUserControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,6 +133,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources\AppUserControl.resx">
+      <DependentUpon>AppUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -134,6 +149,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="IWshRuntimeLibrary">
+      <Guid>{F935DC20-1CF0-11D0-ADB9-00C04FD58A0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
