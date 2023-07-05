@@ -17,11 +17,9 @@ namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
 
         private Note activeNote = null;
-        private Reminder reminder = null;
+        private Reminders reminders { get; set;}
         public Form1() {
             InitializeComponent();
-            lvReminders.Items.Add("test");
-            lvReminders.Items[0].SubItems.Add("test2");
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
@@ -88,11 +86,22 @@ namespace Universal_Launcher {
 
         private void btnAddReminder_Click(object sender, EventArgs e)
         {
-            Reminder reminder = new Reminder();
-            if(DialogResult == DialogResult.OK)
+            NewReminder newReminder = new NewReminder();
+            if(newReminder.ShowDialog() == DialogResult.OK)
             {
-                System.Windows.Controls.ListViewItem item = new System.Windows.Controls.ListViewItem();
-                item.Content = reminder;
+                lvReminders.CheckBoxes = true;
+                
+                reminders = newReminder.Reminders;
+                lvReminders.Items.Add(newReminder.Reminder.Task);
+                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+            }
+        }
+
+        private void lvReminders_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if(e.Item.Checked)
+            {
+                e.Item.Remove();
             }
         }
     }

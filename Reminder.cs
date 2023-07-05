@@ -10,7 +10,7 @@ namespace Universal_Launcher
     {
         public string Task { get; set; }
         public DateTime DateTime { get; set; }
-
+        public bool IsChecked { get; set; } = false;
         public Reminder(string task, DateTime dateTime)
         {
             Task = task;
@@ -23,7 +23,7 @@ namespace Universal_Launcher
 
         public override string ToString()
         {
-            return $"{Task} {DateTime}";
+            return $"{Task} {DateTime.Date}";
         }
     }
 }
