@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Universal_Launcher
 {
-    public partial class NewReminder : Form
+    public partial class NewReminder : MetroForm
     {
        public Reminders Reminders;
        public Reminder Reminder { get; set; }
