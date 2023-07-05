@@ -76,6 +76,7 @@
             // 
             // DtReminder
             // 
+            this.DtReminder.CausesValidation = false;
             this.DtReminder.Location = new System.Drawing.Point(202, 105);
             this.DtReminder.Margin = new System.Windows.Forms.Padding(2);
             this.DtReminder.MinimumSize = new System.Drawing.Size(0, 29);
@@ -127,8 +128,10 @@
             // 
             // NewReminder
             // 
+            this.AcceptButton = this.btnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(406, 203);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
