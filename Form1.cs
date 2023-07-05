@@ -17,6 +17,7 @@ namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
 
         private Note activeNote = null;
+        private Reminder reminder = null;
         public Form1() {
             InitializeComponent();
             lvReminders.Items.Add("test");
@@ -83,6 +84,16 @@ namespace Universal_Launcher {
         private void lvReminders_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnAddReminder_Click(object sender, EventArgs e)
+        {
+            Reminder reminder = new Reminder();
+            if(DialogResult == DialogResult.OK)
+            {
+                System.Windows.Controls.ListViewItem item = new System.Windows.Controls.ListViewItem();
+                item.Content = reminder;
+            }
         }
     }
 }
