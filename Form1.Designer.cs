@@ -50,10 +50,10 @@
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.Home);
-            this.metroTabControl1.Location = new System.Drawing.Point(23, 54);
+            this.metroTabControl1.Location = new System.Drawing.Point(226, 73);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(801, 400);
+            this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -70,7 +70,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(793, 358);
+            this.Home.Size = new System.Drawing.Size(779, 376);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -221,7 +221,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 504);
+            this.ClientSize = new System.Drawing.Size(1036, 504);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
