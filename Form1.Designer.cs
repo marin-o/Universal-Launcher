@@ -40,11 +40,10 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAddReminder = new System.Windows.Forms.Button();
             this.lvReminders = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAddReminder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAddNote = new System.Windows.Forms.Button();
             this.btnRemoveNotes = new System.Windows.Forms.Button();
@@ -343,45 +342,26 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.btnAddReminder);
             this.panel3.Controls.Add(this.lvReminders);
+            this.panel3.Controls.Add(this.btnAddReminder);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(368, 175);
             this.panel3.TabIndex = 4;
             // 
-            // btnAddReminder
-            // 
-            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(247, 149);
-            this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
-            this.btnAddReminder.TabIndex = 4;
-            this.btnAddReminder.Text = "Add";
-            this.btnAddReminder.UseVisualStyleBackColor = true;
-            // 
             // lvReminders
             // 
-            this.lvReminders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
             this.lvReminders.HideSelection = false;
-            this.lvReminders.Location = new System.Drawing.Point(20, 16);
+            this.lvReminders.Location = new System.Drawing.Point(13, 12);
             this.lvReminders.Name = "lvReminders";
-            this.lvReminders.Size = new System.Drawing.Size(331, 131);
-            this.lvReminders.TabIndex = 0;
+            this.lvReminders.Size = new System.Drawing.Size(345, 113);
+            this.lvReminders.TabIndex = 5;
             this.lvReminders.UseCompatibleStateImageBehavior = false;
             this.lvReminders.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Check";
-            this.columnHeader1.Width = 45;
             // 
             // columnHeader2
             // 
@@ -392,6 +372,16 @@
             // 
             this.columnHeader3.Text = "Time";
             this.columnHeader3.Width = 81;
+            // 
+            // btnAddReminder
+            // 
+            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddReminder.Location = new System.Drawing.Point(247, 149);
+            this.btnAddReminder.Name = "btnAddReminder";
+            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddReminder.TabIndex = 4;
+            this.btnAddReminder.Text = "Add";
+            this.btnAddReminder.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -572,16 +562,15 @@
         private System.Windows.Forms.ListBox lbNotes;
         private System.Windows.Forms.Button btnAddNote;
         private System.Windows.Forms.Button btnAddReminder;
-        private System.Windows.Forms.ListView lvReminders;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ListView listView1;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
         private MetroFramework.Controls.MetroButton btnRemove;
         private System.Windows.Forms.FlowLayoutPanel flpLibrary;
+        private System.Windows.Forms.ListView lvReminders;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 
