@@ -50,7 +50,7 @@
             // metroTabControl1
             // 
             this.metroTabControl1.Controls.Add(this.Home);
-            this.metroTabControl1.Location = new System.Drawing.Point(226, 73);
+            this.metroTabControl1.Location = new System.Drawing.Point(218, 63);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
