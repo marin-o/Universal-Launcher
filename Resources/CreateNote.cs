@@ -23,9 +23,7 @@ namespace Universal_Launcher
         {
             if(ValidateChildren())
             {
-                if(mtbTitle.Text != string.Empty)
-                    Note = new Note(mtbTitle.Text, mtbNote.Text);
-                else Note = new Note();
+                Note = new Note(mtbTitle.Text, mtbNote.Text);
                 DialogResult = DialogResult.OK;
             }
         }

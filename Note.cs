@@ -11,12 +11,10 @@ namespace Universal_Launcher
         public string Title { get; set; }
         public string Body { get; set; }
 
-        public Note() {
-            Title = "Empty note";
-
-        }
-        public Note(string title, string body) { 
-            if(title == string.Empty)
+        public Note(string title, string body) {
+            if( title == string.Empty && body == string.Empty )
+                Title = "Empty note";
+            else if( title == string.Empty )
                 Title = $"Note {DateTime.Now.ToString("dd/MM/yyyy")}";
             else Title = title;
             Body = body;
