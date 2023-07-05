@@ -15,15 +15,9 @@ namespace Universal_Launcher
     {
        public Reminders Reminders;
        public Reminder Reminder { get; set; }
-        public NewReminder()
-        {
+        public NewReminder() {
             InitializeComponent();
             Reminders = new Reminders();
-        }
-
-        private void NewReminder_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void mtbTask_Validating(object sender, CancelEventArgs e)

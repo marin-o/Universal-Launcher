@@ -142,7 +142,6 @@
             this.Name = "NewReminder";
             this.Resizable = false;
             this.Text = "New Reminder";
-            this.Load += new System.EventHandler(this.NewReminder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
