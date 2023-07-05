@@ -109,14 +109,31 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Create Note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create Note.Designer.cs">
+      <DependentUpon>Create Note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewReminder.Designer.cs">
+      <DependentUpon>NewReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Note.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reminder.cs" />
+    <Compile Include="Reminders.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\CreateNote.resx">
       <DependentUpon>CreateNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewReminder.resx">
+      <DependentUpon>NewReminder.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Resources\AppUserControl.cs">
       <SubType>UserControl</SubType>

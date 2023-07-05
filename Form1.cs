@@ -21,6 +21,7 @@ namespace Universal_Launcher {
         private MainAppFactory mainAppFactory;
 
         private Note activeNote = null;
+        private Reminders reminders { get; set;}
         public Form1() {
             InitializeComponent();
             mainAppFactory = new MainAppFactory();
@@ -82,6 +83,30 @@ namespace Universal_Launcher {
             }
         }
 
-        
+        private void lvReminders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAddReminder_Click(object sender, EventArgs e)
+        {
+            NewReminder newReminder = new NewReminder();
+            if(newReminder.ShowDialog() == DialogResult.OK)
+            {
+                lvReminders.CheckBoxes = true;
+                
+                reminders = newReminder.Reminders;
+                lvReminders.Items.Add(newReminder.Reminder.Task);
+                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+            }
+        }
+
+        private void lvReminders_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if(e.Item.Checked)
+            {
+                e.Item.Remove();
+            }
+        }
     }
 }
