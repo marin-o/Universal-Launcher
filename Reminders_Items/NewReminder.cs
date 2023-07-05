@@ -13,11 +13,11 @@ namespace Universal_Launcher
 {
     public partial class NewReminder : MetroForm
     {
-       public Reminders Reminders;
+       public RemindersRepository Reminders;
        public Reminder Reminder { get; set; }
         public NewReminder() {
             InitializeComponent();
-            Reminders = new Reminders();
+            Reminders = new RemindersRepository();
         }
 
         private void mtbTask_Validating(object sender, CancelEventArgs e)

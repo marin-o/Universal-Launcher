@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Universal_Launcher
 {
-    public class Reminders
+    public class RemindersRepository
     {
-        public List<Reminder> reminders { get; set; } = new List<Reminder>();
+        public List<Reminder> Reminders { get; set; } = new List<Reminder>();
 
-        public Reminders() { }
+        public RemindersRepository() { }
 
         public void AddReminder(Reminder reminder)
         {
-            reminders.Add(reminder);
+            Reminders.Add(reminder);
         }
 
     }
