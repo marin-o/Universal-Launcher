@@ -8,17 +8,17 @@ namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
         private Note activeNote = null;
         private RemindersRepository Reminders = new RemindersRepository(); //serializable
-            /*
-            * Reminders repository contains a list of reminders
-            */
+        /*
+        * Reminders repository contains a list of reminders
+        */
         //private NotesRepository Notes //serializable 
-            /*
-             * Notes repository contains a list of notes
-             */
-        //private AppRepository Apps //serializable
-            /*
-             * App repository contains the list of flow layout panels that contain the apps and the apps themselves (in the flow layout panels)
-             */
+        /*
+         * Notes repository contains a list of notes
+         */
+        private AppRepository Apps = new AppRepository(); //serializable
+        /*
+         * App repository contains the list of flow layout panels that contain the apps and the apps themselves (in the flow layout panels)
+         */
         public Form1() {
             InitializeComponent();
         }
@@ -34,6 +34,7 @@ namespace Universal_Launcher {
                     App app = AppUtilities.GetMainApp(info);
                     uc.SetMainApp(app);
                     tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc); 
+                    Apps.AddApp(uc);
                 } catch (AppDoesNotExistException ex){
                     MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
