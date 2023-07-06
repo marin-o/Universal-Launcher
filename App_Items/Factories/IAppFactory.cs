@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Universal_Launcher.AppClasses {
+namespace Universal_Launcher.App_Items {
     public interface IAppFactory {
-        App CreateApp(string name, string path, string iconPath, Icon icon); //todo other app types
+        App CreateApp(string name, string path, string iconPath, Icon icon, SubAppType type = SubAppType.None, App parent = null);
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MetroFramework;
+using System;
 using System.Windows.Forms;
-using Universal_Launcher.AppClasses;
+using Universal_Launcher.App_Items;
+using Universal_Launcher.Resources;
 
 namespace Universal_Launcher {
     public partial class AppUserControl : UserControl {
@@ -29,8 +24,37 @@ namespace Universal_Launcher {
         }
 
         private void pbAppIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
-            mainApp.Launch();
+            if(e.Button == MouseButtons.Left)
+                mainApp.Launch();
         }
-        
+
+        private void btnAddSubApp_Click(object sender, EventArgs e) {
+            flpSubApps.Controls.Add(new SubAppsUserControl());
+        }
+
+        private void cbAddSubApp_SelectedIndexChanged(object sender, EventArgs e) {
+            lblAdd.Visible = false;
+            if(cbAddSubApp.SelectedIndex == 0) {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
+                ofd.Title = "Select an Executable File, Shortcut, or Link File";
+                if( ofd.ShowDialog() == DialogResult.OK ) {
+                    SubAppsUserControl uc = new SubAppsUserControl();
+                    try {
+                        AppInfo info = AppUtilities.GetAppInfo(ofd.FileName);
+                        App app = AppUtilities.GetSubApp(info);
+                        uc.SetApp(app);
+                        flpSubApps.Controls.Add(uc);
+                    } catch (AppDoesNotExistException ex) {
+                        MetroMessageBox.Show(this,ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            } else {
+
+            }
+            cbAddSubApp.SelectedIndex = -1;
+            lblAdd.Visible = true;
+
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Universal_Launcher.AppClasses {
+namespace Universal_Launcher.App_Items {
     public abstract class App {
         public Icon Icon { get; set; }
         public string Name { get; set; }

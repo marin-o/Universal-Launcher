@@ -1,4 +1,5 @@
 ﻿using IWshRuntimeLibrary;
+using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -8,35 +9,38 @@ using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using Universal_Launcher.AppClasses;
+using Universal_Launcher.App_Items;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
-        private MainAppFactory mainAppFactory;
-
         private Note activeNote = null;
         private RemindersRepository Reminders { get; set;}
         public Form1() {
             InitializeComponent();
-            mainAppFactory = new MainAppFactory();
         }
 
         private void btnAddFlow_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
-            ofd.Title  = "Select an Executable File, Shortcut, or Link File";
+            ofd.Title = "Select an Executable File, Shortcut, or Link File";
             if( ofd.ShowDialog() == DialogResult.OK ) {
                 AppUserControl uc = new AppUserControl(Guid.NewGuid().ToString());
-                ShortcutInfo info = AppUtilities.GetShortcutInfo(ofd.FileName);
-                App app = mainAppFactory.CreateApp(info.Name, info.FilePath, info.IconPath, info.Icon);
-                uc.SetMainApp(app);
-                tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
+                try {
+                    AppInfo info = AppUtilities.GetAppInfo(ofd.FileName);
+                    App app = AppUtilities.GetMainApp(info);
+                    uc.SetMainApp(app);
+                    tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc); 
+                } catch (AppDoesNotExistException ex){
+                    MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

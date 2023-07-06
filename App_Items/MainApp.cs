@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Universal_Launcher.AppClasses {
+namespace Universal_Launcher.App_Items {
     public class MainApp : App {
         public List<App> SubApps { get; set; } = new List<App>();
         public MainApp(string name, string path, string iconPath, System.Drawing.Icon icon) : base(name, path, iconPath, icon) { }
