@@ -1,23 +1,8 @@
-﻿using IWshRuntimeLibrary;
-using MetroFramework;
+﻿using MetroFramework;
 using MetroFramework.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics.Tracing;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
-using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
