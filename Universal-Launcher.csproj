@@ -147,13 +147,14 @@
       <DependentUpon>AppUserControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Resources\AppUserControl.resx">
       <DependentUpon>AppUserControl.cs</DependentUpon>
@@ -834,6 +835,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\folder.ico" />
     <Content Include="Universal-Launcher\.gitattributes" />
     <Content Include="Universal-Launcher\.gitignore" />
     <Content Include="Universal-Launcher\.git\ms-persist.xml" />

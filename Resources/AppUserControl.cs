@@ -34,7 +34,7 @@ namespace Universal_Launcher {
 
         private void cbAddSubApp_SelectedIndexChanged(object sender, EventArgs e) {
             lblAdd.Visible = false;
-            if(cbAddSubApp.SelectedIndex == 0) {
+            if( cbAddSubApp.SelectedIndex == 0 ) {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
                 ofd.Title = "Select an Executable File, Shortcut, or Link File";
@@ -45,12 +45,24 @@ namespace Universal_Launcher {
                         App app = AppUtilities.GetSubApp(info);
                         uc.SetApp(app);
                         flpSubApps.Controls.Add(uc);
-                    } catch (AppDoesNotExistException ex) {
-                        MetroMessageBox.Show(this,ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch( AppDoesNotExistException ex ) {
+                        MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            } else {
-
+            }
+            else if( cbAddSubApp.SelectedIndex == 1 ) {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.Description = "Select a Folder";
+                if( fbd.ShowDialog() == DialogResult.OK ) {
+                    string path = fbd.SelectedPath;
+                    SubAppsUserControl uc = new SubAppsUserControl();
+                    AppInfo info = AppUtilities.GetAppInfo(path);
+                    SubApp app = AppUtilities.GetSubApp(info) as SubApp;
+                    app.Parent = mainApp;
+                    uc.SetApp(app);
+                    flpSubApps.Controls.Add(uc);
+                }
             }
             cbAddSubApp.SelectedIndex = -1;
             lblAdd.Visible = true;
