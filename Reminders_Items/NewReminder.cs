@@ -13,11 +13,9 @@ namespace Universal_Launcher
 {
     public partial class NewReminder : MetroForm
     {
-       public RemindersRepository Reminders;
        public Reminder Reminder { get; set; }
         public NewReminder() {
             InitializeComponent();
-            Reminders = new RemindersRepository();
         }
 
         private void mtbTask_Validating(object sender, CancelEventArgs e)
@@ -50,10 +48,9 @@ namespace Universal_Launcher
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if(ValidateChildren(ValidationConstraints.Enabled))
+            if(ValidateChildren())
             {
                 Reminder = new Reminder(mtbTask.Text, DtReminder.Value);
-                Reminders.AddReminder(Reminder);
                 DialogResult = DialogResult.OK;
             }
         }

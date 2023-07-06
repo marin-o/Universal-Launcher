@@ -7,7 +7,18 @@ using Universal_Launcher.App_Items;
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
         private Note activeNote = null;
-        private RemindersRepository Reminders { get; set;}
+        private RemindersRepository Reminders = new RemindersRepository(); //serializable
+            /*
+            * Reminders repository contains a list of reminders
+            */
+        //private NotesRepository Notes //serializable 
+            /*
+             * Notes repository contains a list of notes
+             */
+        //private AppRepository Apps //serializable
+            /*
+             * App repository contains the list of flow layout panels that contain the apps and the apps themselves (in the flow layout panels)
+             */
         public Form1() {
             InitializeComponent();
         }
@@ -79,7 +90,7 @@ namespace Universal_Launcher {
             {
                 lvReminders.CheckBoxes = true;
                 
-                Reminders = newReminder.Reminders;
+                Reminders.AddReminder(newReminder.Reminder);
                 lvReminders.Items.Add(newReminder.Reminder.Task);
                 lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
             }
