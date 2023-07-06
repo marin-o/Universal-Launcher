@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace Universal_Launcher.App_Items {
+    [Serializable]
     public class SubApp : App {
         public SubAppType Type { get; set; }
         public App Parent { get; set; }

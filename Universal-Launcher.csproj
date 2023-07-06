@@ -94,7 +94,7 @@
     <Compile Include="App_Items\App.cs" />
     <Compile Include="App_Items\AppDoesNotExistException.cs" />
     <Compile Include="App_Items\AppRepository.cs" />
-    <Compile Include="App_Items\Class1.cs" />
+    <Compile Include="App_Items\SubAppType.cs" />
     <Compile Include="App_Items\Factories\IAppFactory.cs" />
     <Compile Include="App_Items\AppUtilities.cs" />
     <Compile Include="App_Items\Factories\MainAppFactory.cs" />
@@ -113,6 +113,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notes_Items\NotesRepository.cs" />
     <Compile Include="Reminders_Items\NewReminder.cs">
       <SubType>Form</SubType>
     </Compile>

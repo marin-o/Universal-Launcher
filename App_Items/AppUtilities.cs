@@ -62,7 +62,7 @@ namespace Universal_Launcher.App_Items {
             return subAppFactory.CreateApp(info.Name, info.FilePath, info.IconPath, info.Icon, info.Type, null);
         }
     }
-
+    [Serializable]
     public class AppInfo{
         public string Name { get; }
         public string FilePath { get; }

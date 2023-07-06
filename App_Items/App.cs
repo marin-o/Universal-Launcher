@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Universal_Launcher.App_Items {
+    [Serializable]
     public abstract class App {
         public Icon Icon { get; set; }
         public string Name { get; set; }

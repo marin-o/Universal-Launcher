@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Universal_Launcher.App_Items {
+    [Serializable]
     public enum SubAppType {
         None,
         Executable,

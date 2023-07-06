@@ -15,5 +15,8 @@ namespace Universal_Launcher
             Reminders.Add(reminder);
         }
 
+        internal void RemoveReminder(Reminder reminder) {
+            Reminders.Remove(reminder);
+        }
     }
 }

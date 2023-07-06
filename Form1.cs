@@ -3,22 +3,24 @@ using MetroFramework.Forms;
 using System;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
+using Universal_Launcher.Notes_Items;
+using Universal_Launcher.Reminders_Items;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
         private Note activeNote = null;
-        private RemindersRepository Reminders = new RemindersRepository(); //serializable
         /*
         * Reminders repository contains a list of reminders
         */
-        //private NotesRepository Notes //serializable 
+        private RemindersRepository Reminders = new RemindersRepository(); //serializable
         /*
          * Notes repository contains a list of notes
          */
-        private AppRepository Apps = new AppRepository(); //serializable
+        private NotesRepository Notes = new NotesRepository(); //serializable 
         /*
          * App repository contains the list of flow layout panels that contain the apps and the apps themselves (in the flow layout panels)
          */
+        private AppRepository Apps = new AppRepository(); //serializable
         public Form1() {
             InitializeComponent();
         }
@@ -42,16 +44,17 @@ namespace Universal_Launcher {
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {
-            if( flpLibrary.Controls.Count > 0 )
+            if( flpLibrary.Controls.Count > 0 ) 
                 flpLibrary.Controls.RemoveAt(flpLibrary.Controls.Count - 1);
         }
 
         private void btnAddNote_Click(object sender, EventArgs e)
         {
-            CreateNote notes = new CreateNote();
-            if (notes.ShowDialog() == DialogResult.OK)
+            CreateNote note = new CreateNote();
+            if (note.ShowDialog() == DialogResult.OK)
             {
-                lbNotes.Items.Add(notes.Note);
+                lbNotes.Items.Add(note.Note);
+                Notes.Add(note.Note);
             }
         }
 
@@ -61,6 +64,7 @@ namespace Universal_Launcher {
             {
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
                 rtbNotes.Text = "";
+                Notes.Remove(Notes.Notes[lbNotes.SelectedIndex]);
             }
         }
 
@@ -102,6 +106,7 @@ namespace Universal_Launcher {
             if(e.Item.Checked)
             {
                 e.Item.Remove();
+                Reminders.RemoveReminder(Reminders.Reminders[e.Item.Index]);
             }
         }
     }
