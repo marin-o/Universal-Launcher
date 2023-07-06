@@ -18,7 +18,12 @@ namespace Universal_Launcher.App_Items {
             switch (Type) {
                 case SubAppType.Executable:
                 case SubAppType.Web:
-                    System.Diagnostics.Process.Start(Path);
+                    try {
+                        System.Diagnostics.Process.Start(Path);
+                    }
+                    catch ( System.ComponentModel.Win32Exception ex ) {
+                        //do nothing
+                    }
                     break;
                 case SubAppType.Project:
                     System.Diagnostics.Process.Start(Parent.Path, Path);
