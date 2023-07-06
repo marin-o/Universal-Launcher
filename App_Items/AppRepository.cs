@@ -9,8 +9,11 @@ namespace Universal_Launcher.App_Items {
     public class AppRepository { 
         public List<AppUserControl> Apps { get; set; } = new List<AppUserControl>();
 
-        internal void AddApp(AppUserControl uc) {
+        public void AddApp(AppUserControl uc) {
             Apps.Add(uc);
+        }
+        public void RemoveApp(AppUserControl uc) {
+            Apps.Remove(uc);
         }
     }
 }

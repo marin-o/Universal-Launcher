@@ -1,4 +1,7 @@
-﻿namespace Universal_Launcher {
+﻿using System;
+
+namespace Universal_Launcher {
+    [Serializable]
     partial class AppUserControl {
         /// <summary> 
         /// Required designer variable.
@@ -27,9 +30,7 @@
             this.lblAppName = new MetroFramework.Controls.MetroLabel();
             this.flpSubApps = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDel = new MetroFramework.Controls.MetroButton();
-            this.btnAddSubApp = new System.Windows.Forms.Button();
             this.cbAddSubApp = new MetroFramework.Controls.MetroComboBox();
-            this.lblAdd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,22 +74,13 @@
             this.btnDel.UseSelectable = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
-            // btnAddSubApp
-            // 
-            this.btnAddSubApp.Location = new System.Drawing.Point(60, 25);
-            this.btnAddSubApp.Name = "btnAddSubApp";
-            this.btnAddSubApp.Size = new System.Drawing.Size(75, 23);
-            this.btnAddSubApp.TabIndex = 6;
-            this.btnAddSubApp.Text = "Add";
-            this.btnAddSubApp.UseVisualStyleBackColor = true;
-            this.btnAddSubApp.Click += new System.EventHandler(this.btnAddSubApp_Click);
-            // 
             // cbAddSubApp
             // 
             this.cbAddSubApp.DisplayMember = "Add";
             this.cbAddSubApp.FormattingEnabled = true;
             this.cbAddSubApp.ItemHeight = 23;
             this.cbAddSubApp.Items.AddRange(new object[] {
+            "Add",
             "App",
             "Project"});
             this.cbAddSubApp.Location = new System.Drawing.Point(193, 3);
@@ -98,26 +90,12 @@
             this.cbAddSubApp.UseSelectable = true;
             this.cbAddSubApp.SelectedIndexChanged += new System.EventHandler(this.cbAddSubApp_SelectedIndexChanged);
             // 
-            // lblAdd
-            // 
-            this.lblAdd.AutoSize = true;
-            this.lblAdd.BackColor = System.Drawing.Color.White;
-            this.lblAdd.Enabled = false;
-            this.lblAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdd.Location = new System.Drawing.Point(195, 9);
-            this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(33, 17);
-            this.lblAdd.TabIndex = 8;
-            this.lblAdd.Text = "Add";
-            // 
             // AppUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.Controls.Add(this.lblAdd);
             this.Controls.Add(this.cbAddSubApp);
-            this.Controls.Add(this.btnAddSubApp);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.flpSubApps);
             this.Controls.Add(this.pbAppIcon);
@@ -136,8 +114,6 @@
         private MetroFramework.Controls.MetroLabel lblAppName;
         private System.Windows.Forms.FlowLayoutPanel flpSubApps;
         private MetroFramework.Controls.MetroButton btnDel;
-        private System.Windows.Forms.Button btnAddSubApp;
         private MetroFramework.Controls.MetroComboBox cbAddSubApp;
-        private System.Windows.Forms.Label lblAdd;
     }
 }

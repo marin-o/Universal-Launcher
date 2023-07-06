@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Notes_Items;
 using Universal_Launcher.Reminders_Items;
+using static Universal_Launcher.App_Items.AppUtilities;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
@@ -12,35 +13,38 @@ namespace Universal_Launcher {
         /*
         * Reminders repository contains a list of reminders
         */
-        private RemindersRepository Reminders = new RemindersRepository(); //serializable
+        private RemindersRepository reminder = new RemindersRepository(); //serializable
         /*
          * Notes repository contains a list of notes
          */
-        private NotesRepository Notes = new NotesRepository(); //serializable 
+        private NotesRepository notes = new NotesRepository(); //serializable 
         /*
          * App repository contains the list of flow layout panels that contain the apps and the apps themselves (in the flow layout panels)
          */
-        private AppRepository Apps = new AppRepository(); //serializable
+        private AppRepository apps = new AppRepository(); //serializable
+        public AppRepository Apps { 
+            get {
+                return apps;
+            }
+        }
         public Form1() {
             InitializeComponent();
         }
 
         private void btnAddFlow_Click(object sender, EventArgs e) {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
-            ofd.Title = "Select an Executable File, Shortcut, or Link File";
-            if( ofd.ShowDialog() == DialogResult.OK ) {
-                AppUserControl uc = new AppUserControl(Guid.NewGuid().ToString());
-                try {
-                    AppInfo info = AppUtilities.GetAppInfo(ofd.FileName);
-                    App app = AppUtilities.GetMainApp(info);
-                    uc.SetMainApp(app);
-                    tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc); 
-                    Apps.AddApp(uc);
-                } catch (AppDoesNotExistException ex){
-                    MetroMessageBox.Show(this, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            AppUserControl uc = GenerateMainAppCard(this);
+            if(uc != null ) {
+                uc.AppDeleted += AppCard_AppDeleted;
+                tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
+                apps.AddApp(uc);
             }
+        }
+
+        private void AppCard_AppDeleted(object sender, EventArgs e) {
+            AppUserControl uc = sender as AppUserControl;
+            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
+            apps.RemoveApp(uc);
+            uc.Dispose();
         }
 
         private void btnRemove_Click(object sender, EventArgs e) {
@@ -54,7 +58,7 @@ namespace Universal_Launcher {
             if (note.ShowDialog() == DialogResult.OK)
             {
                 lbNotes.Items.Add(note.Note);
-                Notes.Add(note.Note);
+                notes.Add(note.Note);
             }
         }
 
@@ -62,7 +66,7 @@ namespace Universal_Launcher {
         {
             if(lbNotes.SelectedIndex != -1)
             {
-                Notes.Remove(Notes.Notes[lbNotes.SelectedIndex]);
+                notes.Remove(notes.Notes[lbNotes.SelectedIndex]);
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
                 rtbNotes.Text = "";
             }
@@ -95,7 +99,7 @@ namespace Universal_Launcher {
             {
                 lvReminders.CheckBoxes = true;
                 
-                Reminders.AddReminder(newReminder.Reminder);
+                reminder.AddReminder(newReminder.Reminder);
                 lvReminders.Items.Add(newReminder.Reminder.Task);
                 lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
             }
@@ -105,7 +109,7 @@ namespace Universal_Launcher {
         {
             if(e.Item.Checked)
             {
-                Reminders.RemoveReminder(Reminders.Reminders[e.Item.Index]);
+                reminder.RemoveReminder(reminder.Reminders[e.Item.Index]);
                 e.Item.Remove();
             }
         }

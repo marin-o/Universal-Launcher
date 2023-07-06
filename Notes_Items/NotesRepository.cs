@@ -12,7 +12,7 @@ namespace Universal_Launcher.Notes_Items {
             Notes.Add(note);
         }
 
-        internal void Remove(Note note) {
+        public void Remove(Note note) {
             Notes.Remove(note);
         }
     }
