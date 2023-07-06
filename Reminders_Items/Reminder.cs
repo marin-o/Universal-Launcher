@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Universal_Launcher
+namespace Universal_Launcher.Reminders_Items
 {
     public class Reminder
     {

@@ -62,9 +62,9 @@ namespace Universal_Launcher {
         {
             if(lbNotes.SelectedIndex != -1)
             {
+                Notes.Remove(Notes.Notes[lbNotes.SelectedIndex]);
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
                 rtbNotes.Text = "";
-                Notes.Remove(Notes.Notes[lbNotes.SelectedIndex]);
             }
         }
 
@@ -105,8 +105,8 @@ namespace Universal_Launcher {
         {
             if(e.Item.Checked)
             {
-                e.Item.Remove();
                 Reminders.RemoveReminder(Reminders.Reminders[e.Item.Index]);
+                e.Item.Remove();
             }
         }
     }
