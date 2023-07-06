@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Notes_Items;
 using Universal_Launcher.Reminders_Items;
-using static Universal_Launcher.App_Items.AppUtilities;
+using Universal_Launcher.App_Items;
 
 namespace Universal_Launcher {
     public partial class Form1 : MetroForm {
@@ -32,7 +32,7 @@ namespace Universal_Launcher {
         }
 
         private void btnAddFlow_Click(object sender, EventArgs e) {
-            AppUserControl uc = GenerateMainAppCard(this);
+            AppUserControl uc = AppUtilities.GenerateMainAppCard(this);
             if(uc != null ) {
                 uc.AppDeleted += AppCard_AppDeleted;
                 tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
