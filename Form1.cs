@@ -47,11 +47,6 @@ namespace Universal_Launcher {
             uc.Dispose();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e) {
-            if( flpLibrary.Controls.Count > 0 ) 
-                flpLibrary.Controls.RemoveAt(flpLibrary.Controls.Count - 1);
-        }
-
         private void btnAddNote_Click(object sender, EventArgs e)
         {
             CreateNote note = new CreateNote();

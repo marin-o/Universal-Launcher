@@ -59,7 +59,7 @@ namespace Universal_Launcher {
             this.flpSubApps.Location = new System.Drawing.Point(3, 51);
             this.flpSubApps.Name = "flpSubApps";
             this.flpSubApps.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.flpSubApps.Size = new System.Drawing.Size(294, 311);
+            this.flpSubApps.Size = new System.Drawing.Size(294, 284);
             this.flpSubApps.TabIndex = 4;
             this.flpSubApps.WrapContents = false;
             // 
@@ -101,7 +101,7 @@ namespace Universal_Launcher {
             this.Controls.Add(this.pbAppIcon);
             this.Controls.Add(this.lblAppName);
             this.Name = "AppUserControl";
-            this.Size = new System.Drawing.Size(300, 365);
+            this.Size = new System.Drawing.Size(300, 338);
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

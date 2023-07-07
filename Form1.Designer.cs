@@ -54,7 +54,6 @@
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
-            this.btnRemove = new MetroFramework.Controls.MetroButton();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -285,7 +284,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(218, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -462,6 +461,7 @@
             // 
             // tpTestChildren
             // 
+            this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.flpLibrary);
             this.tpTestChildren.HorizontalScrollbarBarColor = true;
             this.tpTestChildren.HorizontalScrollbarHighlightOnWheel = false;
@@ -481,32 +481,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpLibrary.AutoScroll = true;
-            this.flpLibrary.Location = new System.Drawing.Point(0, 0);
+            this.flpLibrary.Location = new System.Drawing.Point(0, 29);
             this.flpLibrary.Name = "flpLibrary";
-            this.flpLibrary.Size = new System.Drawing.Size(779, 376);
+            this.flpLibrary.Size = new System.Drawing.Size(779, 347);
             this.flpLibrary.TabIndex = 4;
             // 
             // btnAddFlow
             // 
             this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddFlow.Location = new System.Drawing.Point(822, 34);
+            this.btnAddFlow.Location = new System.Drawing.Point(701, 3);
             this.btnAddFlow.Name = "btnAddFlow";
             this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
             this.btnAddFlow.TabIndex = 1;
-            this.btnAddFlow.Text = "add";
+            this.btnAddFlow.Text = "Add";
             this.btnAddFlow.UseSelectable = true;
             this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemove.Location = new System.Drawing.Point(928, 34);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.Text = "remove";
-            this.btnRemove.UseSelectable = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // Form1
             // 
@@ -514,8 +503,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 504);
             this.Controls.Add(this.mpSidePanel);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAddFlow);
             this.Controls.Add(this.metroTabControl1);
             this.MinimumSize = new System.Drawing.Size(1036, 504);
             this.Name = "Form1";
@@ -567,7 +554,6 @@
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
-        private MetroFramework.Controls.MetroButton btnRemove;
         private System.Windows.Forms.FlowLayoutPanel flpLibrary;
         private System.Windows.Forms.ListView lvReminders;
         private System.Windows.Forms.ColumnHeader columnHeader2;
