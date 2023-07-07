@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Universal_Launcher
 {
@@ -10,6 +11,7 @@ namespace Universal_Launcher
     {
         public string Title { get; set; }
         public string Body { get; set; }
+        public bool Pinned { get; set; }
 
         public Note(string title, string body) {
             if( title == string.Empty && body == string.Empty )
@@ -22,9 +24,28 @@ namespace Universal_Launcher
 
         public override string ToString()
         {
-            return string.Format("{0}",Title);
+            if (Pinned)
+            {
+                return $"<b>{Title}</b>";
+            }
+            else
+            {
+                return string.Format("{0}", Title);
+            }
         }
 
-        
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Note note = obj as Note;
+            if (note == null)
+            {
+                return false;
+            }
+            return this.Title == note.Title && this.Body == note.Body;
+        }
     }
 }
