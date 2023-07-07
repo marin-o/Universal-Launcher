@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Universal_Launcher
 {
+    [Serializable]
     public class Note
     {
         public string Title { get; set; }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 
 namespace Universal_Launcher.Resources {
+    [Serializable]
     public partial class SubAppsUserControl : UserControl {
         public App SubApp { get; set; }
         public SubAppsUserControl() {

@@ -13,6 +13,7 @@ namespace Universal_Launcher.App_Items {
         public string Name { get; set; }
         public string IconPath { get; set; }
         public string Path { get; set; }
+        public List<App> SubApps { get; set; }
 
 
         public App(string name, string path, string iconPath, Icon icon) {

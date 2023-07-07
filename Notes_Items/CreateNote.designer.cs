@@ -54,7 +54,7 @@
             this.mtbNote.Multiline = true;
             this.mtbNote.Name = "mtbNote";
             this.mtbNote.PasswordChar = '\0';
-            this.mtbNote.PromptText = "Text:";
+            this.mtbNote.WaterMark = "Text:";
             this.mtbNote.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.mtbNote.SelectedText = "";
             this.mtbNote.SelectionLength = 0;
@@ -106,7 +106,7 @@
             this.mtbTitle.MaxLength = 32767;
             this.mtbTitle.Name = "mtbTitle";
             this.mtbTitle.PasswordChar = '\0';
-            this.mtbTitle.PromptText = "Title:";
+            this.mtbTitle.WaterMark = "Title:";
             this.mtbTitle.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.mtbTitle.SelectedText = "";
             this.mtbTitle.SelectionLength = 0;

@@ -1,4 +1,4 @@
-﻿using IWshRuntimeLibrary;
+﻿//using IWshRuntimeLibrary;
 using MetroFramework;
 using System;
 using System.Drawing;
@@ -45,20 +45,20 @@ namespace Universal_Launcher.App_Items {
 
             if( CheckFilePath(path) ) {
                 filename = Path.GetFileNameWithoutExtension(path);
-                if( Path.GetExtension(path).Equals(".lnk", StringComparison.OrdinalIgnoreCase) ) {
-                    IWshShell shell = new WshShell();
-                    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(path);
-                    iconPath = link.IconLocation;
+                //if( Path.GetExtension(path).Equals(".lnk", StringComparison.OrdinalIgnoreCase) ) {
+                //    IWshShell shell = new WshShell();
+                //    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(path);
+                //    iconPath = link.IconLocation;
 
-                    Icon extractedIcon = Icon.ExtractAssociatedIcon(iconPath);
-                    icon = new Icon(extractedIcon, SystemInformation.SmallIconSize);
-                    type = SubAppType.Web;
-                }
-                else {
+                //    Icon extractedIcon = Icon.ExtractAssociatedIcon(iconPath);
+                //    icon = new Icon(extractedIcon, SystemInformation.SmallIconSize);      //uncomment these lines and the using directive if someting breaks, but we should be fine, apparently
+                //    type = SubAppType.Web;
+                //}
+                //else {
                     iconPath = path;
                     icon = Icon.ExtractAssociatedIcon(path);
                     type = SubAppType.Executable;
-                }
+                //}
             }
             else {
                 filename = path.Substring(path.LastIndexOf('\\') + 1);
@@ -113,7 +113,7 @@ namespace Universal_Launcher.App_Items {
             return null;
         }
 
-        public static AppUserControl GenerateMainAppCard(Form1 parent) {
+        public static AppUserControl GenerateMainAppCard(UniversalLauncherMainForm parent) {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
             ofd.Title = "Select an Executable File, Shortcut, or Link File";
@@ -122,7 +122,7 @@ namespace Universal_Launcher.App_Items {
                 try {
                     AppInfo info = GetAppInfo(ofd.FileName);
                     App app = GetMainApp(info);
-                    uc.SetMainApp(app);
+                    uc.SetMainApp(app as MainApp);
                     return uc;
                 }
                 catch( AppDoesNotExistException ex ) {

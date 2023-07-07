@@ -1,5 +1,5 @@
 ﻿namespace Universal_Launcher {
-    partial class Form1 {
+    partial class UniversalLauncherMainForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -52,6 +52,7 @@
             this.panelFavorites = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
+            this.btnDeserialize = new MetroFramework.Controls.MetroButton();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.mpSidePanel.SuspendLayout();
@@ -284,7 +285,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(209, 36);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(831, 440);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -302,7 +303,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(779, 376);
+            this.Home.Size = new System.Drawing.Size(823, 398);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -351,6 +352,7 @@
             // 
             // lvReminders
             // 
+            this.lvReminders.CheckBoxes = true;
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
             this.columnHeader3});
@@ -461,6 +463,7 @@
             // 
             // tpTestChildren
             // 
+            this.tpTestChildren.Controls.Add(this.btnDeserialize);
             this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.flpLibrary);
             this.tpTestChildren.HorizontalScrollbarBarColor = true;
@@ -474,6 +477,17 @@
             this.tpTestChildren.VerticalScrollbarBarColor = true;
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
+            // 
+            // btnDeserialize
+            // 
+            this.btnDeserialize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDeserialize.Location = new System.Drawing.Point(664, 3);
+            this.btnDeserialize.Name = "btnDeserialize";
+            this.btnDeserialize.Size = new System.Drawing.Size(75, 23);
+            this.btnDeserialize.TabIndex = 5;
+            this.btnDeserialize.Text = "Deserialize";
+            this.btnDeserialize.UseSelectable = true;
+            this.btnDeserialize.Click += new System.EventHandler(this.btnDeserialize_Click);
             // 
             // btnAddFlow
             // 
@@ -497,7 +511,7 @@
             this.flpLibrary.Size = new System.Drawing.Size(823, 369);
             this.flpLibrary.TabIndex = 4;
             // 
-            // Form1
+            // UniversalLauncherMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -505,8 +519,9 @@
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
             this.MinimumSize = new System.Drawing.Size(1036, 504);
-            this.Name = "Form1";
+            this.Name = "UniversalLauncherMainForm";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.mpSidePanel.ResumeLayout(false);
             this.mpBottomSideBarPanell.ResumeLayout(false);
             this.mpNotesNReminders.ResumeLayout(false);
@@ -558,6 +573,7 @@
         private System.Windows.Forms.ListView lvReminders;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private MetroFramework.Controls.MetroButton btnDeserialize;
     }
 }
 

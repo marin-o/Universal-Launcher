@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Universal_Launcher.App_Items {
     [Serializable]
     public class AppRepository { 
-        public List<AppUserControl> Apps { get; set; } = new List<AppUserControl>();
+        public List<App> Apps { get; set; } = new List<App>();
 
-        public void AddApp(AppUserControl uc) {
-            Apps.Add(uc);
+        public void AddApp(App app) {
+            Apps.Add(app);
         }
-        public void RemoveApp(AppUserControl uc) {
-            Apps.Remove(uc);
+        public void RemoveApp(App app) {
+            Apps.Remove(app);
         }
     }
 }

@@ -6,9 +6,11 @@ using Universal_Launcher.App_Items;
 using Universal_Launcher.Resources;
 
 namespace Universal_Launcher {
-
+    [Serializable]
     public partial class AppUserControl : UserControl {
-        private App mainApp;
+        private MainApp mainApp;
+
+        public MainApp MainApp { get { return mainApp; } }
         public string Id { get; set; }
         public event EventHandler AppDeleted;
         public AppUserControl(string id) {
@@ -17,10 +19,25 @@ namespace Universal_Launcher {
             cbAddSubApp.SelectedIndex = 0;
         }
 
-        public void SetMainApp(App app) {
+        public AppUserControl(MainApp app, UniversalLauncherMainForm universalLauncherMainForm) {
+            InitializeComponent();
+            cbAddSubApp.SelectedIndex = 0;
+            SetMainApp(app);
+            Parent = universalLauncherMainForm.Controls.Find("flpLibrary", true)[0];
+        }
+
+        public void SetMainApp(MainApp app) {
             mainApp = app;
             lblAppName.Text = app.Name;
             pbAppIcon.Image = app.Icon.ToBitmap();
+            PopulateSubApps(app);
+        }
+        private void PopulateSubApps(MainApp app) {
+            foreach (App a in app.SubApps ) {
+                SubAppsUserControl uc = new SubAppsUserControl();
+                uc.SetApp(a);
+                flpSubApps.Controls.Add(uc);
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e) {
@@ -39,13 +56,18 @@ namespace Universal_Launcher {
         private void cbAddSubApp_SelectedIndexChanged(object sender, EventArgs e) {
             if( cbAddSubApp.SelectedIndex == 1 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateExeSubApp(this);
-                if( uc != null )
+                if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
+                    mainApp.AddApp(uc.SubApp);
+                }
+                    
             }
             else if( cbAddSubApp.SelectedIndex == 2 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateFolderSubApp(this, mainApp);
-                if( uc != null )
+                if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
+                    mainApp.AddApp(uc.SubApp);
+                }
             }
             cbAddSubApp.SelectedIndex = 0;
         }

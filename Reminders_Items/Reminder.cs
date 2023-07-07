@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Universal_Launcher.Reminders_Items
 {
+    [Serializable]
     public class Reminder
     {
         public string Task { get; set; }

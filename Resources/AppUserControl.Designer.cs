@@ -1,7 +1,6 @@
 ﻿using System;
 
 namespace Universal_Launcher {
-    [Serializable]
     partial class AppUserControl {
         /// <summary> 
         /// Required designer variable.
@@ -112,7 +111,7 @@ namespace Universal_Launcher {
             this.tbChangeName.MaxLength = 32767;
             this.tbChangeName.Name = "tbChangeName";
             this.tbChangeName.PasswordChar = '\0';
-            this.tbChangeName.PromptText = "Change name";
+            this.tbChangeName.WaterMark = "Change name";
             this.tbChangeName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbChangeName.SelectedText = "";
             this.tbChangeName.SelectionLength = 0;
