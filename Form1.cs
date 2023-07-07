@@ -81,18 +81,6 @@ namespace Universal_Launcher {
             }
         }
 
-        private void lbNotes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(lbNotes.SelectedIndex != -1)
-            {
-                activeNote = lbNotes.SelectedItem as Note;
-                if(activeNote != null)
-                {
-                    rtbNotes.Text = activeNote.Body;
-                }
-            }
-        }
-
         private void btnAddReminder_Click(object sender, EventArgs e)
         {
             NewReminder newReminder = new NewReminder();
@@ -103,6 +91,8 @@ namespace Universal_Launcher {
                 reminders.AddReminder(newReminder.Reminder);
                 lvReminders.Items.Add(newReminder.Reminder.Task);
                 lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+                lvSideBarReminders.Items.Add(newReminder.Reminder.Task);
+                lvSideBarReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
             }
         }
 
@@ -110,6 +100,8 @@ namespace Universal_Launcher {
         {
             if(e.Item.Checked)
             {
+                reminders.RemoveReminder(reminder.Reminders[e.Item.Index]);
+                lvSideBarReminders.Items[e.Item.Index].Remove();
                 reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
                 e.Item.Remove();
             }
@@ -186,6 +178,50 @@ namespace Universal_Launcher {
             PopulateNotes();
             DeserializeReminders(remindersPath);
             PopulateReminders();
+        }
+        
+
+        private void flpLibrary_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lbNotes_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                Note note = lbNotes.SelectedItem as Note;
+                notes.PinNote(note);
+                ResetLbNotes();
+
+                lblNoteTitleSideBar.Text = note.Title;
+                rtbSideBarNoteText.Text = note.Body;
+            }
+        }
+        private void ResetLbNotes()
+        {
+            lbNotes.Items.Clear();
+            foreach (Note note in notes.Notes)
+            {
+                lbNotes.Items.Add(note);
+            }
+        }
+
+        private void lbNotes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lbNotes.SelectedIndex != -1)
+            {
+                activeNote = lbNotes.SelectedItem as Note;
+                if (activeNote != null)
+                {
+                    rtbNotes.Text = activeNote.Body;
+                }
+            }
+        }
+
+        private void lbNotes_MouseHover(object sender, EventArgs e)
+        {
+            ttTipDoubleClick.Show("Double click to pin note", lbNotes);
         }
     }
 }
