@@ -100,9 +100,10 @@ namespace Universal_Launcher {
         {
             if(e.Item.Checked)
             {
-                reminders.RemoveReminder(reminder.Reminders[e.Item.Index]);
-                lvSideBarReminders.Items[e.Item.Index].Remove();
                 reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
+                if(lvSideBarReminders.Items.Count > 0)
+                    lvSideBarReminders.Items[e.Item.Index].Remove();
+                //reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
                 e.Item.Remove();
             }
         }
