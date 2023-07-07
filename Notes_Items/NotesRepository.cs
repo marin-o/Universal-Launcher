@@ -19,13 +19,11 @@ namespace Universal_Launcher.Notes_Items {
 
         public void PinNote(Note note)
         {
-            foreach (Note n in Notes)
-            {
-                if(n.Equals(note))
-                {
+            foreach( Note n in Notes ) {
+                if( n.Equals(note) ) {
                     n.Pinned = true;
-                }else
-                {
+                }
+                else {
                     n.Pinned = false;
                 }
             }

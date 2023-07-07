@@ -26,7 +26,7 @@ namespace Universal_Launcher
         {
             if (Pinned)
             {
-                return $"<b>{Title}</b>";
+                return $"{Title} - Pinned"; // worst case scenario
             }
             else
             {
@@ -45,7 +45,7 @@ namespace Universal_Launcher
             {
                 return false;
             }
-            return this.Title == note.Title && this.Body == note.Body;
+            return this.Title == note.Title;
         }
     }
 }

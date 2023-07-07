@@ -251,6 +251,7 @@
             // rtbSideBarNoteText
             // 
             this.rtbSideBarNoteText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSideBarNoteText.Enabled = false;
             this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 29);
             this.rtbSideBarNoteText.Name = "rtbSideBarNoteText";
             this.rtbSideBarNoteText.Size = new System.Drawing.Size(213, 104);
