@@ -19,7 +19,7 @@ namespace Universal_Launcher {
             cbAddSubApp.SelectedIndex = 0;
         }
 
-        public AppUserControl(MainApp app, UniversalLauncherMainForm universalLauncherMainForm) {
+        public AppUserControl(MainApp app, Form1 universalLauncherMainForm) {
             InitializeComponent();
             cbAddSubApp.SelectedIndex = 0;
             SetMainApp(app);

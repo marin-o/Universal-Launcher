@@ -104,11 +104,11 @@
     <Compile Include="Notes_Items\CreateNote.designer.cs">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </Compile>
-    <Compile Include="UniversalLauncherMainForm.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UniversalLauncherMainForm.Designer.cs">
-      <DependentUpon>UniversalLauncherMainForm.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Notes_Items\NotesRepository.cs" />
     <Compile Include="Reminders_Items\NewReminder.cs">
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="Notes_Items\CreateNote.resx">
       <DependentUpon>CreateNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UniversalLauncherMainForm.resx">
-      <DependentUpon>UniversalLauncherMainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reminders_Items\NewReminder.resx">
       <DependentUpon>NewReminder.cs</DependentUpon>

@@ -3,16 +3,14 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text.Json;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Notes_Items;
 using Universal_Launcher.Reminders_Items;
-using Newtonsoft.Json;
 
 
 namespace Universal_Launcher {
-    public partial class UniversalLauncherMainForm : MetroForm {
+    public partial class Form1 : MetroForm {
         private Note activeNote = null;
         /*
         * Reminders repository contains a list of reminders
@@ -31,7 +29,7 @@ namespace Universal_Launcher {
                 return apps;
             }
         }
-        public UniversalLauncherMainForm() {
+        public Form1() {
             InitializeComponent();
         }
 

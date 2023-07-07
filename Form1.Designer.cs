@@ -1,5 +1,5 @@
 ﻿namespace Universal_Launcher {
-    partial class UniversalLauncherMainForm {
+    partial class Form1 {
         /// <summary>
         /// Required designer variable.
         /// </summary>

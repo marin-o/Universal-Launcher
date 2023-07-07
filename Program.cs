@@ -13,7 +13,7 @@ namespace Universal_Launcher {
         static void Main(){
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UniversalLauncherMainForm());
+            Application.Run(new Form1());
         }
     }
 }
