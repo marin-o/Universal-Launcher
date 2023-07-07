@@ -52,8 +52,8 @@
             this.panelFavorites = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
-            this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
+            this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -282,10 +282,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.Home);
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
-            this.metroTabControl1.Location = new System.Drawing.Point(218, 63);
+            this.metroTabControl1.Location = new System.Drawing.Point(209, 36);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(787, 418);
+            this.metroTabControl1.Size = new System.Drawing.Size(831, 440);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -468,12 +468,23 @@
             this.tpTestChildren.HorizontalScrollbarSize = 10;
             this.tpTestChildren.Location = new System.Drawing.Point(4, 38);
             this.tpTestChildren.Name = "tpTestChildren";
-            this.tpTestChildren.Size = new System.Drawing.Size(779, 376);
+            this.tpTestChildren.Size = new System.Drawing.Size(823, 398);
             this.tpTestChildren.TabIndex = 1;
             this.tpTestChildren.Text = "Library";
             this.tpTestChildren.VerticalScrollbarBarColor = true;
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
+            // 
+            // btnAddFlow
+            // 
+            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddFlow.Location = new System.Drawing.Point(745, 3);
+            this.btnAddFlow.Name = "btnAddFlow";
+            this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFlow.TabIndex = 1;
+            this.btnAddFlow.Text = "Add";
+            this.btnAddFlow.UseSelectable = true;
+            this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
             // 
             // flpLibrary
             // 
@@ -483,19 +494,8 @@
             this.flpLibrary.AutoScroll = true;
             this.flpLibrary.Location = new System.Drawing.Point(0, 29);
             this.flpLibrary.Name = "flpLibrary";
-            this.flpLibrary.Size = new System.Drawing.Size(779, 347);
+            this.flpLibrary.Size = new System.Drawing.Size(823, 369);
             this.flpLibrary.TabIndex = 4;
-            // 
-            // btnAddFlow
-            // 
-            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddFlow.Location = new System.Drawing.Point(701, 3);
-            this.btnAddFlow.Name = "btnAddFlow";
-            this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFlow.TabIndex = 1;
-            this.btnAddFlow.Text = "Add";
-            this.btnAddFlow.UseSelectable = true;
-            this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
             // 
             // Form1
             // 

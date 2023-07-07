@@ -1,4 +1,5 @@
 ﻿using MetroFramework;
+using MetroFramework.Controls;
 using System;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
@@ -47,6 +48,28 @@ namespace Universal_Launcher {
                     flpSubApps.Controls.Add(uc);
             }
             cbAddSubApp.SelectedIndex = 0;
+        }
+
+        private void lblAppName_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if(e.Button == MouseButtons.Left ) {
+                tbChangeName.Visible = true;
+                tbChangeName.Enabled = true;
+            }
+        }
+
+        private void tbChangeName_KeyDown(object sender, KeyEventArgs e) {
+            if(e.KeyCode == Keys.Enter ) {
+                lblAppName.Text = tbChangeName.Text;
+                mainApp.Name = lblAppName.Text;
+                tbChangeName.Visible = false;
+                tbChangeName.Enabled = false;
+                tbChangeName.Text = "";
+            } else if(e.KeyCode == Keys.Escape ) {
+                tbChangeName.Visible = false;
+                tbChangeName.Enabled = false;
+                tbChangeName.Text = "";
+            }
+            
         }
     }
 }

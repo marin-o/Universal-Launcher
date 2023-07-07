@@ -31,6 +31,7 @@ namespace Universal_Launcher {
             this.flpSubApps = new System.Windows.Forms.FlowLayoutPanel();
             this.btnDel = new MetroFramework.Controls.MetroButton();
             this.cbAddSubApp = new MetroFramework.Controls.MetroComboBox();
+            this.tbChangeName = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,6 +52,7 @@ namespace Universal_Launcher {
             this.lblAppName.Size = new System.Drawing.Size(81, 19);
             this.lblAppName.TabIndex = 3;
             this.lblAppName.Text = "metroLabel1";
+            this.lblAppName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblAppName_MouseDoubleClick);
             // 
             // flpSubApps
             // 
@@ -90,11 +92,47 @@ namespace Universal_Launcher {
             this.cbAddSubApp.UseSelectable = true;
             this.cbAddSubApp.SelectedIndexChanged += new System.EventHandler(this.cbAddSubApp_SelectedIndexChanged);
             // 
+            // tbChangeName
+            // 
+            // 
+            // 
+            // 
+            this.tbChangeName.CustomButton.Image = null;
+            this.tbChangeName.CustomButton.Location = new System.Drawing.Point(66, 1);
+            this.tbChangeName.CustomButton.Name = "";
+            this.tbChangeName.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbChangeName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbChangeName.CustomButton.TabIndex = 1;
+            this.tbChangeName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbChangeName.CustomButton.UseSelectable = true;
+            this.tbChangeName.CustomButton.Visible = false;
+            this.tbChangeName.Enabled = false;
+            this.tbChangeName.Lines = new string[0];
+            this.tbChangeName.Location = new System.Drawing.Point(61, 26);
+            this.tbChangeName.MaxLength = 32767;
+            this.tbChangeName.Name = "tbChangeName";
+            this.tbChangeName.PasswordChar = '\0';
+            this.tbChangeName.PromptText = "Change name";
+            this.tbChangeName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbChangeName.SelectedText = "";
+            this.tbChangeName.SelectionLength = 0;
+            this.tbChangeName.SelectionStart = 0;
+            this.tbChangeName.ShortcutsEnabled = true;
+            this.tbChangeName.Size = new System.Drawing.Size(88, 23);
+            this.tbChangeName.TabIndex = 8;
+            this.tbChangeName.UseSelectable = true;
+            this.tbChangeName.Visible = false;
+            this.tbChangeName.WaterMark = "Change name";
+            this.tbChangeName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbChangeName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.tbChangeName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbChangeName_KeyDown);
+            // 
             // AppUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.tbChangeName);
             this.Controls.Add(this.cbAddSubApp);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.flpSubApps);
@@ -115,5 +153,6 @@ namespace Universal_Launcher {
         private System.Windows.Forms.FlowLayoutPanel flpSubApps;
         private MetroFramework.Controls.MetroButton btnDel;
         private MetroFramework.Controls.MetroComboBox cbAddSubApp;
+        private MetroFramework.Controls.MetroTextBox tbChangeName;
     }
 }
