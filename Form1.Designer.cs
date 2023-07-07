@@ -406,6 +406,9 @@
             // 
             // lvReminders
             // 
+            this.lvReminders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lvReminders.CheckBoxes = true;
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
@@ -431,6 +434,7 @@
             // 
             // btnAddReminder
             // 
+            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddReminder.Location = new System.Drawing.Point(254, 131);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
@@ -454,6 +458,7 @@
             // 
             // lbNotes
             // 
+            this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbNotes.FormattingEnabled = true;
             this.lbNotes.Location = new System.Drawing.Point(137, 23);
             this.lbNotes.Name = "lbNotes";
@@ -567,7 +572,7 @@
             this.flpLibrary.TabIndex = 4;
             this.flpLibrary.Paint += new System.Windows.Forms.PaintEventHandler(this.flpLibrary_Paint);
             // 
-            // UniversalLauncherMainForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -575,7 +580,7 @@
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
             this.MinimumSize = new System.Drawing.Size(1036, 504);
-            this.Name = "UniversalLauncherMainForm";
+            this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.mpSidePanel.ResumeLayout(false);
