@@ -1,6 +1,7 @@
 ﻿using MetroFramework;
 using MetroFramework.Forms;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
@@ -32,9 +33,12 @@ namespace Universal_Launcher {
                 return apps;
             }
         }
+        public bool IsDark { get; set; }
         public Form1() {
             InitializeComponent();
             DoubleBuffered = true;
+            this.StyleManager = msmForm1;
+            IsDark = false;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -263,6 +267,51 @@ namespace Universal_Launcher {
             lvReminders.Update();
         }
 
-        
+        private void ibDarkMode_MouseClick(object sender, MouseEventArgs e)
+        {
+            IsDark = !IsDark;
+            if (IsDark)
+            {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Dark;
+                panelFavorites.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel2.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel3.BackColor = Color.FromArgb(255, 44, 45, 45);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Sun;
+                lvFavorites.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvSideBarReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.ForeColor = Color.White;
+                rtbNotes.ForeColor = Color.White;
+                lvReminders.ForeColor = Color.White;
+                lvSideBarReminders.ForeColor = Color.White;
+                flpLibrary.BackColor = Color.Black;
+                ipbUserPicture.BackColor = Color.FromArgb(255, 15, 17, 16);
+                ipbUserPicture.IconColor = Color.White;
+            }
+            else
+            {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Light;
+                panelFavorites.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel2.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel3.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
+                lvFavorites.BackColor = Color.White;
+                rtbNotes.BackColor = Color.White;
+                lbNotes.BackColor = Color.White;
+                lvReminders.BackColor = Color.White;
+                lvSideBarReminders.BackColor = Color.White;
+                rtbSideBarNoteText.BackColor = Color.White;
+                lbNotes.ForeColor = Color.Black;
+                rtbNotes.ForeColor = Color.Black;
+                lvReminders.ForeColor = Color.Black;
+                lvSideBarReminders.ForeColor = Color.Black;
+                flpLibrary.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ipbUserPicture.BackColor = Color.White;
+                ipbUserPicture.IconColor = Color.Black;
+            }
+        }
     }
 }

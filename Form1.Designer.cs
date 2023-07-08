@@ -45,14 +45,14 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAddRemeinder = new MetroFramework.Controls.MetroButton();
             this.lvReminders = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAddReminder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRemoveNotes = new MetroFramework.Controls.MetroButton();
+            this.btnAddNote = new MetroFramework.Controls.MetroButton();
             this.lbNotes = new System.Windows.Forms.ListBox();
-            this.btnAddNote = new System.Windows.Forms.Button();
-            this.btnRemoveNotes = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
             this.lvFavorites = new System.Windows.Forms.ListView();
@@ -60,6 +60,7 @@
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.ttTipDoubleClick = new System.Windows.Forms.ToolTip(this.components);
+            this.msmForm1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -74,6 +75,7 @@
             this.panel2.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             this.tpTestChildren.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).BeginInit();
             this.SuspendLayout();
             // 
             // mpSidePanel
@@ -117,7 +119,7 @@
             this.ibDarkMode.FlatAppearance.BorderSize = 0;
             this.ibDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
-            this.ibDarkMode.IconColor = System.Drawing.Color.Black;
+            this.ibDarkMode.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(150)))), ((int)(((byte)(14)))));
             this.ibDarkMode.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ibDarkMode.IconSize = 25;
             this.ibDarkMode.Location = new System.Drawing.Point(1, 0);
@@ -125,6 +127,7 @@
             this.ibDarkMode.Size = new System.Drawing.Size(32, 34);
             this.ibDarkMode.TabIndex = 7;
             this.ibDarkMode.UseVisualStyleBackColor = true;
+            this.ibDarkMode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ibDarkMode_MouseClick);
             // 
             // mpNotesNReminders
             // 
@@ -168,12 +171,13 @@
             // 
             this.lvSideBarReminders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvSideBarReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvSideBarReminders.CheckBoxes = true;
             this.lvSideBarReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader4});
             this.lvSideBarReminders.HideSelection = false;
-            this.lvSideBarReminders.Location = new System.Drawing.Point(-1, -1);
+            this.lvSideBarReminders.Location = new System.Drawing.Point(-2, -1);
             this.lvSideBarReminders.Name = "lvSideBarReminders";
             this.lvSideBarReminders.Size = new System.Drawing.Size(213, 132);
             this.lvSideBarReminders.TabIndex = 6;
@@ -215,9 +219,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(-1, 147);
+            this.metroPanel1.Location = new System.Drawing.Point(-1, 166);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(213, 134);
+            this.metroPanel1.Size = new System.Drawing.Size(213, 115);
             this.metroPanel1.TabIndex = 2;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -228,7 +232,7 @@
             this.lblNoteTitleSideBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblNoteTitleSideBar.Enabled = false;
             this.lblNoteTitleSideBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoteTitleSideBar.Location = new System.Drawing.Point(-2, 5);
+            this.lblNoteTitleSideBar.Location = new System.Drawing.Point(-2, 2);
             this.lblNoteTitleSideBar.Name = "lblNoteTitleSideBar";
             this.lblNoteTitleSideBar.Size = new System.Drawing.Size(213, 19);
             this.lblNoteTitleSideBar.TabIndex = 4;
@@ -237,8 +241,9 @@
             // rtbSideBarNoteText
             // 
             this.rtbSideBarNoteText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSideBarNoteText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbSideBarNoteText.Enabled = false;
-            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 29);
+            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 19);
             this.rtbSideBarNoteText.Name = "rtbSideBarNoteText";
             this.rtbSideBarNoteText.Size = new System.Drawing.Size(213, 104);
             this.rtbSideBarNoteText.TabIndex = 3;
@@ -381,19 +386,31 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnAddRemeinder);
             this.panel3.Controls.Add(this.lvReminders);
-            this.panel3.Controls.Add(this.btnAddReminder);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(522, 175);
             this.panel3.TabIndex = 4;
             // 
+            // btnAddRemeinder
+            // 
+            this.btnAddRemeinder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddRemeinder.Location = new System.Drawing.Point(409, 147);
+            this.btnAddRemeinder.Name = "btnAddRemeinder";
+            this.btnAddRemeinder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddRemeinder.TabIndex = 6;
+            this.btnAddRemeinder.Text = "Add";
+            this.btnAddRemeinder.UseSelectable = true;
+            this.btnAddRemeinder.Click += new System.EventHandler(this.btnAddReminder_Click);
+            // 
             // lvReminders
             // 
             this.lvReminders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvReminders.CheckBoxes = true;
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
@@ -417,63 +434,53 @@
             this.columnHeader3.Text = "Time";
             this.columnHeader3.Width = 81;
             // 
-            // btnAddReminder
-            // 
-            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(415, 149);
-            this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
-            this.btnAddReminder.TabIndex = 4;
-            this.btnAddReminder.Text = "Add";
-            this.btnAddReminder.UseVisualStyleBackColor = true;
-            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.lbNotes);
-            this.panel2.Controls.Add(this.btnAddNote);
             this.panel2.Controls.Add(this.btnRemoveNotes);
+            this.panel2.Controls.Add(this.btnAddNote);
+            this.panel2.Controls.Add(this.lbNotes);
             this.panel2.Controls.Add(this.rtbNotes);
             this.panel2.Location = new System.Drawing.Point(408, 23);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(522, 150);
             this.panel2.TabIndex = 3;
             // 
-            // lbNotes
+            // btnRemoveNotes
             // 
-            this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbNotes.FormattingEnabled = true;
-            this.lbNotes.Location = new System.Drawing.Point(291, 23);
-            this.lbNotes.Name = "lbNotes";
-            this.lbNotes.Size = new System.Drawing.Size(214, 95);
-            this.lbNotes.TabIndex = 4;
-            this.lbNotes.SelectedIndexChanged += new System.EventHandler(this.lbNotes_SelectedIndexChanged);
-            this.lbNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbNotes_MouseDoubleClick);
-            this.lbNotes.MouseHover += new System.EventHandler(this.lbNotes_MouseHover);
+            this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRemoveNotes.Location = new System.Drawing.Point(401, 123);
+            this.btnRemoveNotes.Name = "btnRemoveNotes";
+            this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
+            this.btnRemoveNotes.TabIndex = 6;
+            this.btnRemoveNotes.Text = "Remove";
+            this.btnRemoveNotes.UseSelectable = true;
+            this.btnRemoveNotes.Click += new System.EventHandler(this.btnRemoveNotes_Click);
             // 
             // btnAddNote
             // 
             this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddNote.Location = new System.Drawing.Point(291, 124);
+            this.btnAddNote.Location = new System.Drawing.Point(291, 123);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(104, 23);
-            this.btnAddNote.TabIndex = 3;
+            this.btnAddNote.TabIndex = 5;
             this.btnAddNote.Text = "Add";
-            this.btnAddNote.UseVisualStyleBackColor = true;
+            this.btnAddNote.UseSelectable = true;
             this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
             // 
-            // btnRemoveNotes
+            // lbNotes
             // 
-            this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveNotes.Location = new System.Drawing.Point(401, 124);
-            this.btnRemoveNotes.Name = "btnRemoveNotes";
-            this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
-            this.btnRemoveNotes.TabIndex = 2;
-            this.btnRemoveNotes.Text = "Remove";
-            this.btnRemoveNotes.UseVisualStyleBackColor = true;
-            this.btnRemoveNotes.Click += new System.EventHandler(this.btnRemoveNotes_Click);
+            this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbNotes.FormattingEnabled = true;
+            this.lbNotes.Location = new System.Drawing.Point(291, 23);
+            this.lbNotes.Name = "lbNotes";
+            this.lbNotes.Size = new System.Drawing.Size(214, 91);
+            this.lbNotes.TabIndex = 4;
+            this.lbNotes.SelectedIndexChanged += new System.EventHandler(this.lbNotes_SelectedIndexChanged);
+            this.lbNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbNotes_MouseDoubleClick);
+            this.lbNotes.MouseHover += new System.EventHandler(this.lbNotes_MouseHover);
             // 
             // rtbNotes
             // 
@@ -499,6 +506,7 @@
             // 
             this.lvFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvFavorites.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvFavorites.HideSelection = false;
             this.lvFavorites.Location = new System.Drawing.Point(18, 23);
             this.lvFavorites.Name = "lvFavorites";
@@ -544,6 +552,10 @@
             this.flpLibrary.Size = new System.Drawing.Size(935, 389);
             this.flpLibrary.TabIndex = 4;
             // 
+            // msmForm1
+            // 
+            this.msmForm1.Owner = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -572,6 +584,7 @@
             this.panel2.ResumeLayout(false);
             this.panelFavorites.ResumeLayout(false);
             this.tpTestChildren.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,9 +610,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.RichTextBox rtbNotes;
-        private System.Windows.Forms.Button btnRemoveNotes;
-        private System.Windows.Forms.Button btnAddNote;
-        private System.Windows.Forms.Button btnAddReminder;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
@@ -616,6 +626,10 @@
         private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
         public System.Windows.Forms.ListView lvFavorites;
+        private MetroFramework.Components.MetroStyleManager msmForm1;
+        private MetroFramework.Controls.MetroButton btnAddRemeinder;
+        private MetroFramework.Controls.MetroButton btnRemoveNotes;
+        private MetroFramework.Controls.MetroButton btnAddNote;
     }
 }
 
