@@ -386,7 +386,7 @@
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(457, 175);
+            this.panel3.Size = new System.Drawing.Size(522, 175);
             this.panel3.TabIndex = 4;
             // 
             // lvReminders
@@ -401,7 +401,7 @@
             this.lvReminders.HideSelection = false;
             this.lvReminders.Location = new System.Drawing.Point(13, 12);
             this.lvReminders.Name = "lvReminders";
-            this.lvReminders.Size = new System.Drawing.Size(434, 131);
+            this.lvReminders.Size = new System.Drawing.Size(499, 131);
             this.lvReminders.TabIndex = 5;
             this.lvReminders.UseCompatibleStateImageBehavior = false;
             this.lvReminders.View = System.Windows.Forms.View.Details;
@@ -410,7 +410,7 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Task";
-            this.columnHeader2.Width = 213;
+            this.columnHeader2.Width = 414;
             // 
             // columnHeader3
             // 
@@ -420,7 +420,7 @@
             // btnAddReminder
             // 
             this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(350, 149);
+            this.btnAddReminder.Location = new System.Drawing.Point(415, 149);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
             this.btnAddReminder.TabIndex = 4;
@@ -438,14 +438,14 @@
             this.panel2.Controls.Add(this.rtbNotes);
             this.panel2.Location = new System.Drawing.Point(408, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(457, 150);
+            this.panel2.Size = new System.Drawing.Size(522, 150);
             this.panel2.TabIndex = 3;
             // 
             // lbNotes
             // 
             this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lbNotes.FormattingEnabled = true;
-            this.lbNotes.Location = new System.Drawing.Point(226, 23);
+            this.lbNotes.Location = new System.Drawing.Point(291, 23);
             this.lbNotes.Name = "lbNotes";
             this.lbNotes.Size = new System.Drawing.Size(214, 95);
             this.lbNotes.TabIndex = 4;
@@ -456,7 +456,7 @@
             // btnAddNote
             // 
             this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddNote.Location = new System.Drawing.Point(226, 124);
+            this.btnAddNote.Location = new System.Drawing.Point(291, 124);
             this.btnAddNote.Name = "btnAddNote";
             this.btnAddNote.Size = new System.Drawing.Size(104, 23);
             this.btnAddNote.TabIndex = 3;
@@ -467,7 +467,7 @@
             // btnRemoveNotes
             // 
             this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveNotes.Location = new System.Drawing.Point(336, 124);
+            this.btnRemoveNotes.Location = new System.Drawing.Point(401, 124);
             this.btnRemoveNotes.Name = "btnRemoveNotes";
             this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
             this.btnRemoveNotes.TabIndex = 2;
@@ -480,7 +480,7 @@
             this.rtbNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rtbNotes.Location = new System.Drawing.Point(20, 23);
             this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.Size = new System.Drawing.Size(200, 95);
+            this.rtbNotes.Size = new System.Drawing.Size(265, 95);
             this.rtbNotes.TabIndex = 0;
             this.rtbNotes.Text = "";
             this.rtbNotes.TextChanged += new System.EventHandler(this.rtbNotes_TextChanged);
