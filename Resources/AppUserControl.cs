@@ -1,6 +1,4 @@
-﻿using MetroFramework;
-using MetroFramework.Controls;
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Resources;

@@ -26,11 +26,11 @@ namespace Universal_Launcher {
         /// </summary>
         private void InitializeComponent() {
             this.pbAppIcon = new System.Windows.Forms.PictureBox();
-            this.lblAppName = new MetroFramework.Controls.MetroLabel();
             this.flpSubApps = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnDel = new MetroFramework.Controls.MetroButton();
             this.cbAddSubApp = new MetroFramework.Controls.MetroComboBox();
             this.tbChangeName = new MetroFramework.Controls.MetroTextBox();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.btnDel = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,16 +43,6 @@ namespace Universal_Launcher {
             this.pbAppIcon.TabStop = false;
             this.pbAppIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbAppIcon_MouseDoubleClick);
             // 
-            // lblAppName
-            // 
-            this.lblAppName.AutoSize = true;
-            this.lblAppName.Location = new System.Drawing.Point(60, 3);
-            this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(81, 19);
-            this.lblAppName.TabIndex = 3;
-            this.lblAppName.Text = "metroLabel1";
-            this.lblAppName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblAppName_MouseDoubleClick);
-            // 
             // flpSubApps
             // 
             this.flpSubApps.AutoScroll = true;
@@ -63,17 +53,6 @@ namespace Universal_Launcher {
             this.flpSubApps.Size = new System.Drawing.Size(294, 284);
             this.flpSubApps.TabIndex = 4;
             this.flpSubApps.WrapContents = false;
-            // 
-            // btnDel
-            // 
-            this.btnDel.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnDel.Location = new System.Drawing.Point(275, 3);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(22, 23);
-            this.btnDel.TabIndex = 5;
-            this.btnDel.Text = "-";
-            this.btnDel.UseSelectable = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // cbAddSubApp
             // 
@@ -97,7 +76,7 @@ namespace Universal_Launcher {
             // 
             // 
             this.tbChangeName.CustomButton.Image = null;
-            this.tbChangeName.CustomButton.Location = new System.Drawing.Point(66, 1);
+            this.tbChangeName.CustomButton.Location = new System.Drawing.Point(64, 1);
             this.tbChangeName.CustomButton.Name = "";
             this.tbChangeName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.tbChangeName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -107,17 +86,17 @@ namespace Universal_Launcher {
             this.tbChangeName.CustomButton.Visible = false;
             this.tbChangeName.Enabled = false;
             this.tbChangeName.Lines = new string[0];
-            this.tbChangeName.Location = new System.Drawing.Point(61, 26);
+            this.tbChangeName.Location = new System.Drawing.Point(63, 26);
             this.tbChangeName.MaxLength = 32767;
             this.tbChangeName.Name = "tbChangeName";
             this.tbChangeName.PasswordChar = '\0';
-            this.tbChangeName.WaterMark = "Change name";
+            this.tbChangeName.PromptText = "Change name";
             this.tbChangeName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.tbChangeName.SelectedText = "";
             this.tbChangeName.SelectionLength = 0;
             this.tbChangeName.SelectionStart = 0;
             this.tbChangeName.ShortcutsEnabled = true;
-            this.tbChangeName.Size = new System.Drawing.Size(88, 23);
+            this.tbChangeName.Size = new System.Drawing.Size(86, 23);
             this.tbChangeName.TabIndex = 8;
             this.tbChangeName.UseSelectable = true;
             this.tbChangeName.Visible = false;
@@ -126,17 +105,44 @@ namespace Universal_Launcher {
             this.tbChangeName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.tbChangeName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbChangeName_KeyDown);
             // 
+            // lblAppName
+            // 
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppName.Location = new System.Drawing.Point(60, 6);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(46, 17);
+            this.lblAppName.TabIndex = 9;
+            this.lblAppName.Text = "label1";
+            this.lblAppName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblAppName_MouseDoubleClick);
+            // 
+            // btnDel
+            // 
+            this.btnDel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnDel.FlatAppearance.BorderSize = 0;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnDel.IconColor = System.Drawing.Color.Black;
+            this.btnDel.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnDel.IconSize = 25;
+            this.btnDel.Location = new System.Drawing.Point(278, 0);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(19, 32);
+            this.btnDel.TabIndex = 10;
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // AppUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.lblAppName);
             this.Controls.Add(this.tbChangeName);
             this.Controls.Add(this.cbAddSubApp);
-            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.flpSubApps);
             this.Controls.Add(this.pbAppIcon);
-            this.Controls.Add(this.lblAppName);
             this.Name = "AppUserControl";
             this.Size = new System.Drawing.Size(300, 338);
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).EndInit();
@@ -148,10 +154,10 @@ namespace Universal_Launcher {
         #endregion
 
         private System.Windows.Forms.PictureBox pbAppIcon;
-        private MetroFramework.Controls.MetroLabel lblAppName;
         private System.Windows.Forms.FlowLayoutPanel flpSubApps;
-        private MetroFramework.Controls.MetroButton btnDel;
         private MetroFramework.Controls.MetroComboBox cbAddSubApp;
         private MetroFramework.Controls.MetroTextBox tbChangeName;
+        private System.Windows.Forms.Label lblAppName;
+        private FontAwesome.Sharp.IconButton btnDel;
     }
 }

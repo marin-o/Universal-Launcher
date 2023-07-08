@@ -24,8 +24,8 @@
         /// </summary>
         private void InitializeComponent() {
             this.pbAppIcon = new System.Windows.Forms.PictureBox();
-            this.lblAppName = new MetroFramework.Controls.MetroLabel();
-            this.btnRemove = new System.Windows.Forms.Button();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.btnRemove = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -34,6 +34,7 @@
             this.pbAppIcon.Location = new System.Drawing.Point(3, 3);
             this.pbAppIcon.Name = "pbAppIcon";
             this.pbAppIcon.Size = new System.Drawing.Size(51, 44);
+            this.pbAppIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbAppIcon.TabIndex = 7;
             this.pbAppIcon.TabStop = false;
             this.pbAppIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbAppIcon_MouseDoubleClick);
@@ -41,20 +42,26 @@
             // lblAppName
             // 
             this.lblAppName.AutoSize = true;
-            this.lblAppName.Location = new System.Drawing.Point(60, 15);
+            this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppName.Location = new System.Drawing.Point(60, 16);
             this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(81, 19);
-            this.lblAppName.TabIndex = 8;
-            this.lblAppName.Text = "metroLabel1";
+            this.lblAppName.Size = new System.Drawing.Size(46, 17);
+            this.lblAppName.TabIndex = 10;
+            this.lblAppName.Text = "label1";
             // 
             // btnRemove
             // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(242, 0);
+            this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnRemove.FlatAppearance.BorderSize = 0;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnRemove.IconColor = System.Drawing.Color.Black;
+            this.btnRemove.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnRemove.IconSize = 25;
+            this.btnRemove.Location = new System.Drawing.Point(242, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(27, 23);
-            this.btnRemove.TabIndex = 9;
-            this.btnRemove.Text = "-";
+            this.btnRemove.Size = new System.Drawing.Size(24, 23);
+            this.btnRemove.TabIndex = 11;
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
@@ -62,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lblAppName);
             this.Controls.Add(this.pbAppIcon);
@@ -77,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pbAppIcon;
-        private MetroFramework.Controls.MetroLabel lblAppName;
-        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label lblAppName;
+        private FontAwesome.Sharp.IconButton btnRemove;
     }
 }

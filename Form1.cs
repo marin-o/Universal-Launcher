@@ -249,6 +249,10 @@ namespace Universal_Launcher {
             foreach (Note note in notes.Notes) {
                 lbNotes.Items.Add(note);
             }
+            if(notes.PinnedNote != null) {
+                lblNoteTitleSideBar.Text = notes.PinnedNote.Title;
+                rtbSideBarNoteText.Text = notes.PinnedNote.Body;
+            }
         }
 
         private void PopulateReminders() {
