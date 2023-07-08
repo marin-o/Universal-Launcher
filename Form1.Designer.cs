@@ -26,7 +26,6 @@
             this.components = new System.ComponentModel.Container();
             this.mpSidePanel = new MetroFramework.Controls.MetroPanel();
             this.mpBottomSideBarPanell = new MetroFramework.Controls.MetroPanel();
-            this.ibSettings = new FontAwesome.Sharp.IconButton();
             this.ibDarkMode = new FontAwesome.Sharp.IconButton();
             this.mpNotesNReminders = new MetroFramework.Controls.MetroPanel();
             this.mpReminders = new MetroFramework.Controls.MetroPanel();
@@ -100,7 +99,6 @@
             // mpBottomSideBarPanell
             // 
             this.mpBottomSideBarPanell.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.mpBottomSideBarPanell.Controls.Add(this.ibSettings);
             this.mpBottomSideBarPanell.Controls.Add(this.ibDarkMode);
             this.mpBottomSideBarPanell.HorizontalScrollbarBarColor = false;
             this.mpBottomSideBarPanell.HorizontalScrollbarHighlightOnWheel = false;
@@ -112,22 +110,6 @@
             this.mpBottomSideBarPanell.VerticalScrollbarBarColor = true;
             this.mpBottomSideBarPanell.VerticalScrollbarHighlightOnWheel = false;
             this.mpBottomSideBarPanell.VerticalScrollbarSize = 10;
-            // 
-            // ibSettings
-            // 
-            this.ibSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibSettings.FlatAppearance.BorderSize = 0;
-            this.ibSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ibSettings.IconChar = FontAwesome.Sharp.IconChar.Gear;
-            this.ibSettings.IconColor = System.Drawing.Color.Black;
-            this.ibSettings.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.ibSettings.IconSize = 30;
-            this.ibSettings.Location = new System.Drawing.Point(180, 0);
-            this.ibSettings.Name = "ibSettings";
-            this.ibSettings.Size = new System.Drawing.Size(32, 34);
-            this.ibSettings.TabIndex = 6;
-            this.ibSettings.UseVisualStyleBackColor = true;
             // 
             // ibDarkMode
             // 
@@ -601,7 +583,6 @@
         private FontAwesome.Sharp.IconPictureBox ipbUserPicture;
         private MetroFramework.Controls.MetroPanel mpReminders;
         private MetroFramework.Controls.MetroPanel mpRecentlyUsed;
-        private FontAwesome.Sharp.IconButton ibSettings;
         private FontAwesome.Sharp.IconButton ibDarkMode;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroPanel mpBottomSideBarPanell;
