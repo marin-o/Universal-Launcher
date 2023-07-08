@@ -64,7 +64,7 @@ namespace Universal_Launcher {
         private void btnAddNote_Click(object sender, EventArgs e)
         {
             CreateNote note;
-            if( rtbNotes.Text != string.Empty ) {
+            if( rtbNotes.Text != string.Empty && lbNotes.SelectedIndex == -1) {
                 note = new CreateNote(rtbNotes.Text);
             }
             else {

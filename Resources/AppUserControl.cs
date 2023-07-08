@@ -92,5 +92,11 @@ namespace Universal_Launcher {
             }
             
         }
+
+        private void btnFavorite_Click(object sender, EventArgs e) {
+            Form1 parent = (Form1)ParentForm;
+            parent.Apps.AddFavorite(mainApp);
+            parent.lvFavorites.Items.Add(mainApp.Name);
+        }
     }
 }

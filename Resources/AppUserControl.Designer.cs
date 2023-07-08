@@ -31,6 +31,7 @@ namespace Universal_Launcher {
             this.tbChangeName = new MetroFramework.Controls.MetroTextBox();
             this.lblAppName = new System.Windows.Forms.Label();
             this.btnDel = new FontAwesome.Sharp.IconButton();
+            this.btnFavorite = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,16 +128,33 @@ namespace Universal_Launcher {
             this.btnDel.IconSize = 25;
             this.btnDel.Location = new System.Drawing.Point(278, 0);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(19, 32);
+            this.btnDel.Size = new System.Drawing.Size(19, 23);
             this.btnDel.TabIndex = 10;
             this.btnDel.UseVisualStyleBackColor = true;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnFavorite
+            // 
+            this.btnFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFavorite.FlatAppearance.BorderSize = 0;
+            this.btnFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFavorite.IconChar = FontAwesome.Sharp.IconChar.Star;
+            this.btnFavorite.IconColor = System.Drawing.Color.Black;
+            this.btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnFavorite.IconSize = 25;
+            this.btnFavorite.Location = new System.Drawing.Point(278, 26);
+            this.btnFavorite.Name = "btnFavorite";
+            this.btnFavorite.Size = new System.Drawing.Size(19, 23);
+            this.btnFavorite.TabIndex = 11;
+            this.btnFavorite.UseVisualStyleBackColor = true;
+            this.btnFavorite.Click += new System.EventHandler(this.btnFavorite_Click);
             // 
             // AppUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.btnFavorite);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.lblAppName);
             this.Controls.Add(this.tbChangeName);
@@ -159,5 +177,6 @@ namespace Universal_Launcher {
         private MetroFramework.Controls.MetroTextBox tbChangeName;
         private System.Windows.Forms.Label lblAppName;
         private FontAwesome.Sharp.IconButton btnDel;
+        private FontAwesome.Sharp.IconButton btnFavorite;
     }
 }

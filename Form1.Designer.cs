@@ -56,7 +56,7 @@
             this.btnRemoveNotes = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvFavorites = new System.Windows.Forms.ListView();
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
@@ -342,7 +342,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(218, 37);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(943, 460);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -360,7 +360,7 @@
             this.Home.HorizontalScrollbarSize = 10;
             this.Home.Location = new System.Drawing.Point(4, 38);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(912, 398);
+            this.Home.Size = new System.Drawing.Size(935, 418);
             this.Home.TabIndex = 0;
             this.Home.Text = "Home";
             this.Home.VerticalScrollbarBarColor = true;
@@ -507,22 +507,22 @@
             // 
             this.panelFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelFavorites.Controls.Add(this.listView1);
+            this.panelFavorites.Controls.Add(this.lvFavorites);
             this.panelFavorites.Location = new System.Drawing.Point(3, 23);
             this.panelFavorites.Name = "panelFavorites";
             this.panelFavorites.Size = new System.Drawing.Size(390, 350);
             this.panelFavorites.TabIndex = 2;
             // 
-            // listView1
+            // lvFavorites
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(18, 23);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(349, 301);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvFavorites.HideSelection = false;
+            this.lvFavorites.Location = new System.Drawing.Point(18, 23);
+            this.lvFavorites.Name = "lvFavorites";
+            this.lvFavorites.Size = new System.Drawing.Size(349, 301);
+            this.lvFavorites.TabIndex = 0;
+            this.lvFavorites.UseCompatibleStateImageBehavior = false;
             // 
             // tpTestChildren
             // 
@@ -619,7 +619,6 @@
         private System.Windows.Forms.Button btnRemoveNotes;
         private System.Windows.Forms.Button btnAddNote;
         private System.Windows.Forms.Button btnAddReminder;
-        private System.Windows.Forms.ListView listView1;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
@@ -635,6 +634,7 @@
         private System.Windows.Forms.RichTextBox rtbSideBarNoteText;
         private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
+        public System.Windows.Forms.ListView lvFavorites;
     }
 }
 
