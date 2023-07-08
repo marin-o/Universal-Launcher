@@ -97,6 +97,7 @@
     <Compile Include="App_Items\Factories\SubAppFactory.cs" />
     <Compile Include="App_Items\MainApp.cs" />
     <Compile Include="App_Items\SubApp.cs" />
+    <Compile Include="DarkMode.cs" />
     <Compile Include="Notes_Items\CreateNote.cs">
       <SubType>Form</SubType>
     </Compile>

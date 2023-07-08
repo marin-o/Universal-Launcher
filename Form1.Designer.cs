@@ -45,10 +45,13 @@
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnAddReminder = new MetroFramework.Controls.MetroButton();
             this.lvReminders = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRemoveNote = new MetroFramework.Controls.MetroButton();
+            this.btnAddNote = new MetroFramework.Controls.MetroButton();
             this.lbNotes = new System.Windows.Forms.ListBox();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
@@ -58,8 +61,11 @@
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAddRemeinder = new MetroFramework.Controls.MetroButton();
+            this.btnRemoveNotes = new MetroFramework.Controls.MetroButton();
             this.ttTipDoubleClick = new System.Windows.Forms.ToolTip(this.components);
-            this.panelUsername = new System.Windows.Forms.Panel();
+            this.msmForm1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.mpLoginScreen = new MetroFramework.Controls.MetroPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,10 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.mtbEnterUsername = new MetroFramework.Controls.MetroTextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAddNote = new MetroFramework.Controls.MetroButton();
-            this.btnRemoveNote = new MetroFramework.Controls.MetroButton();
-            this.btnAddReminder = new MetroFramework.Controls.MetroButton();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -85,8 +87,8 @@
             this.panel2.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             this.tpTestChildren.SuspendLayout();
-            this.panelUsername.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).BeginInit();
+            this.mpLoginScreen.SuspendLayout();
             this.SuspendLayout();
             // 
             // mpSidePanel
@@ -130,7 +132,7 @@
             this.ibDarkMode.FlatAppearance.BorderSize = 0;
             this.ibDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
-            this.ibDarkMode.IconColor = System.Drawing.Color.Black;
+            this.ibDarkMode.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(150)))), ((int)(((byte)(14)))));
             this.ibDarkMode.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ibDarkMode.IconSize = 25;
             this.ibDarkMode.Location = new System.Drawing.Point(1, 0);
@@ -138,6 +140,7 @@
             this.ibDarkMode.Size = new System.Drawing.Size(32, 34);
             this.ibDarkMode.TabIndex = 7;
             this.ibDarkMode.UseVisualStyleBackColor = true;
+            this.ibDarkMode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ibDarkMode_MouseClick);
             // 
             // mpNotesNReminders
             // 
@@ -181,12 +184,13 @@
             // 
             this.lvSideBarReminders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvSideBarReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvSideBarReminders.CheckBoxes = true;
             this.lvSideBarReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader4});
             this.lvSideBarReminders.HideSelection = false;
-            this.lvSideBarReminders.Location = new System.Drawing.Point(-1, -1);
+            this.lvSideBarReminders.Location = new System.Drawing.Point(-2, -1);
             this.lvSideBarReminders.Name = "lvSideBarReminders";
             this.lvSideBarReminders.Size = new System.Drawing.Size(213, 132);
             this.lvSideBarReminders.TabIndex = 6;
@@ -228,9 +232,9 @@
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(-1, 147);
+            this.metroPanel1.Location = new System.Drawing.Point(-1, 166);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(213, 134);
+            this.metroPanel1.Size = new System.Drawing.Size(213, 115);
             this.metroPanel1.TabIndex = 2;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -241,7 +245,7 @@
             this.lblNoteTitleSideBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblNoteTitleSideBar.Enabled = false;
             this.lblNoteTitleSideBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoteTitleSideBar.Location = new System.Drawing.Point(-2, 5);
+            this.lblNoteTitleSideBar.Location = new System.Drawing.Point(-2, 2);
             this.lblNoteTitleSideBar.Name = "lblNoteTitleSideBar";
             this.lblNoteTitleSideBar.Size = new System.Drawing.Size(213, 19);
             this.lblNoteTitleSideBar.TabIndex = 4;
@@ -250,8 +254,9 @@
             // rtbSideBarNoteText
             // 
             this.rtbSideBarNoteText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSideBarNoteText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbSideBarNoteText.Enabled = false;
-            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 29);
+            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 19);
             this.rtbSideBarNoteText.Name = "rtbSideBarNoteText";
             this.rtbSideBarNoteText.Size = new System.Drawing.Size(213, 104);
             this.rtbSideBarNoteText.TabIndex = 3;
@@ -374,11 +379,23 @@
             this.panel3.Size = new System.Drawing.Size(522, 175);
             this.panel3.TabIndex = 4;
             // 
+            // btnAddReminder
+            // 
+            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddReminder.Location = new System.Drawing.Point(408, 147);
+            this.btnAddReminder.Name = "btnAddReminder";
+            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddReminder.TabIndex = 7;
+            this.btnAddReminder.Text = "Add";
+            this.btnAddReminder.UseSelectable = true;
+            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
+            // 
             // lvReminders
             // 
             this.lvReminders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvReminders.CheckBoxes = true;
             this.lvReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader2,
@@ -415,13 +432,36 @@
             this.panel2.Size = new System.Drawing.Size(522, 150);
             this.panel2.TabIndex = 3;
             // 
+            // btnRemoveNote
+            // 
+            this.btnRemoveNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRemoveNote.Location = new System.Drawing.Point(401, 123);
+            this.btnRemoveNote.Name = "btnRemoveNote";
+            this.btnRemoveNote.Size = new System.Drawing.Size(104, 23);
+            this.btnRemoveNote.TabIndex = 6;
+            this.btnRemoveNote.Text = "Remove";
+            this.btnRemoveNote.UseSelectable = true;
+            this.btnRemoveNote.Click += new System.EventHandler(this.btnRemoveNotes_Click);
+            // 
+            // btnAddNote
+            // 
+            this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAddNote.Location = new System.Drawing.Point(291, 123);
+            this.btnAddNote.Name = "btnAddNote";
+            this.btnAddNote.Size = new System.Drawing.Size(104, 23);
+            this.btnAddNote.TabIndex = 5;
+            this.btnAddNote.Text = "Add";
+            this.btnAddNote.UseSelectable = true;
+            this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
+            // 
             // lbNotes
             // 
             this.lbNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lbNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbNotes.FormattingEnabled = true;
             this.lbNotes.Location = new System.Drawing.Point(291, 23);
             this.lbNotes.Name = "lbNotes";
-            this.lbNotes.Size = new System.Drawing.Size(214, 95);
+            this.lbNotes.Size = new System.Drawing.Size(214, 91);
             this.lbNotes.TabIndex = 4;
             this.lbNotes.SelectedIndexChanged += new System.EventHandler(this.lbNotes_SelectedIndexChanged);
             this.lbNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbNotes_MouseDoubleClick);
@@ -469,6 +509,7 @@
             // 
             this.lvFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvFavorites.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvFavorites.HideSelection = false;
             this.lvFavorites.Location = new System.Drawing.Point(18, 23);
             this.lvFavorites.MultiSelect = false;
@@ -477,7 +518,6 @@
             this.lvFavorites.SmallImageList = this.imgListIcons;
             this.lvFavorites.TabIndex = 0;
             this.lvFavorites.UseCompatibleStateImageBehavior = false;
-            this.lvFavorites.SelectedIndexChanged += new System.EventHandler(this.lvFavorites_SelectedIndexChanged);
             this.lvFavorites.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFavorites_MouseDoubleClick);
             // 
             // imgListIcons
@@ -523,61 +563,93 @@
             this.flpLibrary.Size = new System.Drawing.Size(935, 389);
             this.flpLibrary.TabIndex = 4;
             // 
-            // panelUsername
+            // btnAddRemeinder
             // 
-            this.panelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnAddRemeinder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddRemeinder.Location = new System.Drawing.Point(409, 147);
+            this.btnAddRemeinder.Name = "btnAddRemeinder";
+            this.btnAddRemeinder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddRemeinder.TabIndex = 6;
+            this.btnAddRemeinder.Text = "Add";
+            this.btnAddRemeinder.UseSelectable = true;
+            this.btnAddRemeinder.Click += new System.EventHandler(this.btnAddReminder_Click);
+            // 
+            // btnRemoveNotes
+            // 
+            this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRemoveNotes.Location = new System.Drawing.Point(401, 123);
+            this.btnRemoveNotes.Name = "btnRemoveNotes";
+            this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
+            this.btnRemoveNotes.TabIndex = 6;
+            this.btnRemoveNotes.Text = "Remove";
+            this.btnRemoveNotes.UseSelectable = true;
+            this.btnRemoveNotes.Click += new System.EventHandler(this.btnRemoveNotes_Click);
+            // 
+            // msmForm1
+            // 
+            this.msmForm1.Owner = this;
+            // 
+            // mpLoginScreen
+            // 
+            this.mpLoginScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUsername.Controls.Add(this.label6);
-            this.panelUsername.Controls.Add(this.label5);
-            this.panelUsername.Controls.Add(this.label4);
-            this.panelUsername.Controls.Add(this.label3);
-            this.panelUsername.Controls.Add(this.label2);
-            this.panelUsername.Controls.Add(this.label1);
-            this.panelUsername.Controls.Add(this.mtbEnterUsername);
-            this.panelUsername.Location = new System.Drawing.Point(1, 5);
-            this.panelUsername.Name = "panelUsername";
-            this.panelUsername.Size = new System.Drawing.Size(1176, 516);
-            this.panelUsername.TabIndex = 1;
+            this.mpLoginScreen.Controls.Add(this.label6);
+            this.mpLoginScreen.Controls.Add(this.label5);
+            this.mpLoginScreen.Controls.Add(this.label4);
+            this.mpLoginScreen.Controls.Add(this.label3);
+            this.mpLoginScreen.Controls.Add(this.label2);
+            this.mpLoginScreen.Controls.Add(this.label1);
+            this.mpLoginScreen.Controls.Add(this.mtbEnterUsername);
+            this.mpLoginScreen.HorizontalScrollbarBarColor = true;
+            this.mpLoginScreen.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpLoginScreen.HorizontalScrollbarSize = 10;
+            this.mpLoginScreen.Location = new System.Drawing.Point(1, 5);
+            this.mpLoginScreen.Name = "mpLoginScreen";
+            this.mpLoginScreen.Size = new System.Drawing.Size(1174, 516);
+            this.mpLoginScreen.TabIndex = 10;
+            this.mpLoginScreen.VerticalScrollbarBarColor = true;
+            this.mpLoginScreen.VerticalScrollbarHighlightOnWheel = false;
+            this.mpLoginScreen.VerticalScrollbarSize = 10;
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1133, 481);
+            this.label6.Location = new System.Drawing.Point(1135, 489);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
-            this.label6.TabIndex = 6;
+            this.label6.TabIndex = 13;
             this.label6.Text = "migriD";
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1133, 467);
+            this.label5.Location = new System.Drawing.Point(1135, 475);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(36, 13);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 12;
             this.label5.Text = "M-Jak";
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1120, 495);
+            this.label4.Location = new System.Drawing.Point(1122, 503);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 4;
+            this.label4.TabIndex = 11;
             this.label4.Text = "Nik0la23";
             // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1106, 453);
+            this.label3.Location = new System.Drawing.Point(1108, 461);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Powered By:";
             // 
             // label2
@@ -587,10 +659,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(439, 231);
+            this.label2.Location = new System.Drawing.Point(439, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 26);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 9;
             this.label2.Text = "Login:";
             // 
             // label1
@@ -600,10 +672,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(324, 70);
+            this.label1.Location = new System.Drawing.Point(315, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(544, 69);
-            this.label1.TabIndex = 1;
+            this.label1.TabIndex = 8;
             this.label1.Text = "Universal Launcher";
             // 
             // mtbEnterUsername
@@ -615,9 +687,9 @@
             // 
             // 
             this.mtbEnterUsername.CustomButton.Image = null;
-            this.mtbEnterUsername.CustomButton.Location = new System.Drawing.Point(262, 1);
+            this.mtbEnterUsername.CustomButton.Location = new System.Drawing.Point(262, 2);
             this.mtbEnterUsername.CustomButton.Name = "";
-            this.mtbEnterUsername.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.mtbEnterUsername.CustomButton.Size = new System.Drawing.Size(27, 27);
             this.mtbEnterUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mtbEnterUsername.CustomButton.TabIndex = 1;
             this.mtbEnterUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -625,7 +697,7 @@
             this.mtbEnterUsername.CustomButton.Visible = false;
             this.mtbEnterUsername.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.mtbEnterUsername.Lines = new string[0];
-            this.mtbEnterUsername.Location = new System.Drawing.Point(444, 260);
+            this.mtbEnterUsername.Location = new System.Drawing.Point(444, 228);
             this.mtbEnterUsername.MaxLength = 32767;
             this.mtbEnterUsername.Name = "mtbEnterUsername";
             this.mtbEnterUsername.PasswordChar = '\0';
@@ -635,59 +707,22 @@
             this.mtbEnterUsername.SelectionLength = 0;
             this.mtbEnterUsername.SelectionStart = 0;
             this.mtbEnterUsername.ShortcutsEnabled = true;
-            this.mtbEnterUsername.Size = new System.Drawing.Size(292, 31);
-            this.mtbEnterUsername.TabIndex = 0;
+            this.mtbEnterUsername.Size = new System.Drawing.Size(292, 32);
+            this.mtbEnterUsername.TabIndex = 7;
             this.mtbEnterUsername.UseSelectable = true;
             this.mtbEnterUsername.WaterMark = "Enter username";
             this.mtbEnterUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbEnterUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.mtbEnterUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mtbEnterUsername_KeyDown);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // btnAddNote
-            // 
-            this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddNote.Location = new System.Drawing.Point(291, 123);
-            this.btnAddNote.Name = "btnAddNote";
-            this.btnAddNote.Size = new System.Drawing.Size(104, 23);
-            this.btnAddNote.TabIndex = 5;
-            this.btnAddNote.Text = "Add";
-            this.btnAddNote.UseSelectable = true;
-            this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
-            // 
-            // btnRemoveNote
-            // 
-            this.btnRemoveNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveNote.Location = new System.Drawing.Point(401, 123);
-            this.btnRemoveNote.Name = "btnRemoveNote";
-            this.btnRemoveNote.Size = new System.Drawing.Size(104, 23);
-            this.btnRemoveNote.TabIndex = 6;
-            this.btnRemoveNote.Text = "Remove";
-            this.btnRemoveNote.UseSelectable = true;
-            this.btnRemoveNote.Click += new System.EventHandler(this.btnRemoveNotes_Click);
-            // 
-            // btnAddReminder
-            // 
-            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(408, 147);
-            this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
-            this.btnAddReminder.TabIndex = 7;
-            this.btnAddReminder.Text = "Add";
-            this.btnAddReminder.UseSelectable = true;
-            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
+            this.Controls.Add(this.mpLoginScreen);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
-            this.Controls.Add(this.panelUsername);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -710,9 +745,9 @@
             this.panel2.ResumeLayout(false);
             this.panelFavorites.ResumeLayout(false);
             this.tpTestChildren.ResumeLayout(false);
-            this.panelUsername.ResumeLayout(false);
-            this.panelUsername.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).EndInit();
+            this.mpLoginScreen.ResumeLayout(false);
+            this.mpLoginScreen.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -753,21 +788,23 @@
         private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
         public System.Windows.Forms.ListView lvFavorites;
-        private System.Windows.Forms.Panel panelUsername;
-        private MetroFramework.Controls.MetroTextBox mtbEnterUsername;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private MetroFramework.Components.MetroStyleManager msmForm1;
+        private MetroFramework.Controls.MetroButton btnAddRemeinder;
+        private MetroFramework.Controls.MetroButton btnRemoveNotes;
+        private MetroFramework.Controls.MetroButton btnAddNote;
         private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.ImageList imgListIcons;
         private FontAwesome.Sharp.IconButton ibRemoveFavorite;
         private MetroFramework.Controls.MetroButton btnAddReminder;
         private MetroFramework.Controls.MetroButton btnRemoveNote;
-        private MetroFramework.Controls.MetroButton btnAddNote;
+        private MetroFramework.Controls.MetroPanel mpLoginScreen;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroTextBox mtbEnterUsername;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using MetroFramework;
 using MetroFramework.Forms;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -12,6 +13,7 @@ using System.Windows.Media.Animation;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Notes_Items;
 using Universal_Launcher.Reminders_Items;
+
 
 
 namespace Universal_Launcher {
@@ -34,6 +36,7 @@ namespace Universal_Launcher {
                 return apps;
             }
         }
+        public bool IsDark { get; set; }
         public Form1() {
             InitializeComponent();
             DoubleBuffered = true;
@@ -41,10 +44,15 @@ namespace Universal_Launcher {
             lvFavorites.LargeImageList = imgListIcons;
             lvFavorites.Columns.Add("App Name",100);
             lvFavorites.Columns.Add("Icon",100);
+            this.StyleManager = msmForm1;
+            IsDark = false;
+            DeserializeDark();
+            IsDark = !IsDark;
+            ibDarkMode_MouseClick(null, null);
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            //Deserialize();
+            
         }
 
         private void AddUc(AppUserControl uc) {
@@ -177,6 +185,8 @@ namespace Universal_Launcher {
             SerializeToBinary(notes, notesPath);
             string remindersPath = Path.Combine(exePath, $"reminders-{lblCurrentUser.Text}.ul");
             SerializeToBinary(reminders, remindersPath);
+            string darkPath = Path.Combine(exePath, $"dark.ul");
+            SerializeToBinary(IsDark, darkPath);
         }
         private void SerializeToBinary(object data, string path) {
             IFormatter f = new BinaryFormatter();
@@ -196,8 +206,23 @@ namespace Universal_Launcher {
             PopulateNotes();
             DeserializeReminders(remindersPath);
             PopulateReminders();
+            
         }
 
+        private void DeserializeDark() {
+            string exePath = AppDomain.CurrentDomain.BaseDirectory;
+            string darkPath = Path.Combine(exePath, $"dark.ul");
+
+            try {
+                FileStream s = new FileStream(darkPath, FileMode.Open);
+                IFormatter f = new BinaryFormatter();
+                IsDark = (bool)f.Deserialize(s);
+                s.Close();
+            }
+            catch( FileNotFoundException ex ) {
+                //MetroMessageBox.Show(this, "There is no dark save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void DeserializeApps(string path) {
             try {
@@ -299,14 +324,74 @@ namespace Universal_Launcher {
                 if( checkUsername() ) { 
                     mtbEnterUsername.Text.Trim();
                     lblCurrentUser.Text = mtbEnterUsername.Text;
-                    panelUsername.Dispose();
+                    mpLoginScreen.Dispose();
                     Deserialize();
                 }
             }
         }
 
-        private void lvFavorites_SelectedIndexChanged(object sender, EventArgs e) {
-            
+        private void ibDarkMode_MouseClick(object sender, MouseEventArgs e)
+        {
+            IsDark = !IsDark;
+            if (IsDark)
+            {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Dark;
+                panelFavorites.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel2.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel3.BackColor = Color.FromArgb(255, 44, 45, 45);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Sun;
+                lvFavorites.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvSideBarReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.ForeColor = Color.White;
+                rtbNotes.ForeColor = Color.White;
+                lvReminders.ForeColor = Color.White;
+                lvSideBarReminders.ForeColor = Color.White;
+                flpLibrary.BackColor = Color.Black;
+                ipbUserPicture.BackColor = Color.FromArgb(255, 15, 17, 16);
+                ipbUserPicture.IconColor = Color.White;
+                lblCurrentUser.ForeColor = Color.White;
+                lvFavorites.ForeColor = Color.White;
+                label1.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                label3.ForeColor = Color.White;
+                label4.ForeColor = Color.White;
+                label5.ForeColor = Color.White;
+                label6.ForeColor = Color.White;
+            }
+            else
+            {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Light;
+                panelFavorites.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel2.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel3.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
+                lvFavorites.BackColor = Color.White;
+                rtbNotes.BackColor = Color.White;
+                lbNotes.BackColor = Color.White;
+                lvReminders.BackColor = Color.White;
+                lvSideBarReminders.BackColor = Color.White;
+                rtbSideBarNoteText.BackColor = Color.White;
+                lbNotes.ForeColor = Color.Black;
+                rtbNotes.ForeColor = Color.Black;
+                lvReminders.ForeColor = Color.Black;
+                lvSideBarReminders.ForeColor = Color.Black;
+                flpLibrary.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ipbUserPicture.BackColor = Color.White;
+                ipbUserPicture.IconColor = Color.Black;
+                lblCurrentUser.ForeColor = Color.Black;
+                lvFavorites.ForeColor = Color.Black;
+                label1.ForeColor = Color.Black;
+                label2.ForeColor = Color.Black;
+                label3.ForeColor = Color.Black;
+                label4.ForeColor = Color.Black;
+                label5.ForeColor = Color.Black;
+                label6.ForeColor = Color.Black;
+            }
+
         }
 
         private void lvFavorites_MouseDoubleClick(object sender, MouseEventArgs e) {
@@ -322,7 +407,7 @@ namespace Universal_Launcher {
         }
 
         private void ibRemoveFavorite_Click(object sender, EventArgs e) {
-            if(lvFavorites.SelectedItems.Count > 0 ) {
+            if( lvFavorites.SelectedItems.Count > 0 ) {
                 ListViewItem i = lvFavorites.SelectedItems[0];
                 App app = i.Tag as App;
                 if( app != null ) {
@@ -333,4 +418,5 @@ namespace Universal_Launcher {
         }
     }
 }
-
+        
+    
