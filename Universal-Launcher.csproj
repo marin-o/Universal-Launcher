@@ -87,7 +87,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account_Items\Account.cs" />
     <Compile Include="App_Items\App.cs" />
     <Compile Include="App_Items\AppDoesNotExistException.cs" />
     <Compile Include="App_Items\AppRepository.cs" />

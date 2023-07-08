@@ -37,7 +37,7 @@
             this.lblNoteTitleSideBar = new System.Windows.Forms.TextBox();
             this.rtbSideBarNoteText = new System.Windows.Forms.RichTextBox();
             this.mpAccount = new MetroFramework.Controls.MetroPanel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.ipbUserPicture = new FontAwesome.Sharp.IconPictureBox();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.Home = new MetroFramework.Controls.MetroTabPage();
@@ -60,6 +60,17 @@
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.ttTipDoubleClick = new System.Windows.Forms.ToolTip(this.components);
+            this.panelUsername = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mtbEnterUsername = new MetroFramework.Controls.MetroTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
+            this.ibRemoveFavorite = new FontAwesome.Sharp.IconButton();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -74,6 +85,8 @@
             this.panel2.SuspendLayout();
             this.panelFavorites.SuspendLayout();
             this.tpTestChildren.SuspendLayout();
+            this.panelUsername.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mpSidePanel
@@ -247,7 +260,7 @@
             // mpAccount
             // 
             this.mpAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mpAccount.Controls.Add(this.metroTextBox1);
+            this.mpAccount.Controls.Add(this.lblCurrentUser);
             this.mpAccount.Controls.Add(this.ipbUserPicture);
             this.mpAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.mpAccount.HorizontalScrollbarBarColor = true;
@@ -261,42 +274,14 @@
             this.mpAccount.VerticalScrollbarHighlightOnWheel = false;
             this.mpAccount.VerticalScrollbarSize = 10;
             // 
-            // metroTextBox1
+            // lblCurrentUser
             // 
-            // 
-            // 
-            // 
-            this.metroTextBox1.CustomButton.Enabled = false;
-            this.metroTextBox1.CustomButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.metroTextBox1.CustomButton.FlatAppearance.BorderSize = 0;
-            this.metroTextBox1.CustomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(81, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Enabled = false;
-            this.metroTextBox1.Lines = new string[] {
-        "Username"};
-            this.metroTextBox1.Location = new System.Drawing.Point(58, 3);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(103, 23);
-            this.metroTextBox1.TabIndex = 3;
-            this.metroTextBox1.Text = "Username";
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.Location = new System.Drawing.Point(58, 25);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(35, 13);
+            this.lblCurrentUser.TabIndex = 3;
+            this.lblCurrentUser.Text = "label7";
             // 
             // ipbUserPicture
             // 
@@ -324,7 +309,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(218, 37);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(943, 460);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -489,6 +474,7 @@
             // 
             this.panelFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelFavorites.Controls.Add(this.ibRemoveFavorite);
             this.panelFavorites.Controls.Add(this.lvFavorites);
             this.panelFavorites.Location = new System.Drawing.Point(3, 23);
             this.panelFavorites.Name = "panelFavorites";
@@ -501,10 +487,14 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lvFavorites.HideSelection = false;
             this.lvFavorites.Location = new System.Drawing.Point(18, 23);
+            this.lvFavorites.MultiSelect = false;
             this.lvFavorites.Name = "lvFavorites";
             this.lvFavorites.Size = new System.Drawing.Size(349, 301);
+            this.lvFavorites.SmallImageList = this.imgListIcons;
             this.lvFavorites.TabIndex = 0;
             this.lvFavorites.UseCompatibleStateImageBehavior = false;
+            this.lvFavorites.SelectedIndexChanged += new System.EventHandler(this.lvFavorites_SelectedIndexChanged);
+            this.lvFavorites.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFavorites_MouseDoubleClick);
             // 
             // tpTestChildren
             // 
@@ -524,7 +514,6 @@
             // 
             // btnAddFlow
             // 
-            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddFlow.Location = new System.Drawing.Point(0, 3);
             this.btnAddFlow.Name = "btnAddFlow";
             this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
@@ -544,11 +533,159 @@
             this.flpLibrary.Size = new System.Drawing.Size(935, 389);
             this.flpLibrary.TabIndex = 4;
             // 
+            // panelUsername
+            // 
+            this.panelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUsername.Controls.Add(this.label6);
+            this.panelUsername.Controls.Add(this.label5);
+            this.panelUsername.Controls.Add(this.label4);
+            this.panelUsername.Controls.Add(this.label3);
+            this.panelUsername.Controls.Add(this.label2);
+            this.panelUsername.Controls.Add(this.label1);
+            this.panelUsername.Controls.Add(this.mtbEnterUsername);
+            this.panelUsername.Location = new System.Drawing.Point(1, 5);
+            this.panelUsername.Name = "panelUsername";
+            this.panelUsername.Size = new System.Drawing.Size(1176, 516);
+            this.panelUsername.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(1133, 481);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(36, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "migriD";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1133, 467);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "M-Jak";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1120, 495);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Nik0la23";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1106, 453);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Powered By:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(439, 231);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 26);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Login:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 45F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(324, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(544, 69);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Universal Launcher";
+            // 
+            // mtbEnterUsername
+            // 
+            this.mtbEnterUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.mtbEnterUsername.CustomButton.Image = null;
+            this.mtbEnterUsername.CustomButton.Location = new System.Drawing.Point(262, 1);
+            this.mtbEnterUsername.CustomButton.Name = "";
+            this.mtbEnterUsername.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.mtbEnterUsername.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtbEnterUsername.CustomButton.TabIndex = 1;
+            this.mtbEnterUsername.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtbEnterUsername.CustomButton.UseSelectable = true;
+            this.mtbEnterUsername.CustomButton.Visible = false;
+            this.mtbEnterUsername.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.mtbEnterUsername.Lines = new string[0];
+            this.mtbEnterUsername.Location = new System.Drawing.Point(444, 260);
+            this.mtbEnterUsername.MaxLength = 32767;
+            this.mtbEnterUsername.Name = "mtbEnterUsername";
+            this.mtbEnterUsername.PasswordChar = '\0';
+            this.mtbEnterUsername.PromptText = "Enter username";
+            this.mtbEnterUsername.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtbEnterUsername.SelectedText = "";
+            this.mtbEnterUsername.SelectionLength = 0;
+            this.mtbEnterUsername.SelectionStart = 0;
+            this.mtbEnterUsername.ShortcutsEnabled = true;
+            this.mtbEnterUsername.Size = new System.Drawing.Size(292, 31);
+            this.mtbEnterUsername.TabIndex = 0;
+            this.mtbEnterUsername.UseSelectable = true;
+            this.mtbEnterUsername.WaterMark = "Enter username";
+            this.mtbEnterUsername.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtbEnterUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.mtbEnterUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mtbEnterUsername_KeyDown);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // imgListIcons
+            // 
+            this.imgListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgListIcons.ImageSize = new System.Drawing.Size(32, 32);
+            this.imgListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // ibRemoveFavorite
+            // 
+            this.ibRemoveFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibRemoveFavorite.BackColor = System.Drawing.Color.Transparent;
+            this.ibRemoveFavorite.FlatAppearance.BorderSize = 0;
+            this.ibRemoveFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibRemoveFavorite.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.ibRemoveFavorite.IconColor = System.Drawing.Color.Black;
+            this.ibRemoveFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.ibRemoveFavorite.IconSize = 25;
+            this.ibRemoveFavorite.Location = new System.Drawing.Point(365, 0);
+            this.ibRemoveFavorite.Name = "ibRemoveFavorite";
+            this.ibRemoveFavorite.Size = new System.Drawing.Size(25, 23);
+            this.ibRemoveFavorite.TabIndex = 8;
+            this.ibRemoveFavorite.UseVisualStyleBackColor = false;
+            this.ibRemoveFavorite.Click += new System.EventHandler(this.ibRemoveFavorite_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
+            this.Controls.Add(this.panelUsername);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
@@ -564,6 +701,7 @@
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             this.mpAccount.ResumeLayout(false);
+            this.mpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ipbUserPicture)).EndInit();
             this.metroTabControl1.ResumeLayout(false);
             this.Home.ResumeLayout(false);
@@ -572,6 +710,9 @@
             this.panel2.ResumeLayout(false);
             this.panelFavorites.ResumeLayout(false);
             this.tpTestChildren.ResumeLayout(false);
+            this.panelUsername.ResumeLayout(false);
+            this.panelUsername.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -584,7 +725,6 @@
         private MetroFramework.Controls.MetroPanel mpReminders;
         private MetroFramework.Controls.MetroPanel mpRecentlyUsed;
         private FontAwesome.Sharp.IconButton ibDarkMode;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroPanel mpBottomSideBarPanell;
         private MetroFramework.Controls.MetroPanel mpNotesNReminders;
 
@@ -616,6 +756,18 @@
         private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
         public System.Windows.Forms.ListView lvFavorites;
+        private System.Windows.Forms.Panel panelUsername;
+        private MetroFramework.Controls.MetroTextBox mtbEnterUsername;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label lblCurrentUser;
+        private System.Windows.Forms.ImageList imgListIcons;
+        private FontAwesome.Sharp.IconButton ibRemoveFavorite;
     }
 }
 
