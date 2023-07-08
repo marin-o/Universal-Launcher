@@ -48,14 +48,13 @@
             this.lvReminders = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAddReminder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbNotes = new System.Windows.Forms.ListBox();
-            this.btnAddNote = new System.Windows.Forms.Button();
-            this.btnRemoveNotes = new System.Windows.Forms.Button();
             this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.panelFavorites = new System.Windows.Forms.Panel();
+            this.ibRemoveFavorite = new FontAwesome.Sharp.IconButton();
             this.lvFavorites = new System.Windows.Forms.ListView();
+            this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
@@ -69,8 +68,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mtbEnterUsername = new MetroFramework.Controls.MetroTextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
-            this.ibRemoveFavorite = new FontAwesome.Sharp.IconButton();
+            this.btnAddNote = new MetroFramework.Controls.MetroButton();
+            this.btnRemoveNote = new MetroFramework.Controls.MetroButton();
+            this.btnAddReminder = new MetroFramework.Controls.MetroButton();
             this.mpSidePanel.SuspendLayout();
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
@@ -366,8 +366,8 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.lvReminders);
             this.panel3.Controls.Add(this.btnAddReminder);
+            this.panel3.Controls.Add(this.lvReminders);
             this.panel3.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.panel3.Location = new System.Drawing.Point(408, 198);
             this.panel3.Name = "panel3";
@@ -402,24 +402,13 @@
             this.columnHeader3.Text = "Time";
             this.columnHeader3.Width = 81;
             // 
-            // btnAddReminder
-            // 
-            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddReminder.Location = new System.Drawing.Point(415, 149);
-            this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
-            this.btnAddReminder.TabIndex = 4;
-            this.btnAddReminder.Text = "Add";
-            this.btnAddReminder.UseVisualStyleBackColor = true;
-            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.lbNotes);
+            this.panel2.Controls.Add(this.btnRemoveNote);
             this.panel2.Controls.Add(this.btnAddNote);
-            this.panel2.Controls.Add(this.btnRemoveNotes);
+            this.panel2.Controls.Add(this.lbNotes);
             this.panel2.Controls.Add(this.rtbNotes);
             this.panel2.Location = new System.Drawing.Point(408, 23);
             this.panel2.Name = "panel2";
@@ -437,28 +426,6 @@
             this.lbNotes.SelectedIndexChanged += new System.EventHandler(this.lbNotes_SelectedIndexChanged);
             this.lbNotes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbNotes_MouseDoubleClick);
             this.lbNotes.MouseHover += new System.EventHandler(this.lbNotes_MouseHover);
-            // 
-            // btnAddNote
-            // 
-            this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddNote.Location = new System.Drawing.Point(291, 124);
-            this.btnAddNote.Name = "btnAddNote";
-            this.btnAddNote.Size = new System.Drawing.Size(104, 23);
-            this.btnAddNote.TabIndex = 3;
-            this.btnAddNote.Text = "Add";
-            this.btnAddNote.UseVisualStyleBackColor = true;
-            this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
-            // 
-            // btnRemoveNotes
-            // 
-            this.btnRemoveNotes.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnRemoveNotes.Location = new System.Drawing.Point(401, 124);
-            this.btnRemoveNotes.Name = "btnRemoveNotes";
-            this.btnRemoveNotes.Size = new System.Drawing.Size(104, 23);
-            this.btnRemoveNotes.TabIndex = 2;
-            this.btnRemoveNotes.Text = "Remove";
-            this.btnRemoveNotes.UseVisualStyleBackColor = true;
-            this.btnRemoveNotes.Click += new System.EventHandler(this.btnRemoveNotes_Click);
             // 
             // rtbNotes
             // 
@@ -481,6 +448,23 @@
             this.panelFavorites.Size = new System.Drawing.Size(390, 350);
             this.panelFavorites.TabIndex = 2;
             // 
+            // ibRemoveFavorite
+            // 
+            this.ibRemoveFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibRemoveFavorite.BackColor = System.Drawing.Color.Transparent;
+            this.ibRemoveFavorite.FlatAppearance.BorderSize = 0;
+            this.ibRemoveFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibRemoveFavorite.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.ibRemoveFavorite.IconColor = System.Drawing.Color.Black;
+            this.ibRemoveFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.ibRemoveFavorite.IconSize = 25;
+            this.ibRemoveFavorite.Location = new System.Drawing.Point(365, 0);
+            this.ibRemoveFavorite.Name = "ibRemoveFavorite";
+            this.ibRemoveFavorite.Size = new System.Drawing.Size(25, 23);
+            this.ibRemoveFavorite.TabIndex = 8;
+            this.ibRemoveFavorite.UseVisualStyleBackColor = false;
+            this.ibRemoveFavorite.Click += new System.EventHandler(this.ibRemoveFavorite_Click);
+            // 
             // lvFavorites
             // 
             this.lvFavorites.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -495,6 +479,12 @@
             this.lvFavorites.UseCompatibleStateImageBehavior = false;
             this.lvFavorites.SelectedIndexChanged += new System.EventHandler(this.lvFavorites_SelectedIndexChanged);
             this.lvFavorites.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvFavorites_MouseDoubleClick);
+            // 
+            // imgListIcons
+            // 
+            this.imgListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgListIcons.ImageSize = new System.Drawing.Size(32, 32);
+            this.imgListIcons.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tpTestChildren
             // 
@@ -657,37 +647,47 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // imgListIcons
+            // btnAddNote
             // 
-            this.imgListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imgListIcons.ImageSize = new System.Drawing.Size(32, 32);
-            this.imgListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.btnAddNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAddNote.Location = new System.Drawing.Point(291, 123);
+            this.btnAddNote.Name = "btnAddNote";
+            this.btnAddNote.Size = new System.Drawing.Size(104, 23);
+            this.btnAddNote.TabIndex = 5;
+            this.btnAddNote.Text = "Add";
+            this.btnAddNote.UseSelectable = true;
+            this.btnAddNote.Click += new System.EventHandler(this.btnAddNote_Click);
             // 
-            // ibRemoveFavorite
+            // btnRemoveNote
             // 
-            this.ibRemoveFavorite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibRemoveFavorite.BackColor = System.Drawing.Color.Transparent;
-            this.ibRemoveFavorite.FlatAppearance.BorderSize = 0;
-            this.ibRemoveFavorite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ibRemoveFavorite.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.ibRemoveFavorite.IconColor = System.Drawing.Color.Black;
-            this.ibRemoveFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.ibRemoveFavorite.IconSize = 25;
-            this.ibRemoveFavorite.Location = new System.Drawing.Point(365, 0);
-            this.ibRemoveFavorite.Name = "ibRemoveFavorite";
-            this.ibRemoveFavorite.Size = new System.Drawing.Size(25, 23);
-            this.ibRemoveFavorite.TabIndex = 8;
-            this.ibRemoveFavorite.UseVisualStyleBackColor = false;
-            this.ibRemoveFavorite.Click += new System.EventHandler(this.ibRemoveFavorite_Click);
+            this.btnRemoveNote.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnRemoveNote.Location = new System.Drawing.Point(401, 123);
+            this.btnRemoveNote.Name = "btnRemoveNote";
+            this.btnRemoveNote.Size = new System.Drawing.Size(104, 23);
+            this.btnRemoveNote.TabIndex = 6;
+            this.btnRemoveNote.Text = "Remove";
+            this.btnRemoveNote.UseSelectable = true;
+            this.btnRemoveNote.Click += new System.EventHandler(this.btnRemoveNotes_Click);
+            // 
+            // btnAddReminder
+            // 
+            this.btnAddReminder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddReminder.Location = new System.Drawing.Point(408, 147);
+            this.btnAddReminder.Name = "btnAddReminder";
+            this.btnAddReminder.Size = new System.Drawing.Size(104, 23);
+            this.btnAddReminder.TabIndex = 7;
+            this.btnAddReminder.Text = "Add";
+            this.btnAddReminder.UseSelectable = true;
+            this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
-            this.Controls.Add(this.panelUsername);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.panelUsername);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -737,9 +737,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.RichTextBox rtbNotes;
-        private System.Windows.Forms.Button btnRemoveNotes;
-        private System.Windows.Forms.Button btnAddNote;
-        private System.Windows.Forms.Button btnAddReminder;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
         private MetroFramework.Controls.MetroButton btnAddFlow;
@@ -768,6 +765,9 @@
         private System.Windows.Forms.Label lblCurrentUser;
         private System.Windows.Forms.ImageList imgListIcons;
         private FontAwesome.Sharp.IconButton ibRemoveFavorite;
+        private MetroFramework.Controls.MetroButton btnAddReminder;
+        private MetroFramework.Controls.MetroButton btnRemoveNote;
+        private MetroFramework.Controls.MetroButton btnAddNote;
     }
 }
 
