@@ -43,11 +43,12 @@
             // 
             this.lblAppName.AutoSize = true;
             this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppName.Location = new System.Drawing.Point(60, 16);
+            this.lblAppName.Location = new System.Drawing.Point(60, 13);
+            this.lblAppName.MaximumSize = new System.Drawing.Size(180, 0);
             this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(46, 17);
+            this.lblAppName.Size = new System.Drawing.Size(176, 34);
             this.lblAppName.TabIndex = 10;
-            this.lblAppName.Text = "label1";
+            this.lblAppName.Text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             // 
             // btnRemove
             // 

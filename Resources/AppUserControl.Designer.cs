@@ -109,12 +109,14 @@ namespace Universal_Launcher {
             // lblAppName
             // 
             this.lblAppName.AutoSize = true;
+            this.lblAppName.BackColor = System.Drawing.Color.Transparent;
             this.lblAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppName.Location = new System.Drawing.Point(60, 6);
+            this.lblAppName.MaximumSize = new System.Drawing.Size(120, 20);
             this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(46, 17);
+            this.lblAppName.Size = new System.Drawing.Size(120, 20);
             this.lblAppName.TabIndex = 9;
-            this.lblAppName.Text = "label1";
+            this.lblAppName.Text = "aaaaaaaaaaaaaaaaaaaaaa";
             this.lblAppName.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lblAppName_MouseDoubleClick);
             // 
             // btnDel
