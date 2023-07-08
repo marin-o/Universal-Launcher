@@ -9,25 +9,26 @@ namespace Universal_Launcher {
     [Serializable]
     public partial class AppUserControl : UserControl {
         private MainApp mainApp;
-
         public MainApp MainApp { get { return mainApp; } }
         public string Id { get; set; }
         public event EventHandler AppDeleted;
+
         public AppUserControl(string id) {
             InitializeComponent();
             Id = id;
             cbAddSubApp.SelectedIndex = 0;
         }
 
-        public AppUserControl(MainApp app, Form1 universalLauncherMainForm) {
+        public AppUserControl(MainApp app) {
             InitializeComponent();
             cbAddSubApp.SelectedIndex = 0;
             SetMainApp(app);
-            Parent = universalLauncherMainForm.Controls.Find("flpLibrary", true)[0];
+            //Parent = universalLauncherMainForm.Controls.Find("flpLibrary", true)[0];
         }
 
         public void SetMainApp(MainApp app) {
             mainApp = app;
+            AppUtilities.RedrawIcons(this);
             lblAppName.Text = app.Name;
             pbAppIcon.Image = app.Icon.ToBitmap();
             PopulateSubApps(app);

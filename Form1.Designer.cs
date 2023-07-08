@@ -570,7 +570,6 @@
             this.flpLibrary.Name = "flpLibrary";
             this.flpLibrary.Size = new System.Drawing.Size(823, 369);
             this.flpLibrary.TabIndex = 4;
-            this.flpLibrary.Paint += new System.Windows.Forms.PaintEventHandler(this.flpLibrary_Paint);
             // 
             // Form1
             // 

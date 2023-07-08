@@ -132,6 +132,26 @@ namespace Universal_Launcher.App_Items {
             return null;
         }
 
+        public static AppUserControl RegenrateAUC(App app) {
+            AppUserControl uc = new AppUserControl(app as MainApp);
+            //RedrawIcons(uc);
+            //uc.SetMainApp(app as MainApp);
+            return uc;
+        }
+
+        public static void RedrawIcons(AppUserControl uc) {
+            App app = uc.MainApp;
+            app.Icon = Icon.ExtractAssociatedIcon(app.Path);
+            foreach( SubApp subApp in app.SubApps ) {
+                try {
+                    subApp.Icon = Icon.ExtractAssociatedIcon(subApp.IconPath);
+                }
+                catch (ArgumentException ex){
+                    subApp.Icon = Properties.Resources.folder;
+                }
+            }
+        }
+
         [Serializable]
         public class AppInfo {
             public string Name { get; }

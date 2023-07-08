@@ -1,8 +1,11 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
 using System;
 using System.IO;
+using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Universal_Launcher.App_Items;
 using Universal_Launcher.Notes_Items;
@@ -34,6 +37,7 @@ namespace Universal_Launcher {
         }
 
         private void AddUc(AppUserControl uc) {
+            //uc.Parent = tpTestChildren.Controls.Find("flpLibrary", true)[0];
             tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             uc.AppDeleted += AppCard_AppDeleted;
         }
@@ -103,7 +107,6 @@ namespace Universal_Launcher {
                 reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
                 if(lvSideBarReminders.Items.Count > 0)
                     lvSideBarReminders.Items[e.Item.Index].Remove();
-                //reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
                 e.Item.Remove();
             }
         }
@@ -114,6 +117,7 @@ namespace Universal_Launcher {
         }
         private void Serialize() {
             string exePath = AppDomain.CurrentDomain.BaseDirectory;
+
             string appPath = Path.Combine(exePath, "apps.ul");
             SerializeToBinary(apps, appPath);
             string notesPath = Path.Combine(exePath, "notes.ul");
@@ -123,33 +127,48 @@ namespace Universal_Launcher {
         }
         private void SerializeToBinary(object data, string path) {
             IFormatter f = new BinaryFormatter();
-            FileStream s = new FileStream(path, FileMode.OpenOrCreate);
+            FileStream s = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             f.Serialize(s, data);
-        }
-
-
-        private void DeserializeApps(string path) {
-            IFormatter f = new BinaryFormatter();
-            FileStream s = new FileStream(path, FileMode.Open);
-            apps = f.Deserialize(s) as AppRepository;
             s.Close();
+        }
+        private void DeserializeApps(string path) {
+            try {
+                FileStream s = new FileStream(path, FileMode.Open);
+                IFormatter f = new BinaryFormatter();
+                apps = f.Deserialize(s) as AppRepository;
+                s.Close();
+            }
+            catch( FileNotFoundException ex ) {
+                MetroMessageBox.Show(this, "There is no apps save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
         private void DeserializeNotes(string path) {
-            IFormatter f = new BinaryFormatter();
-            FileStream s = new FileStream(path, FileMode.Open);
-            notes = f.Deserialize(s) as NotesRepository;
-            s.Close();
+            try {
+                FileStream s = new FileStream(path, FileMode.Open);
+                    IFormatter f = new BinaryFormatter();
+                    notes = f.Deserialize(s) as NotesRepository;
+                    s.Close();
+            } catch (FileNotFoundException ex) {
+                MetroMessageBox.Show(this, "There is no notes save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void DeserializeReminders(string path) {
-            IFormatter f = new BinaryFormatter();
-            FileStream s = new FileStream(path, FileMode.Open);
-            reminders = f.Deserialize(s) as RemindersRepository;
-            s.Close();
+            try {
+                FileStream s = new FileStream(path, FileMode.Open);
+                IFormatter f = new BinaryFormatter();
+                reminders = f.Deserialize(s) as RemindersRepository;
+                s.Close();
+            }
+            catch( FileNotFoundException ex ) {
+                MetroMessageBox.Show(this, "There is no reminders save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void PopulateApps() {
             foreach (MainApp app in apps.Apps ) {
-                AppUserControl uc = new AppUserControl(app, this);
+                AppUserControl uc = AppUtilities.RegenrateAUC(app);
+                uc.Parent = this;
                 AddUc(uc);
             }
         }
@@ -180,13 +199,6 @@ namespace Universal_Launcher {
             DeserializeReminders(remindersPath);
             PopulateReminders();
         }
-        
-
-        private void flpLibrary_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void lbNotes_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Left)

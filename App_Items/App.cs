@@ -21,6 +21,7 @@ namespace Universal_Launcher.App_Items {
             Path = path;
             IconPath = iconPath;
             Icon = icon;
+            SubApps = new List<App>();
         }
         public abstract void Launch();
 
