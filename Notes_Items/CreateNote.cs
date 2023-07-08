@@ -16,7 +16,11 @@ namespace Universal_Launcher
         public Note Note { get; set; }
         public CreateNote() {
             InitializeComponent();
+        }
 
+        public CreateNote(string body) {
+            InitializeComponent();
+            mtbNote.Text = body;
         }
 
         private void btnOk_Click(object sender, EventArgs e)

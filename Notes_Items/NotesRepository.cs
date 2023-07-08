@@ -21,10 +21,10 @@ namespace Universal_Launcher.Notes_Items {
         {
             foreach( Note n in Notes ) {
                 if( n.Equals(note) ) {
-                    n.Pinned = true;
+                    n.IsPinned = true;
                 }
                 else {
-                    n.Pinned = false;
+                    n.IsPinned = false;
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace Universal_Launcher.Reminders_Items {
             Reminders.Add(reminder);
         }
 
-        internal void RemoveReminder(Reminder reminder) {
+        public void RemoveReminder(Reminder reminder) {
             Reminders.Remove(reminder);
         }
     }

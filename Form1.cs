@@ -34,10 +34,14 @@ namespace Universal_Launcher {
         }
         public Form1() {
             InitializeComponent();
+            DoubleBuffered = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            Deserialize();
         }
 
         private void AddUc(AppUserControl uc) {
-            //uc.Parent = tpTestChildren.Controls.Find("flpLibrary", true)[0];
             tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             uc.AppDeleted += AppCard_AppDeleted;
         }
@@ -59,7 +63,13 @@ namespace Universal_Launcher {
 
         private void btnAddNote_Click(object sender, EventArgs e)
         {
-            CreateNote note = new CreateNote();
+            CreateNote note;
+            if( rtbNotes.Text != string.Empty ) {
+                note = new CreateNote(rtbNotes.Text);
+            }
+            else {
+                note = new CreateNote();
+            }
             if (note.ShowDialog() == DialogResult.OK)
             {
                 lbNotes.Items.Add(note.Note);
@@ -71,6 +81,10 @@ namespace Universal_Launcher {
         {
             if(lbNotes.SelectedIndex != -1)
             {
+                if (activeNote.IsPinned) {
+                    lblNoteTitleSideBar.Text = "";
+                    rtbSideBarNoteText.Text = "";
+                }
                 notes.Remove(notes.Notes[lbNotes.SelectedIndex]);
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
                 rtbNotes.Text = "";
@@ -105,16 +119,59 @@ namespace Universal_Launcher {
             if(e.Item.Checked)
             {
                 reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
-                if(lvSideBarReminders.Items.Count > 0)
+                if( lvSideBarReminders.Items.Count > 0 ) {
                     lvSideBarReminders.Items[e.Item.Index].Remove();
+                }
+                e.Item.Remove();
+            }
+        }
+        private void lvSideBarReminders_ItemChecked(object sender, ItemCheckedEventArgs e) {
+            if( e.Item.Checked ) {
+                reminders.RemoveReminder(reminders.Reminders[e.Item.Index]);
+                if( lvReminders.Items.Count > 0 ) {
+                    lvReminders.Items[e.Item.Index].Remove();
+                }
                 e.Item.Remove();
             }
         }
 
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e) {
             Serialize();
         }
+
+        private void lbNotes_MouseHover(object sender, EventArgs e) {
+            ttTipDoubleClick.Show("Double click to pin note", lbNotes);
+        }
+
+        private void lbNotes_SelectedIndexChanged(object sender, EventArgs e) {
+            if( lbNotes.SelectedIndex != -1 ) {
+                activeNote = lbNotes.SelectedItem as Note;
+                if( activeNote != null ) {
+                    rtbNotes.Text = activeNote.Body;
+                }
+            }
+        }
+
+        private void lbNotes_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if( e.Button == MouseButtons.Left ) {
+                Note note = lbNotes.SelectedItem as Note;
+                notes.PinNote(note);
+                ResetLbNotes();
+
+                lblNoteTitleSideBar.Text = note.Title;
+                rtbSideBarNoteText.Text = note.Body;
+            }
+        }
+
+        private void ResetLbNotes() {
+            lbNotes.Items.Clear();
+            foreach( Note note in notes.Notes ) {
+                lbNotes.Items.Add(note);
+            }
+        }
+
+        //Serialization and deserialization
+
         private void Serialize() {
             string exePath = AppDomain.CurrentDomain.BaseDirectory;
 
@@ -131,6 +188,21 @@ namespace Universal_Launcher {
             f.Serialize(s, data);
             s.Close();
         }
+        private void Deserialize() {
+            string exePath = AppDomain.CurrentDomain.BaseDirectory;
+            string appPath = Path.Combine(exePath, "apps.ul");
+            string notesPath = Path.Combine(exePath, "notes.ul");
+            string remindersPath = Path.Combine(exePath, "reminders.ul");
+
+            DeserializeApps(appPath);
+            PopulateApps();
+            DeserializeNotes(notesPath);
+            PopulateNotes();
+            DeserializeReminders(remindersPath);
+            PopulateReminders();
+        }
+
+
         private void DeserializeApps(string path) {
             try {
                 FileStream s = new FileStream(path, FileMode.Open);
@@ -139,7 +211,7 @@ namespace Universal_Launcher {
                 s.Close();
             }
             catch( FileNotFoundException ex ) {
-                MetroMessageBox.Show(this, "There is no apps save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MetroMessageBox.Show(this, "There is no apps save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -150,7 +222,7 @@ namespace Universal_Launcher {
                     notes = f.Deserialize(s) as NotesRepository;
                     s.Close();
             } catch (FileNotFoundException ex) {
-                MetroMessageBox.Show(this, "There is no notes save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MetroMessageBox.Show(this, "There is no notes save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void DeserializeReminders(string path) {
@@ -161,7 +233,7 @@ namespace Universal_Launcher {
                 s.Close();
             }
             catch( FileNotFoundException ex ) {
-                MetroMessageBox.Show(this, "There is no reminders save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MetroMessageBox.Show(this, "There is no reminders save file to deserialize", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,55 +258,7 @@ namespace Universal_Launcher {
             }
             lvReminders.Update();
         }
-        private void btnDeserialize_Click(object sender, EventArgs e) {
-            string exePath = AppDomain.CurrentDomain.BaseDirectory;
-            string appPath = Path.Combine(exePath, "apps.ul");
-            string notesPath = Path.Combine(exePath, "notes.ul");
-            string remindersPath = Path.Combine(exePath, "reminders.ul");
-            
-            DeserializeApps(appPath);
-            PopulateApps();
-            DeserializeNotes(notesPath);
-            PopulateNotes();
-            DeserializeReminders(remindersPath);
-            PopulateReminders();
-        }
-        private void lbNotes_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if(e.Button == MouseButtons.Left)
-            {
-                Note note = lbNotes.SelectedItem as Note;
-                notes.PinNote(note);
-                ResetLbNotes();
 
-                lblNoteTitleSideBar.Text = note.Title;
-                rtbSideBarNoteText.Text = note.Body;
-            }
-        }
-        private void ResetLbNotes()
-        {
-            lbNotes.Items.Clear();
-            foreach (Note note in notes.Notes)
-            {
-                lbNotes.Items.Add(note);
-            }
-        }
-
-        private void lbNotes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lbNotes.SelectedIndex != -1)
-            {
-                activeNote = lbNotes.SelectedItem as Note;
-                if (activeNote != null)
-                {
-                    rtbNotes.Text = activeNote.Body;
-                }
-            }
-        }
-
-        private void lbNotes_MouseHover(object sender, EventArgs e)
-        {
-            ttTipDoubleClick.Show("Double click to pin note", lbNotes);
-        }
+        
     }
 }

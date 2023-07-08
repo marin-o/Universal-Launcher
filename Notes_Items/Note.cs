@@ -12,7 +12,7 @@ namespace Universal_Launcher
     {
         public string Title { get; set; }
         public string Body { get; set; }
-        public bool Pinned { get; set; }
+        public bool IsPinned { get; set; }
 
         public Note(string title, string body) {
             if( title == string.Empty && body == string.Empty )
@@ -25,7 +25,7 @@ namespace Universal_Launcher
 
         public override string ToString()
         {
-            if (Pinned)
+            if (IsPinned)
             {
                 return $"{Title} - Pinned"; // worst case scenario
             }

@@ -58,7 +58,6 @@
             this.panelFavorites = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
-            this.btnDeserialize = new MetroFramework.Controls.MetroButton();
             this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.ttTipDoubleClick = new System.Windows.Forms.ToolTip(this.components);
@@ -185,6 +184,7 @@
             // 
             // lvSideBarReminders
             // 
+            this.lvSideBarReminders.CheckBoxes = true;
             this.lvSideBarReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader4});
@@ -195,6 +195,7 @@
             this.lvSideBarReminders.TabIndex = 6;
             this.lvSideBarReminders.UseCompatibleStateImageBehavior = false;
             this.lvSideBarReminders.View = System.Windows.Forms.View.Details;
+            this.lvSideBarReminders.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvSideBarReminders_ItemChecked);
             // 
             // columnHeader1
             // 
@@ -523,7 +524,6 @@
             // 
             // tpTestChildren
             // 
-            this.tpTestChildren.Controls.Add(this.btnDeserialize);
             this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.flpLibrary);
             this.tpTestChildren.HorizontalScrollbarBarColor = true;
@@ -538,21 +538,10 @@
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
             // 
-            // btnDeserialize
-            // 
-            this.btnDeserialize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeserialize.Location = new System.Drawing.Point(664, 3);
-            this.btnDeserialize.Name = "btnDeserialize";
-            this.btnDeserialize.Size = new System.Drawing.Size(75, 23);
-            this.btnDeserialize.TabIndex = 5;
-            this.btnDeserialize.Text = "Deserialize";
-            this.btnDeserialize.UseSelectable = true;
-            this.btnDeserialize.Click += new System.EventHandler(this.btnDeserialize_Click);
-            // 
             // btnAddFlow
             // 
             this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddFlow.Location = new System.Drawing.Point(745, 3);
+            this.btnAddFlow.Location = new System.Drawing.Point(6, 3);
             this.btnAddFlow.Name = "btnAddFlow";
             this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
             this.btnAddFlow.TabIndex = 1;
@@ -582,6 +571,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.mpSidePanel.ResumeLayout(false);
             this.mpBottomSideBarPanell.ResumeLayout(false);
             this.mpNotesNReminders.ResumeLayout(false);
@@ -643,7 +633,6 @@
         private System.Windows.Forms.RichTextBox rtbSideBarNoteText;
         private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
-        private MetroFramework.Controls.MetroButton btnDeserialize;
     }
 }
 
