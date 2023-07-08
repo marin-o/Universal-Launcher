@@ -324,7 +324,7 @@
             this.metroTabControl1.Controls.Add(this.tpTestChildren);
             this.metroTabControl1.Location = new System.Drawing.Point(218, 37);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(943, 460);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -525,7 +525,7 @@
             // btnAddFlow
             // 
             this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddFlow.Location = new System.Drawing.Point(118, 3);
+            this.btnAddFlow.Location = new System.Drawing.Point(0, 3);
             this.btnAddFlow.Name = "btnAddFlow";
             this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
             this.btnAddFlow.TabIndex = 1;
