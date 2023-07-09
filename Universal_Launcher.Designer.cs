@@ -60,7 +60,7 @@
             this.ibRemoveFavorite = new FontAwesome.Sharp.IconButton();
             this.lvFavorites = new System.Windows.Forms.ListView();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
-            this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
+            this.tpLibrary = new MetroFramework.Controls.MetroTabPage();
             this.cbCategories = new MetroFramework.Controls.MetroComboBox();
             this.btnAddFlow = new FontAwesome.Sharp.IconButton();
             this.ibSearch = new FontAwesome.Sharp.IconButton();
@@ -91,7 +91,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelFavorites.SuspendLayout();
-            this.tpTestChildren.SuspendLayout();
+            this.tpLibrary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).BeginInit();
             this.mpLoginScreen.SuspendLayout();
             this.SuspendLayout();
@@ -329,9 +329,9 @@
             this.lblCurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentUser.Location = new System.Drawing.Point(58, 21);
             this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(51, 20);
+            this.lblCurrentUser.Size = new System.Drawing.Size(67, 20);
             this.lblCurrentUser.TabIndex = 3;
-            this.lblCurrentUser.Text = "label7";
+            this.lblCurrentUser.Text = "noname";
             // 
             // ipbUserPicture
             // 
@@ -356,10 +356,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mtcMain.Controls.Add(this.Home);
-            this.mtcMain.Controls.Add(this.tpTestChildren);
+            this.mtcMain.Controls.Add(this.tpLibrary);
             this.mtcMain.Location = new System.Drawing.Point(218, 37);
             this.mtcMain.Name = "mtcMain";
-            this.mtcMain.SelectedIndex = 1;
+            this.mtcMain.SelectedIndex = 0;
             this.mtcMain.Size = new System.Drawing.Size(943, 460);
             this.mtcMain.TabIndex = 0;
             this.mtcMain.UseSelectable = true;
@@ -571,24 +571,24 @@
             this.imgListIcons.ImageSize = new System.Drawing.Size(32, 32);
             this.imgListIcons.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // tpTestChildren
+            // tpLibrary
             // 
-            this.tpTestChildren.Controls.Add(this.cbCategories);
-            this.tpTestChildren.Controls.Add(this.btnAddFlow);
-            this.tpTestChildren.Controls.Add(this.ibSearch);
-            this.tpTestChildren.Controls.Add(this.mtbSearch);
-            this.tpTestChildren.Controls.Add(this.flpLibrary);
-            this.tpTestChildren.HorizontalScrollbarBarColor = true;
-            this.tpTestChildren.HorizontalScrollbarHighlightOnWheel = false;
-            this.tpTestChildren.HorizontalScrollbarSize = 10;
-            this.tpTestChildren.Location = new System.Drawing.Point(4, 38);
-            this.tpTestChildren.Name = "tpTestChildren";
-            this.tpTestChildren.Size = new System.Drawing.Size(935, 418);
-            this.tpTestChildren.TabIndex = 1;
-            this.tpTestChildren.Text = "Library";
-            this.tpTestChildren.VerticalScrollbarBarColor = true;
-            this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
-            this.tpTestChildren.VerticalScrollbarSize = 10;
+            this.tpLibrary.Controls.Add(this.cbCategories);
+            this.tpLibrary.Controls.Add(this.btnAddFlow);
+            this.tpLibrary.Controls.Add(this.ibSearch);
+            this.tpLibrary.Controls.Add(this.mtbSearch);
+            this.tpLibrary.Controls.Add(this.flpLibrary);
+            this.tpLibrary.HorizontalScrollbarBarColor = true;
+            this.tpLibrary.HorizontalScrollbarHighlightOnWheel = false;
+            this.tpLibrary.HorizontalScrollbarSize = 10;
+            this.tpLibrary.Location = new System.Drawing.Point(4, 38);
+            this.tpLibrary.Name = "tpLibrary";
+            this.tpLibrary.Size = new System.Drawing.Size(935, 418);
+            this.tpLibrary.TabIndex = 1;
+            this.tpLibrary.Text = "Library";
+            this.tpLibrary.VerticalScrollbarBarColor = true;
+            this.tpLibrary.VerticalScrollbarHighlightOnWheel = false;
+            this.tpLibrary.VerticalScrollbarSize = 10;
             // 
             // cbCategories
             // 
@@ -864,7 +864,7 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panelFavorites.ResumeLayout(false);
-            this.tpTestChildren.ResumeLayout(false);
+            this.tpLibrary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.msmForm1)).EndInit();
             this.mpLoginScreen.ResumeLayout(false);
             this.mpLoginScreen.PerformLayout();
@@ -893,7 +893,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private System.Windows.Forms.RichTextBox rtbNotes;
 
-        private MetroFramework.Controls.MetroTabPage tpTestChildren;
+        private MetroFramework.Controls.MetroTabPage tpLibrary;
         private System.Windows.Forms.FlowLayoutPanel flpLibrary;
         private System.Windows.Forms.ListView lvReminders;
         private System.Windows.Forms.ColumnHeader columnHeader2;

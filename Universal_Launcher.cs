@@ -54,7 +54,7 @@ namespace Universal_Launcher {
         }
 
         private void AddUc(AppUserControl uc) {
-            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
+            tpLibrary.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             uc.AppDeleted += AppCard_AppDeleted;
             uc.AppLaunched += AppCard_AppLaunched;
             uc.CategoryChanged += AppCard_CategoryChanged;
@@ -97,7 +97,7 @@ namespace Universal_Launcher {
         }
         private void AppCard_AppDeleted(object sender, EventArgs e) {
             AppUserControl uc = sender as AppUserControl;
-            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
+            tpLibrary.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
             apps.RemoveApp(uc.MainApp);
             AppUtilities.RemoveFromRepo(uc.MainApp, apps, lbRecentlyUsed, lvFavorites, imgListIcons);
             uc.Dispose();
