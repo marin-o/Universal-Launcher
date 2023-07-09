@@ -96,8 +96,8 @@ namespace Universal_Launcher {
         private void btnRemoveNotes_Click(object sender, EventArgs e) {
             if( lbNotes.SelectedIndex != -1 ) {
                 if( activeNote.IsPinned ) {
-                    lblNoteTitleSideBar.Text = "";
-                    rtbSideBarNoteText.Text = "";
+                    //lblNoteTitleSideBar.Text = "";
+                    //rtbSideBarNoteText.Text = "";
                 }
                 notes.Remove(notes.Notes[lbNotes.SelectedIndex]);
                 lbNotes.Items.RemoveAt(lbNotes.SelectedIndex);
@@ -172,8 +172,8 @@ namespace Universal_Launcher {
                 notes.PinNote(note);
                 ResetLbNotes();
 
-                lblNoteTitleSideBar.Text = note.Title;
-                rtbSideBarNoteText.Text = note.Body;
+                //lblNoteTitleSideBar.Text = note.Title;
+                //rtbSideBarNoteText.Text = note.Body;
             }
         }
 
@@ -292,8 +292,8 @@ namespace Universal_Launcher {
                 lbNotes.Items.Add(note);
             }
             if( notes.PinnedNote != null ) {
-                lblNoteTitleSideBar.Text = notes.PinnedNote.Title;
-                rtbSideBarNoteText.Text = notes.PinnedNote.Body;
+                //lblNoteTitleSideBar.Text = notes.PinnedNote.Title;
+                //rtbSideBarNoteText.Text = notes.PinnedNote.Body;
             }
         }
 
@@ -355,7 +355,7 @@ namespace Universal_Launcher {
                 lbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
                 lvReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
                 lvSideBarReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
-                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                //rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
                 lbNotes.ForeColor = Color.White;
                 rtbNotes.ForeColor = Color.White;
                 lvReminders.ForeColor = Color.White;
@@ -386,7 +386,7 @@ namespace Universal_Launcher {
                 lbNotes.BackColor = Color.White;
                 lvReminders.BackColor = Color.White;
                 lvSideBarReminders.BackColor = Color.White;
-                rtbSideBarNoteText.BackColor = Color.White;
+                //rtbSideBarNoteText.BackColor = Color.White;
                 lbNotes.ForeColor = Color.Black;
                 rtbNotes.ForeColor = Color.Black;
                 lvReminders.ForeColor = Color.Black;
