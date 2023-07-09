@@ -60,6 +60,7 @@
             this.lvFavorites = new System.Windows.Forms.ListView();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
+            this.cbCategories = new MetroFramework.Controls.MetroComboBox();
             this.btnAddFlow = new FontAwesome.Sharp.IconButton();
             this.ibSearch = new FontAwesome.Sharp.IconButton();
             this.mtbSearch = new MetroFramework.Controls.MetroTextBox();
@@ -571,6 +572,7 @@
             // 
             // tpTestChildren
             // 
+            this.tpTestChildren.Controls.Add(this.cbCategories);
             this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.ibSearch);
             this.tpTestChildren.Controls.Add(this.mtbSearch);
@@ -587,6 +589,18 @@
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
             // 
+            // cbCategories
+            // 
+            this.cbCategories.FormattingEnabled = true;
+            this.cbCategories.ItemHeight = 23;
+            this.cbCategories.Location = new System.Drawing.Point(620, 2);
+            this.cbCategories.Name = "cbCategories";
+            this.cbCategories.PromptText = "Select category";
+            this.cbCategories.Size = new System.Drawing.Size(121, 29);
+            this.cbCategories.TabIndex = 10;
+            this.cbCategories.UseSelectable = true;
+            this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
+            // 
             // btnAddFlow
             // 
             this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -601,7 +615,7 @@
             this.btnAddFlow.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnAddFlow.IconSize = 25;
             this.btnAddFlow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddFlow.Location = new System.Drawing.Point(1, 0);
+            this.btnAddFlow.Location = new System.Drawing.Point(0, 3);
             this.btnAddFlow.Name = "btnAddFlow";
             this.btnAddFlow.Size = new System.Drawing.Size(29, 29);
             this.btnAddFlow.TabIndex = 9;
@@ -664,9 +678,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpLibrary.AutoScroll = true;
-            this.flpLibrary.Location = new System.Drawing.Point(0, 29);
+            this.flpLibrary.Location = new System.Drawing.Point(0, 35);
             this.flpLibrary.Name = "flpLibrary";
-            this.flpLibrary.Size = new System.Drawing.Size(935, 389);
+            this.flpLibrary.Size = new System.Drawing.Size(935, 383);
             this.flpLibrary.TabIndex = 4;
             // 
             // btnAddRemeinder
@@ -826,9 +840,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
-            this.Controls.Add(this.mpLoginScreen);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.mtcMain);
+            this.Controls.Add(this.mpLoginScreen);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -912,6 +926,7 @@
         private MetroFramework.Controls.MetroTextBox mtbSearch;
         private MetroFramework.Controls.MetroTextBox mtbNoteTitleSidebar;
         private FontAwesome.Sharp.IconButton btnAddFlow;
+        private MetroFramework.Controls.MetroComboBox cbCategories;
     }
 }
 

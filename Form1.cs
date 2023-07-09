@@ -49,12 +49,31 @@ namespace Universal_Launcher {
             DeserializeDark();
             IsDark = !IsDark;
             ibDarkMode_MouseClick(null, null);
+            cbCategories.Items.Add("None");
         }
 
         private void AddUc(AppUserControl uc) {
             tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             uc.AppDeleted += AppCard_AppDeleted;
             uc.AppLaunched += AppCard_AppLaunched;
+            uc.CategoryChanged += AppCard_CategoryChanged;
+        }
+
+        private void AppCard_CategoryChanged(object sender, string e) {
+            string oldCategory = sender as string;
+            if(e.Equals("none",StringComparison.OrdinalIgnoreCase) ) {
+                foreach( App app in apps.Apps ) {
+                    if(oldCategory == app.Category);
+                    break;
+                }
+                apps.RemoveCategory(oldCategory);
+            }
+            else {
+                apps.AddCategory(e); 
+            }
+            cbCategories.Items.Clear();
+            cbCategories.Items.Add("None");
+            cbCategories.Items.AddRange(apps.Categories.ToArray());
         }
 
         private void AppCard_AppLaunched(object sender, App e) {
@@ -180,6 +199,181 @@ namespace Universal_Launcher {
             }
         }
 
+        public void AddAppToFavorites(App app) {
+            foreach( ListViewItem item in lvFavorites.Items ) {
+                if( ( item.Tag as App ).Name.Equals(app.Name) ) {
+                    return;
+                }
+            }
+            imgListIcons.Images.Add(app.Icon);
+            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
+            i.Tag = app;
+            lvFavorites.Items.Add(i);
+            Apps.AddFavorite(app);
+        }
+
+        private void mtbEnterUsername_KeyDown(object sender, KeyEventArgs e) {
+            if( e.KeyCode == Keys.Enter ) {
+
+                if( checkUsername() ) {
+                    mtbEnterUsername.Text.Trim();
+                    lblCurrentUser.Text = mtbEnterUsername.Text;
+                    mpLoginScreen.Dispose();
+                    Deserialize();
+                }
+            }
+        }
+
+        private void ibDarkMode_MouseClick(object sender, MouseEventArgs e) {
+            IsDark = !IsDark;
+            if( IsDark ) {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Dark;
+                panelFavorites.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel2.BackColor = Color.FromArgb(255, 44, 45, 45);
+                panel3.BackColor = Color.FromArgb(255, 44, 45, 45);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Sun;
+                lvFavorites.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lvSideBarReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
+                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbNotes.ForeColor = Color.White;
+                rtbNotes.ForeColor = Color.White;
+                lvReminders.ForeColor = Color.White;
+                lvSideBarReminders.ForeColor = Color.White;
+                flpLibrary.BackColor = Color.Black;
+                ipbUserPicture.BackColor = Color.FromArgb(255, 15, 17, 16);
+                ipbUserPicture.IconColor = Color.FromArgb(255, 100, 100, 100);
+                lblCurrentUser.ForeColor = Color.White;
+                lvFavorites.ForeColor = Color.White;
+                label1.ForeColor = Color.White;
+                label2.ForeColor = Color.White;
+                label3.ForeColor = Color.White;
+                label4.ForeColor = Color.White;
+                label5.ForeColor = Color.White;
+                label6.ForeColor = Color.White;
+                rtbSideBarNoteText.ForeColor = Color.White;
+                mtbNoteTitleSidebar.ForeColor = Color.White;
+                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mtbNoteTitleSidebar.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mpRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbRecentlyUsed.ForeColor = Color.White;
+                ibSearch.IconColor = Color.FromArgb(255, 100, 100, 100);
+                ibSearch.BackColor = Color.FromArgb(255, 15, 17, 16);
+                btnAddFlow.IconColor = Color.FromArgb(255, 100, 100, 100);
+            }
+            else {
+                msmForm1.Theme = MetroFramework.MetroThemeStyle.Light;
+                panelFavorites.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel2.BackColor = Color.FromArgb(255, 240, 240, 240);
+                panel3.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
+                lvFavorites.BackColor = Color.White;
+                rtbNotes.BackColor = Color.White;
+                lbNotes.BackColor = Color.White;
+                lvReminders.BackColor = Color.White;
+                lvSideBarReminders.BackColor = Color.White;
+                rtbSideBarNoteText.BackColor = Color.White;
+                lbNotes.ForeColor = Color.Black;
+                rtbNotes.ForeColor = Color.Black;
+                lvReminders.ForeColor = Color.Black;
+                lvSideBarReminders.ForeColor = Color.Black;
+                flpLibrary.BackColor = Color.FromArgb(255, 240, 240, 240);
+                ipbUserPicture.BackColor = Color.White;
+                ipbUserPicture.IconColor = Color.Black;
+                lblCurrentUser.ForeColor = Color.Black;
+                lvFavorites.ForeColor = Color.Black;
+                label1.ForeColor = Color.Black;
+                label2.ForeColor = Color.Black;
+                label3.ForeColor = Color.Black;
+                label4.ForeColor = Color.Black;
+                label5.ForeColor = Color.Black;
+                label6.ForeColor = Color.Black;
+                rtbSideBarNoteText.ForeColor = Color.Black;
+                mtbNoteTitleSidebar.ForeColor = Color.Black;
+                rtbSideBarNoteText.BackColor = Color.White;
+                mtbNoteTitleSidebar.BackColor = Color.White;
+                mpRecentlyUsed.BackColor = Color.White;
+                lbRecentlyUsed.BackColor = Color.White;
+                lbRecentlyUsed.ForeColor = Color.Black;
+                ibSearch.IconColor = Color.Black;
+                ibSearch.BackColor = Color.White;
+                btnAddFlow.IconColor = Color.Black;
+            }
+
+        }
+
+        private void lvFavorites_MouseDoubleClick(object sender, MouseEventArgs e) {
+            if( e.Button == MouseButtons.Left ) {
+                if( lvFavorites.SelectedItems.Count > 0 ) {
+                    ListViewItem i = lvFavorites.SelectedItems[0];
+                    App app = i.Tag as App;
+                    if( app != null ) {
+                        app.Launch();
+                    }
+                }
+            }
+        }
+
+        private void ibRemoveFavorite_Click(object sender, EventArgs e) {
+            if( lvFavorites.SelectedItems.Count > 0 ) {
+                ListViewItem i = lvFavorites.SelectedItems[0];
+                App app = i.Tag as App;
+                if( app != null ) {
+                    Apps.RemoveFavorite(app);
+                    lvFavorites.Items.Remove(i);
+                }
+            }
+        }
+
+        private void lbRecentlyUsed_MouseDoubleClick(object sender, EventArgs e) {
+            if( lbRecentlyUsed.SelectedIndex != -1 ) {
+                App app = lbRecentlyUsed.SelectedItem as App;
+                if( app != null ) {
+                    app.Launch();
+                }
+            }
+        }
+
+        private void mtbSearch_TextChanged(object sender, EventArgs e) {
+            if( mtbSearch.Text == string.Empty ) {
+                foreach( AppUserControl uc in flpLibrary.Controls ) {
+                    uc.Visible = true;
+                }
+                return;
+            }
+            foreach( AppUserControl uc in flpLibrary.Controls ) {
+                if( uc.MainApp.Name.ToLower().Contains(mtbSearch.Text.ToLower()) ) {
+                    uc.Visible = true;
+                }
+                else {
+                    uc.Visible = false;
+                }
+            }
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e) {
+            if( cbCategories.SelectedIndex != -1 ) {
+                if( cbCategories.SelectedItem.ToString() == "None" ) {
+                    foreach( AppUserControl uc in flpLibrary.Controls ) {
+                        uc.Visible = true;
+                    }
+                    cbCategories.SelectedIndex = -1;
+                    return;
+                }
+                foreach( AppUserControl uc in flpLibrary.Controls ) {
+                    if( uc.MainApp.Category == cbCategories.SelectedItem.ToString() ) {
+                        uc.Visible = true;
+                    }
+                    else {
+                        uc.Visible = false;
+                    }
+                }
+            }
+        }
+
         //Serialization and deserialization
 
         private void Serialize() {
@@ -281,6 +475,10 @@ namespace Universal_Launcher {
                     lbRecentlyUsed.Items.Add(app);
                 }
             }
+
+            foreach(string cat in apps.Categories ) {
+                cbCategories.Items.Add(cat);
+            }
         }
         private void AddAppToFavoritesNoRepo(App app) {
             imgListIcons.Images.Add(app.Icon);
@@ -322,163 +520,7 @@ namespace Universal_Launcher {
             return true;
         }
 
-        public void AddAppToFavorites(App app) {
-            foreach(ListViewItem item in lvFavorites.Items) {
-                if( (item.Tag as App).Name.Equals(app.Name ) ){
-                    return;
-                }
-            }
-            imgListIcons.Images.Add(app.Icon);
-            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
-            i.Tag = app;
-            lvFavorites.Items.Add(i);
-            Apps.AddFavorite(app);
-        }
-
-        private void mtbEnterUsername_KeyDown(object sender, KeyEventArgs e) {
-            if( e.KeyCode == Keys.Enter ) {
-
-                if( checkUsername() ) { 
-                    mtbEnterUsername.Text.Trim();
-                    lblCurrentUser.Text = mtbEnterUsername.Text;
-                    mpLoginScreen.Dispose();
-                    Deserialize();
-                }
-            }
-        }
-
-        private void ibDarkMode_MouseClick(object sender, MouseEventArgs e)
-        {
-            IsDark = !IsDark;
-            if (IsDark)
-            {
-                msmForm1.Theme = MetroFramework.MetroThemeStyle.Dark;
-                panelFavorites.BackColor = Color.FromArgb(255, 44, 45, 45);
-                panel2.BackColor = Color.FromArgb(255, 44, 45, 45);
-                panel3.BackColor = Color.FromArgb(255, 44, 45, 45);
-                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Sun;
-                lvFavorites.BackColor = Color.FromArgb(255, 100, 100, 100);
-                rtbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lbNotes.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lvReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lvSideBarReminders.BackColor = Color.FromArgb(255, 100, 100, 100);
-                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lbNotes.ForeColor = Color.White;
-                rtbNotes.ForeColor = Color.White;
-                lvReminders.ForeColor = Color.White;
-                lvSideBarReminders.ForeColor = Color.White;
-                flpLibrary.BackColor = Color.Black;
-                ipbUserPicture.BackColor = Color.FromArgb(255, 15, 17, 16);
-                ipbUserPicture.IconColor = Color.FromArgb(255,100,100,100);
-                lblCurrentUser.ForeColor = Color.White;
-                lvFavorites.ForeColor = Color.White;
-                label1.ForeColor = Color.White;
-                label2.ForeColor = Color.White;
-                label3.ForeColor = Color.White;
-                label4.ForeColor = Color.White;
-                label5.ForeColor = Color.White;
-                label6.ForeColor = Color.White;
-                rtbSideBarNoteText.ForeColor = Color.White;
-                mtbNoteTitleSidebar.ForeColor = Color.White;
-                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
-                mtbNoteTitleSidebar.BackColor = Color.FromArgb(255, 100, 100, 100);
-                mpRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lbRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
-                lbRecentlyUsed.ForeColor = Color.White;
-                ibSearch.IconColor= Color.FromArgb(255,100,100,100);
-                ibSearch.BackColor = Color.FromArgb(255, 15,17,16);
-                btnAddFlow.IconColor = Color.FromArgb(255, 100, 100, 100);
-            }
-            else
-            {
-                msmForm1.Theme = MetroFramework.MetroThemeStyle.Light;
-                panelFavorites.BackColor = Color.FromArgb(255, 240, 240, 240);
-                panel2.BackColor = Color.FromArgb(255, 240, 240, 240);
-                panel3.BackColor = Color.FromArgb(255, 240, 240, 240);
-                ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
-                lvFavorites.BackColor = Color.White;
-                rtbNotes.BackColor = Color.White;
-                lbNotes.BackColor = Color.White;
-                lvReminders.BackColor = Color.White;
-                lvSideBarReminders.BackColor = Color.White;
-                rtbSideBarNoteText.BackColor = Color.White;
-                lbNotes.ForeColor = Color.Black;
-                rtbNotes.ForeColor = Color.Black;
-                lvReminders.ForeColor = Color.Black;
-                lvSideBarReminders.ForeColor = Color.Black;
-                flpLibrary.BackColor = Color.FromArgb(255, 240, 240, 240);
-                ipbUserPicture.BackColor = Color.White;
-                ipbUserPicture.IconColor = Color.Black;
-                lblCurrentUser.ForeColor = Color.Black;
-                lvFavorites.ForeColor = Color.Black;
-                label1.ForeColor = Color.Black;
-                label2.ForeColor = Color.Black;
-                label3.ForeColor = Color.Black;
-                label4.ForeColor = Color.Black;
-                label5.ForeColor = Color.Black;
-                label6.ForeColor = Color.Black;
-                rtbSideBarNoteText.ForeColor = Color.Black;
-                mtbNoteTitleSidebar.ForeColor = Color.Black;
-                rtbSideBarNoteText.BackColor = Color.White;
-                mtbNoteTitleSidebar.BackColor = Color.White;
-                mpRecentlyUsed.BackColor = Color.White;
-                lbRecentlyUsed.BackColor = Color.White;
-                lbRecentlyUsed.ForeColor = Color.Black;
-                ibSearch.IconColor = Color.Black;
-                ibSearch.BackColor = Color.White;
-                btnAddFlow.IconColor = Color.Black;
-            }
-
-        }
-
-        private void lvFavorites_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if( e.Button == MouseButtons.Left ) {
-                if( lvFavorites.SelectedItems.Count > 0 ) {
-                    ListViewItem i = lvFavorites.SelectedItems[0];
-                    App app = i.Tag as App;
-                    if( app != null ) {
-                        app.Launch();
-                    }
-                }
-            }
-        }
-
-        private void ibRemoveFavorite_Click(object sender, EventArgs e) {
-            if( lvFavorites.SelectedItems.Count > 0 ) {
-                ListViewItem i = lvFavorites.SelectedItems[0];
-                App app = i.Tag as App;
-                if( app != null ) {
-                    Apps.RemoveFavorite(app);
-                    lvFavorites.Items.Remove(i);
-                }
-            }
-        }
-
-        private void lbRecentlyUsed_MouseDoubleClick(object sender, EventArgs e) {
-            if( lbRecentlyUsed.SelectedIndex != -1 ) {
-                App app = lbRecentlyUsed.SelectedItem as App;
-                if( app != null ) {
-                    app.Launch();
-                }
-            }
-        }
-
-        private void mtbSearch_TextChanged(object sender, EventArgs e) {
-            if( mtbSearch.Text == string.Empty ) {
-                foreach( AppUserControl uc in flpLibrary.Controls ) {
-                    uc.Visible = true;
-                }
-                return;
-            }
-            foreach(AppUserControl uc in flpLibrary.Controls ) {
-                  if( uc.MainApp.Name.ToLower().Contains(mtbSearch.Text.ToLower()) ) {
-                    uc.Visible = true;
-                } else {
-                    uc.Visible = false;
-                }
-            }
-        }
-
+        
     }
 }
         

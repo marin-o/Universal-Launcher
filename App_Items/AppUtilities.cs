@@ -118,7 +118,7 @@ namespace Universal_Launcher.App_Items {
             ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
             ofd.Title = "Select an Executable File, Shortcut, or Link File";
             if( ofd.ShowDialog() == DialogResult.OK ) {
-                AppUserControl uc = new AppUserControl(Guid.NewGuid().ToString());
+                AppUserControl uc = new AppUserControl();
                 try {
                     AppInfo info = GetAppInfo(ofd.FileName);
                     App app = GetMainApp(info);

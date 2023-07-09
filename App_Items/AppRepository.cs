@@ -10,6 +10,7 @@ namespace Universal_Launcher.App_Items {
         public List<App> Apps { get; set; } = new List<App>();
         public List<App> Favorites { get; set; } = new List<App>();
         public App[] RecentlyUsed { get; set; } = null;
+        public List<string> Categories { get; set; } = new List<string>();
         private int recentlyUsedIndex = 0;
         public int RecentlyUsedIndex { get { return recentlyUsedIndex; } }
             public void AddApp(App app) {
@@ -37,6 +38,14 @@ namespace Universal_Launcher.App_Items {
                 recentlyUsedIndex = 0;
             }
         }
-        
+
+        public void AddCategory(string category) {
+            if( !Categories.Contains(category))
+                Categories.Add(category);
+        }
+
+        public void RemoveCategory(string oldCategory) {
+            Categories.Remove(oldCategory);
+        }
     }
 }
