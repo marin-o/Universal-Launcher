@@ -14,8 +14,7 @@ namespace Universal_Launcher.App_Items {
         public string IconPath { get; set; }
         public string Path { get; set; }
         public List<App> SubApps { get; set; }
-
-
+        public string Category { get; set; } = "none"; // "none" is the default category
         public App(string name, string path, string iconPath, Icon icon) {
             Name = name;
             Path = path;
@@ -25,5 +24,8 @@ namespace Universal_Launcher.App_Items {
         }
         public abstract void Launch();
 
+        public override string ToString() {
+            return $"\u2022 {Name}";
+        }
     }
 }

@@ -8,20 +8,21 @@ namespace Universal_Launcher {
     public partial class AppUserControl : UserControl {
         private MainApp mainApp;
         public MainApp MainApp { get { return mainApp; } }
-        public string Id { get; set; }
-        public event EventHandler AppDeleted;
+        private bool ChangeCategory = false;
 
-        public AppUserControl(string id) {
+        public event EventHandler AppDeleted;
+        public event EventHandler<App> AppLaunched;
+        public event EventHandler<string> CategoryChanged;
+
+        public AppUserControl() {
             InitializeComponent();
-            Id = id;
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
         }
 
         public AppUserControl(MainApp app) {
             InitializeComponent();
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
             SetMainApp(app);
-            //Parent = universalLauncherMainForm.Controls.Find("flpLibrary", true)[0];
         }
 
         public void SetMainApp(MainApp app) {
@@ -44,8 +45,11 @@ namespace Universal_Launcher {
         }
 
         private void pbAppIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if( e.Button == MouseButtons.Left )
+            if( e.Button == MouseButtons.Left ) {
                 mainApp.Launch();
+                EventArgs eventArgs = new EventArgs();
+                AppLaunched?.Invoke(null,mainApp);
+            }
         }
 
         private void btnAddSubApp_Click(object sender, EventArgs e) {
@@ -53,7 +57,7 @@ namespace Universal_Launcher {
         }
 
         private void cbAddSubApp_SelectedIndexChanged(object sender, EventArgs e) {
-            if( cbAddSubApp.SelectedIndex == 1 ) {
+            if( cbAddSubApp.SelectedIndex == 0 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateExeSubApp(this);
                 if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
@@ -61,34 +65,44 @@ namespace Universal_Launcher {
                 }
                     
             }
-            else if( cbAddSubApp.SelectedIndex == 2 ) {
+            else if( cbAddSubApp.SelectedIndex == 1 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateFolderSubApp(this, mainApp);
                 if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
                     mainApp.AddApp(uc.SubApp);
                 }
             }
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
         }
 
         private void lblAppName_MouseDoubleClick(object sender, MouseEventArgs e) {
             if(e.Button == MouseButtons.Left ) {
-                tbChangeName.Visible = true;
-                tbChangeName.Enabled = true;
+                tbChangeNameOrCategory.WaterMark = "Enter new name";
+                tbChangeNameOrCategory.Visible = true;
+                tbChangeNameOrCategory.Enabled = true;
             }
         }
 
-        private void tbChangeName_KeyDown(object sender, KeyEventArgs e) {
-            if(e.KeyCode == Keys.Enter ) {
-                lblAppName.Text = tbChangeName.Text;
+        private void tbChangeNameOrCategory_KeyDown(object sender, KeyEventArgs e) {
+            if(e.KeyCode == Keys.Enter && !ChangeCategory) {
+                lblAppName.Text = tbChangeNameOrCategory.Text;
                 mainApp.Name = lblAppName.Text;
-                tbChangeName.Visible = false;
-                tbChangeName.Enabled = false;
-                tbChangeName.Text = "";
-            } else if(e.KeyCode == Keys.Escape ) {
-                tbChangeName.Visible = false;
-                tbChangeName.Enabled = false;
-                tbChangeName.Text = "";
+                tbChangeNameOrCategory.Visible = false;
+                tbChangeNameOrCategory.Enabled = false;
+                tbChangeNameOrCategory.Text = "";
+            } else if(e.KeyCode == Keys.Enter && ChangeCategory) { 
+                string oldCategory = mainApp.Category;
+                mainApp.Category = tbChangeNameOrCategory.Text;
+                CategoryChanged?.Invoke(oldCategory, mainApp.Category);
+                tbChangeNameOrCategory.Visible = false;
+                tbChangeNameOrCategory.Enabled = false;
+                ChangeCategory = false;
+                tbChangeNameOrCategory.Text = "";
+            }
+            else if(e.KeyCode == Keys.Escape) {
+                tbChangeNameOrCategory.Visible = false;
+                tbChangeNameOrCategory.Enabled = false;
+                tbChangeNameOrCategory.Text = "";
             }
             
         }
@@ -96,6 +110,13 @@ namespace Universal_Launcher {
         private void btnFavorite_Click(object sender, EventArgs e) {
             Form1 parent = (Form1)ParentForm;
             parent.AddAppToFavorites(MainApp);
+        }
+
+        private void ibChangeCategory_Click(object sender, EventArgs e) {
+            tbChangeNameOrCategory.Visible = true;
+            tbChangeNameOrCategory.Enabled = true;
+            ChangeCategory = true;
+            tbChangeNameOrCategory.WaterMark = "Enter a category...";
         }
     }
 }

@@ -28,10 +28,11 @@ namespace Universal_Launcher {
             this.pbAppIcon = new System.Windows.Forms.PictureBox();
             this.flpSubApps = new System.Windows.Forms.FlowLayoutPanel();
             this.cbAddSubApp = new MetroFramework.Controls.MetroComboBox();
-            this.tbChangeName = new MetroFramework.Controls.MetroTextBox();
+            this.tbChangeNameOrCategory = new MetroFramework.Controls.MetroTextBox();
             this.lblAppName = new System.Windows.Forms.Label();
             this.btnDel = new FontAwesome.Sharp.IconButton();
             this.btnFavorite = new FontAwesome.Sharp.IconButton();
+            this.ibChangeCategory = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,10 +49,10 @@ namespace Universal_Launcher {
             // 
             this.flpSubApps.AutoScroll = true;
             this.flpSubApps.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpSubApps.Location = new System.Drawing.Point(3, 51);
+            this.flpSubApps.Location = new System.Drawing.Point(3, 71);
             this.flpSubApps.Name = "flpSubApps";
             this.flpSubApps.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
-            this.flpSubApps.Size = new System.Drawing.Size(294, 284);
+            this.flpSubApps.Size = new System.Drawing.Size(294, 264);
             this.flpSubApps.TabIndex = 4;
             this.flpSubApps.WrapContents = false;
             // 
@@ -61,50 +62,50 @@ namespace Universal_Launcher {
             this.cbAddSubApp.FormattingEnabled = true;
             this.cbAddSubApp.ItemHeight = 23;
             this.cbAddSubApp.Items.AddRange(new object[] {
-            "Add",
             "App",
             "Project"});
             this.cbAddSubApp.Location = new System.Drawing.Point(193, 3);
             this.cbAddSubApp.Name = "cbAddSubApp";
+            this.cbAddSubApp.PromptText = "Add";
             this.cbAddSubApp.Size = new System.Drawing.Size(79, 29);
             this.cbAddSubApp.TabIndex = 7;
             this.cbAddSubApp.UseSelectable = true;
             this.cbAddSubApp.SelectedIndexChanged += new System.EventHandler(this.cbAddSubApp_SelectedIndexChanged);
             // 
-            // tbChangeName
+            // tbChangeNameOrCategory
             // 
             // 
             // 
             // 
-            this.tbChangeName.CustomButton.Image = null;
-            this.tbChangeName.CustomButton.Location = new System.Drawing.Point(64, 1);
-            this.tbChangeName.CustomButton.Name = "";
-            this.tbChangeName.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tbChangeName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tbChangeName.CustomButton.TabIndex = 1;
-            this.tbChangeName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tbChangeName.CustomButton.UseSelectable = true;
-            this.tbChangeName.CustomButton.Visible = false;
-            this.tbChangeName.Enabled = false;
-            this.tbChangeName.Lines = new string[0];
-            this.tbChangeName.Location = new System.Drawing.Point(63, 26);
-            this.tbChangeName.MaxLength = 32767;
-            this.tbChangeName.Name = "tbChangeName";
-            this.tbChangeName.PasswordChar = '\0';
-            this.tbChangeName.WaterMark = "Change name";
-            this.tbChangeName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbChangeName.SelectedText = "";
-            this.tbChangeName.SelectionLength = 0;
-            this.tbChangeName.SelectionStart = 0;
-            this.tbChangeName.ShortcutsEnabled = true;
-            this.tbChangeName.Size = new System.Drawing.Size(86, 23);
-            this.tbChangeName.TabIndex = 8;
-            this.tbChangeName.UseSelectable = true;
-            this.tbChangeName.Visible = false;
-            this.tbChangeName.WaterMark = "Change name";
-            this.tbChangeName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tbChangeName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.tbChangeName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbChangeName_KeyDown);
+            this.tbChangeNameOrCategory.CustomButton.Image = null;
+            this.tbChangeNameOrCategory.CustomButton.Location = new System.Drawing.Point(64, 1);
+            this.tbChangeNameOrCategory.CustomButton.Name = "";
+            this.tbChangeNameOrCategory.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.tbChangeNameOrCategory.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbChangeNameOrCategory.CustomButton.TabIndex = 1;
+            this.tbChangeNameOrCategory.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tbChangeNameOrCategory.CustomButton.UseSelectable = true;
+            this.tbChangeNameOrCategory.CustomButton.Visible = false;
+            this.tbChangeNameOrCategory.Enabled = false;
+            this.tbChangeNameOrCategory.Lines = new string[0];
+            this.tbChangeNameOrCategory.Location = new System.Drawing.Point(63, 26);
+            this.tbChangeNameOrCategory.MaxLength = 32767;
+            this.tbChangeNameOrCategory.Name = "tbChangeNameOrCategory";
+            this.tbChangeNameOrCategory.PasswordChar = '\0';
+            this.tbChangeNameOrCategory.PromptText = "Change name";
+            this.tbChangeNameOrCategory.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbChangeNameOrCategory.SelectedText = "";
+            this.tbChangeNameOrCategory.SelectionLength = 0;
+            this.tbChangeNameOrCategory.SelectionStart = 0;
+            this.tbChangeNameOrCategory.ShortcutsEnabled = true;
+            this.tbChangeNameOrCategory.Size = new System.Drawing.Size(86, 23);
+            this.tbChangeNameOrCategory.TabIndex = 8;
+            this.tbChangeNameOrCategory.UseSelectable = true;
+            this.tbChangeNameOrCategory.Visible = false;
+            this.tbChangeNameOrCategory.WaterMark = "Change name";
+            this.tbChangeNameOrCategory.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tbChangeNameOrCategory.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.tbChangeNameOrCategory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbChangeNameOrCategory_KeyDown);
             // 
             // lblAppName
             // 
@@ -151,15 +152,34 @@ namespace Universal_Launcher {
             this.btnFavorite.UseVisualStyleBackColor = true;
             this.btnFavorite.Click += new System.EventHandler(this.btnFavorite_Click);
             // 
+            // ibChangeCategory
+            // 
+            this.ibChangeCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibChangeCategory.FlatAppearance.BorderSize = 0;
+            this.ibChangeCategory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ibChangeCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ibChangeCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibChangeCategory.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
+            this.ibChangeCategory.IconColor = System.Drawing.Color.Black;
+            this.ibChangeCategory.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.ibChangeCategory.IconSize = 25;
+            this.ibChangeCategory.Location = new System.Drawing.Point(278, 47);
+            this.ibChangeCategory.Name = "ibChangeCategory";
+            this.ibChangeCategory.Size = new System.Drawing.Size(19, 23);
+            this.ibChangeCategory.TabIndex = 12;
+            this.ibChangeCategory.UseVisualStyleBackColor = true;
+            this.ibChangeCategory.Click += new System.EventHandler(this.ibChangeCategory_Click);
+            // 
             // AppUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.ibChangeCategory);
             this.Controls.Add(this.btnFavorite);
             this.Controls.Add(this.btnDel);
             this.Controls.Add(this.lblAppName);
-            this.Controls.Add(this.tbChangeName);
+            this.Controls.Add(this.tbChangeNameOrCategory);
             this.Controls.Add(this.cbAddSubApp);
             this.Controls.Add(this.flpSubApps);
             this.Controls.Add(this.pbAppIcon);
@@ -176,9 +196,10 @@ namespace Universal_Launcher {
         private System.Windows.Forms.PictureBox pbAppIcon;
         private System.Windows.Forms.FlowLayoutPanel flpSubApps;
         private MetroFramework.Controls.MetroComboBox cbAddSubApp;
-        private MetroFramework.Controls.MetroTextBox tbChangeName;
+        private MetroFramework.Controls.MetroTextBox tbChangeNameOrCategory;
         private System.Windows.Forms.Label lblAppName;
         private FontAwesome.Sharp.IconButton btnDel;
         private FontAwesome.Sharp.IconButton btnFavorite;
+        private FontAwesome.Sharp.IconButton ibChangeCategory;
     }
 }

@@ -32,12 +32,15 @@
             this.lvSideBarReminders = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mpSidebarNotes = new MetroFramework.Controls.MetroPanel();
+            this.rtbSideBarNoteText = new System.Windows.Forms.RichTextBox();
+            this.mtbNoteTitleSidebar = new MetroFramework.Controls.MetroTextBox();
             this.mpRecentlyUsed = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.lbRecentlyUsed = new System.Windows.Forms.ListBox();
             this.mpAccount = new MetroFramework.Controls.MetroPanel();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.ipbUserPicture = new FontAwesome.Sharp.IconPictureBox();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.mtcMain = new MetroFramework.Controls.MetroTabControl();
             this.Home = new MetroFramework.Controls.MetroTabPage();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -57,7 +60,10 @@
             this.lvFavorites = new System.Windows.Forms.ListView();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
-            this.btnAddFlow = new MetroFramework.Controls.MetroButton();
+            this.cbCategories = new MetroFramework.Controls.MetroComboBox();
+            this.btnAddFlow = new FontAwesome.Sharp.IconButton();
+            this.ibSearch = new FontAwesome.Sharp.IconButton();
+            this.mtbSearch = new MetroFramework.Controls.MetroTextBox();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddRemeinder = new MetroFramework.Controls.MetroButton();
             this.btnRemoveNotes = new MetroFramework.Controls.MetroButton();
@@ -75,10 +81,11 @@
             this.mpBottomSideBarPanell.SuspendLayout();
             this.mpNotesNReminders.SuspendLayout();
             this.mpReminders.SuspendLayout();
+            this.mpSidebarNotes.SuspendLayout();
             this.mpRecentlyUsed.SuspendLayout();
             this.mpAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ipbUserPicture)).BeginInit();
-            this.metroTabControl1.SuspendLayout();
+            this.mtcMain.SuspendLayout();
             this.Home.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -101,7 +108,7 @@
             this.mpSidePanel.HorizontalScrollbarSize = 10;
             this.mpSidePanel.Location = new System.Drawing.Point(0, 5);
             this.mpSidePanel.Name = "mpSidePanel";
-            this.mpSidePanel.Size = new System.Drawing.Size(213, 516);
+            this.mpSidePanel.Size = new System.Drawing.Size(216, 516);
             this.mpSidePanel.Style = MetroFramework.MetroColorStyle.Black;
             this.mpSidePanel.TabIndex = 0;
             this.mpSidePanel.VerticalScrollbarBarColor = true;
@@ -115,9 +122,9 @@
             this.mpBottomSideBarPanell.HorizontalScrollbarBarColor = false;
             this.mpBottomSideBarPanell.HorizontalScrollbarHighlightOnWheel = false;
             this.mpBottomSideBarPanell.HorizontalScrollbarSize = 10;
-            this.mpBottomSideBarPanell.Location = new System.Drawing.Point(0, 481);
+            this.mpBottomSideBarPanell.Location = new System.Drawing.Point(1, 482);
             this.mpBottomSideBarPanell.Name = "mpBottomSideBarPanell";
-            this.mpBottomSideBarPanell.Size = new System.Drawing.Size(212, 34);
+            this.mpBottomSideBarPanell.Size = new System.Drawing.Size(214, 33);
             this.mpBottomSideBarPanell.TabIndex = 8;
             this.mpBottomSideBarPanell.VerticalScrollbarBarColor = true;
             this.mpBottomSideBarPanell.VerticalScrollbarHighlightOnWheel = false;
@@ -127,14 +134,16 @@
             // 
             this.ibDarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ibDarkMode.FlatAppearance.BorderSize = 0;
+            this.ibDarkMode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ibDarkMode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ibDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
             this.ibDarkMode.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(150)))), ((int)(((byte)(14)))));
             this.ibDarkMode.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ibDarkMode.IconSize = 25;
-            this.ibDarkMode.Location = new System.Drawing.Point(1, 0);
+            this.ibDarkMode.Location = new System.Drawing.Point(2, 1);
             this.ibDarkMode.Name = "ibDarkMode";
-            this.ibDarkMode.Size = new System.Drawing.Size(32, 34);
+            this.ibDarkMode.Size = new System.Drawing.Size(28, 32);
             this.ibDarkMode.TabIndex = 7;
             this.ibDarkMode.UseVisualStyleBackColor = true;
             this.ibDarkMode.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ibDarkMode_MouseClick);
@@ -145,6 +154,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.mpNotesNReminders.AutoScroll = true;
             this.mpNotesNReminders.Controls.Add(this.mpReminders);
+            this.mpNotesNReminders.Controls.Add(this.mpSidebarNotes);
             this.mpNotesNReminders.Controls.Add(this.mpRecentlyUsed);
             this.mpNotesNReminders.HorizontalScrollbar = true;
             this.mpNotesNReminders.HorizontalScrollbarBarColor = true;
@@ -152,7 +162,7 @@
             this.mpNotesNReminders.HorizontalScrollbarSize = 10;
             this.mpNotesNReminders.Location = new System.Drawing.Point(0, 67);
             this.mpNotesNReminders.Name = "mpNotesNReminders";
-            this.mpNotesNReminders.Size = new System.Drawing.Size(212, 412);
+            this.mpNotesNReminders.Size = new System.Drawing.Size(216, 412);
             this.mpNotesNReminders.TabIndex = 9;
             this.mpNotesNReminders.VerticalScrollbar = true;
             this.mpNotesNReminders.VerticalScrollbarBarColor = true;
@@ -164,14 +174,13 @@
             this.mpReminders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.mpReminders.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mpReminders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mpReminders.Controls.Add(this.lvSideBarReminders);
             this.mpReminders.HorizontalScrollbarBarColor = true;
             this.mpReminders.HorizontalScrollbarHighlightOnWheel = false;
             this.mpReminders.HorizontalScrollbarSize = 10;
-            this.mpReminders.Location = new System.Drawing.Point(0, 280);
+            this.mpReminders.Location = new System.Drawing.Point(0, 279);
             this.mpReminders.Name = "mpReminders";
-            this.mpReminders.Size = new System.Drawing.Size(212, 132);
+            this.mpReminders.Size = new System.Drawing.Size(216, 137);
             this.mpReminders.TabIndex = 3;
             this.mpReminders.VerticalScrollbarBarColor = true;
             this.mpReminders.VerticalScrollbarHighlightOnWheel = false;
@@ -181,15 +190,16 @@
             // 
             this.lvSideBarReminders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvSideBarReminders.BackColor = System.Drawing.Color.White;
             this.lvSideBarReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvSideBarReminders.CheckBoxes = true;
             this.lvSideBarReminders.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader4});
             this.lvSideBarReminders.HideSelection = false;
-            this.lvSideBarReminders.Location = new System.Drawing.Point(-2, -1);
+            this.lvSideBarReminders.Location = new System.Drawing.Point(0, -1);
             this.lvSideBarReminders.Name = "lvSideBarReminders";
-            this.lvSideBarReminders.Size = new System.Drawing.Size(213, 132);
+            this.lvSideBarReminders.Size = new System.Drawing.Size(215, 138);
             this.lvSideBarReminders.TabIndex = 6;
             this.lvSideBarReminders.UseCompatibleStateImageBehavior = false;
             this.lvSideBarReminders.View = System.Windows.Forms.View.Details;
@@ -198,55 +208,114 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Task";
-            this.columnHeader1.Width = 141;
+            this.columnHeader1.Width = 130;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Time";
-            this.columnHeader4.Width = 68;
+            this.columnHeader4.Width = 83;
+            // 
+            // mpSidebarNotes
+            // 
+            this.mpSidebarNotes.Controls.Add(this.rtbSideBarNoteText);
+            this.mpSidebarNotes.Controls.Add(this.mtbNoteTitleSidebar);
+            this.mpSidebarNotes.HorizontalScrollbarBarColor = true;
+            this.mpSidebarNotes.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpSidebarNotes.HorizontalScrollbarSize = 10;
+            this.mpSidebarNotes.Location = new System.Drawing.Point(0, 143);
+            this.mpSidebarNotes.Name = "mpSidebarNotes";
+            this.mpSidebarNotes.Size = new System.Drawing.Size(216, 137);
+            this.mpSidebarNotes.TabIndex = 2;
+            this.mpSidebarNotes.VerticalScrollbarBarColor = true;
+            this.mpSidebarNotes.VerticalScrollbarHighlightOnWheel = false;
+            this.mpSidebarNotes.VerticalScrollbarSize = 10;
+            // 
+            // rtbSideBarNoteText
+            // 
+            this.rtbSideBarNoteText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSideBarNoteText.BackColor = System.Drawing.Color.White;
+            this.rtbSideBarNoteText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-1, 20);
+            this.rtbSideBarNoteText.Name = "rtbSideBarNoteText";
+            this.rtbSideBarNoteText.ReadOnly = true;
+            this.rtbSideBarNoteText.Size = new System.Drawing.Size(218, 117);
+            this.rtbSideBarNoteText.TabIndex = 3;
+            this.rtbSideBarNoteText.Text = "";
+            // 
+            // mtbNoteTitleSidebar
+            // 
+            this.mtbNoteTitleSidebar.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.mtbNoteTitleSidebar.BackColor = System.Drawing.Color.Silver;
+            // 
+            // 
+            // 
+            this.mtbNoteTitleSidebar.CustomButton.Image = null;
+            this.mtbNoteTitleSidebar.CustomButton.Location = new System.Drawing.Point(194, 1);
+            this.mtbNoteTitleSidebar.CustomButton.Name = "";
+            this.mtbNoteTitleSidebar.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.mtbNoteTitleSidebar.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtbNoteTitleSidebar.CustomButton.TabIndex = 1;
+            this.mtbNoteTitleSidebar.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtbNoteTitleSidebar.CustomButton.UseSelectable = true;
+            this.mtbNoteTitleSidebar.CustomButton.Visible = false;
+            this.mtbNoteTitleSidebar.Lines = new string[0];
+            this.mtbNoteTitleSidebar.Location = new System.Drawing.Point(-1, -1);
+            this.mtbNoteTitleSidebar.MaxLength = 32767;
+            this.mtbNoteTitleSidebar.Name = "mtbNoteTitleSidebar";
+            this.mtbNoteTitleSidebar.PasswordChar = '\0';
+            this.mtbNoteTitleSidebar.PromptText = "Pinned note...";
+            this.mtbNoteTitleSidebar.ReadOnly = true;
+            this.mtbNoteTitleSidebar.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtbNoteTitleSidebar.SelectedText = "";
+            this.mtbNoteTitleSidebar.SelectionLength = 0;
+            this.mtbNoteTitleSidebar.SelectionStart = 0;
+            this.mtbNoteTitleSidebar.ShortcutsEnabled = true;
+            this.mtbNoteTitleSidebar.Size = new System.Drawing.Size(216, 23);
+            this.mtbNoteTitleSidebar.TabIndex = 14;
+            this.mtbNoteTitleSidebar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbNoteTitleSidebar.UseSelectable = true;
+            this.mtbNoteTitleSidebar.WaterMark = "Pinned note...";
+            this.mtbNoteTitleSidebar.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtbNoteTitleSidebar.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // mpRecentlyUsed
             // 
             this.mpRecentlyUsed.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mpRecentlyUsed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mpRecentlyUsed.Controls.Add(this.metroPanel1);
+            this.mpRecentlyUsed.Controls.Add(this.lbRecentlyUsed);
             this.mpRecentlyUsed.HorizontalScrollbarBarColor = true;
             this.mpRecentlyUsed.HorizontalScrollbarHighlightOnWheel = false;
             this.mpRecentlyUsed.HorizontalScrollbarSize = 10;
             this.mpRecentlyUsed.Location = new System.Drawing.Point(0, 0);
             this.mpRecentlyUsed.Name = "mpRecentlyUsed";
-            this.mpRecentlyUsed.Size = new System.Drawing.Size(212, 282);
+            this.mpRecentlyUsed.Size = new System.Drawing.Size(216, 143);
             this.mpRecentlyUsed.TabIndex = 1;
             this.mpRecentlyUsed.VerticalScrollbarBarColor = true;
             this.mpRecentlyUsed.VerticalScrollbarHighlightOnWheel = false;
             this.mpRecentlyUsed.VerticalScrollbarSize = 10;
             // 
-            // metroPanel1
+            // lbRecentlyUsed
             // 
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(-1, 166);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(213, 115);
-            this.metroPanel1.TabIndex = 2;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.lbRecentlyUsed.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lbRecentlyUsed.BackColor = System.Drawing.Color.White;
+            this.lbRecentlyUsed.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbRecentlyUsed.FormattingEnabled = true;
+            this.lbRecentlyUsed.Location = new System.Drawing.Point(0, 0);
+            this.lbRecentlyUsed.Name = "lbRecentlyUsed";
+            this.lbRecentlyUsed.Size = new System.Drawing.Size(215, 143);
+            this.lbRecentlyUsed.TabIndex = 7;
+            this.lbRecentlyUsed.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbRecentlyUsed_MouseDoubleClick);
             // 
             // mpAccount
             // 
-            this.mpAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mpAccount.BackColor = System.Drawing.Color.LightGray;
             this.mpAccount.Controls.Add(this.lblCurrentUser);
             this.mpAccount.Controls.Add(this.ipbUserPicture);
-            this.mpAccount.Dock = System.Windows.Forms.DockStyle.Top;
             this.mpAccount.HorizontalScrollbarBarColor = true;
             this.mpAccount.HorizontalScrollbarHighlightOnWheel = false;
             this.mpAccount.HorizontalScrollbarSize = 10;
             this.mpAccount.Location = new System.Drawing.Point(0, 0);
             this.mpAccount.Name = "mpAccount";
-            this.mpAccount.Size = new System.Drawing.Size(211, 67);
+            this.mpAccount.Size = new System.Drawing.Size(216, 67);
             this.mpAccount.TabIndex = 2;
             this.mpAccount.VerticalScrollbarBarColor = true;
             this.mpAccount.VerticalScrollbarHighlightOnWheel = false;
@@ -255,9 +324,11 @@
             // lblCurrentUser
             // 
             this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Location = new System.Drawing.Point(58, 25);
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentUser.Location = new System.Drawing.Point(58, 21);
             this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(35, 13);
+            this.lblCurrentUser.Size = new System.Drawing.Size(51, 20);
             this.lblCurrentUser.TabIndex = 3;
             this.lblCurrentUser.Text = "label7";
             // 
@@ -273,24 +344,24 @@
             this.ipbUserPicture.IconSize = 52;
             this.ipbUserPicture.Location = new System.Drawing.Point(0, 0);
             this.ipbUserPicture.Name = "ipbUserPicture";
-            this.ipbUserPicture.Size = new System.Drawing.Size(52, 65);
+            this.ipbUserPicture.Size = new System.Drawing.Size(52, 67);
             this.ipbUserPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.ipbUserPicture.TabIndex = 2;
             this.ipbUserPicture.TabStop = false;
             // 
-            // metroTabControl1
+            // mtcMain
             // 
-            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mtcMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroTabControl1.Controls.Add(this.Home);
-            this.metroTabControl1.Controls.Add(this.tpTestChildren);
-            this.metroTabControl1.Location = new System.Drawing.Point(218, 37);
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(943, 460);
-            this.metroTabControl1.TabIndex = 0;
-            this.metroTabControl1.UseSelectable = true;
+            this.mtcMain.Controls.Add(this.Home);
+            this.mtcMain.Controls.Add(this.tpTestChildren);
+            this.mtcMain.Location = new System.Drawing.Point(218, 37);
+            this.mtcMain.Name = "mtcMain";
+            this.mtcMain.SelectedIndex = 1;
+            this.mtcMain.Size = new System.Drawing.Size(943, 460);
+            this.mtcMain.TabIndex = 0;
+            this.mtcMain.UseSelectable = true;
             // 
             // Home
             // 
@@ -385,12 +456,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Task";
-            this.columnHeader2.Width = 414;
+            this.columnHeader2.Width = 399;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Time";
-            this.columnHeader3.Width = 81;
+            this.columnHeader3.Width = 100;
             // 
             // panel2
             // 
@@ -501,7 +572,10 @@
             // 
             // tpTestChildren
             // 
+            this.tpTestChildren.Controls.Add(this.cbCategories);
             this.tpTestChildren.Controls.Add(this.btnAddFlow);
+            this.tpTestChildren.Controls.Add(this.ibSearch);
+            this.tpTestChildren.Controls.Add(this.mtbSearch);
             this.tpTestChildren.Controls.Add(this.flpLibrary);
             this.tpTestChildren.HorizontalScrollbarBarColor = true;
             this.tpTestChildren.HorizontalScrollbarHighlightOnWheel = false;
@@ -515,15 +589,88 @@
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
             // 
+            // cbCategories
+            // 
+            this.cbCategories.FormattingEnabled = true;
+            this.cbCategories.ItemHeight = 23;
+            this.cbCategories.Location = new System.Drawing.Point(620, 2);
+            this.cbCategories.Name = "cbCategories";
+            this.cbCategories.PromptText = "Select category";
+            this.cbCategories.Size = new System.Drawing.Size(121, 29);
+            this.cbCategories.TabIndex = 10;
+            this.cbCategories.UseSelectable = true;
+            this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
+            // 
             // btnAddFlow
             // 
+            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddFlow.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatAppearance.BorderSize = 0;
+            this.btnAddFlow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFlow.ForeColor = System.Drawing.Color.Black;
+            this.btnAddFlow.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAddFlow.IconColor = System.Drawing.Color.Black;
+            this.btnAddFlow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAddFlow.IconSize = 25;
+            this.btnAddFlow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAddFlow.Location = new System.Drawing.Point(0, 3);
             this.btnAddFlow.Name = "btnAddFlow";
-            this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFlow.TabIndex = 1;
-            this.btnAddFlow.Text = "Add";
-            this.btnAddFlow.UseSelectable = true;
+            this.btnAddFlow.Size = new System.Drawing.Size(29, 29);
+            this.btnAddFlow.TabIndex = 9;
+            this.btnAddFlow.UseVisualStyleBackColor = false;
             this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
+            // 
+            // ibSearch
+            // 
+            this.ibSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibSearch.BackColor = System.Drawing.Color.Transparent;
+            this.ibSearch.FlatAppearance.BorderSize = 0;
+            this.ibSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ibSearch.ForeColor = System.Drawing.Color.Black;
+            this.ibSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.ibSearch.IconColor = System.Drawing.Color.Black;
+            this.ibSearch.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.ibSearch.IconSize = 25;
+            this.ibSearch.Location = new System.Drawing.Point(775, 6);
+            this.ibSearch.Name = "ibSearch";
+            this.ibSearch.Size = new System.Drawing.Size(24, 23);
+            this.ibSearch.TabIndex = 8;
+            this.ibSearch.UseVisualStyleBackColor = false;
+            // 
+            // mtbSearch
+            // 
+            // 
+            // 
+            // 
+            this.mtbSearch.CustomButton.Image = null;
+            this.mtbSearch.CustomButton.Location = new System.Drawing.Point(108, 1);
+            this.mtbSearch.CustomButton.Name = "";
+            this.mtbSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.mtbSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtbSearch.CustomButton.TabIndex = 1;
+            this.mtbSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtbSearch.CustomButton.UseSelectable = true;
+            this.mtbSearch.CustomButton.Visible = false;
+            this.mtbSearch.Lines = new string[0];
+            this.mtbSearch.Location = new System.Drawing.Point(805, 3);
+            this.mtbSearch.MaxLength = 32767;
+            this.mtbSearch.Name = "mtbSearch";
+            this.mtbSearch.PasswordChar = '\0';
+            this.mtbSearch.PromptText = "Enter search terms...";
+            this.mtbSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtbSearch.SelectedText = "";
+            this.mtbSearch.SelectionLength = 0;
+            this.mtbSearch.SelectionStart = 0;
+            this.mtbSearch.ShortcutsEnabled = true;
+            this.mtbSearch.Size = new System.Drawing.Size(130, 23);
+            this.mtbSearch.TabIndex = 5;
+            this.mtbSearch.UseSelectable = true;
+            this.mtbSearch.WaterMark = "Enter search terms...";
+            this.mtbSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtbSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.mtbSearch.TextChanged += new System.EventHandler(this.mtbSearch_TextChanged);
             // 
             // flpLibrary
             // 
@@ -531,9 +678,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpLibrary.AutoScroll = true;
-            this.flpLibrary.Location = new System.Drawing.Point(0, 29);
+            this.flpLibrary.Location = new System.Drawing.Point(0, 35);
             this.flpLibrary.Name = "flpLibrary";
-            this.flpLibrary.Size = new System.Drawing.Size(935, 389);
+            this.flpLibrary.Size = new System.Drawing.Size(935, 383);
             this.flpLibrary.TabIndex = 4;
             // 
             // btnAddRemeinder
@@ -694,22 +841,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
             this.Controls.Add(this.mpSidePanel);
-            this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.mtcMain);
             this.Controls.Add(this.mpLoginScreen);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.mpSidePanel.ResumeLayout(false);
             this.mpBottomSideBarPanell.ResumeLayout(false);
             this.mpNotesNReminders.ResumeLayout(false);
             this.mpReminders.ResumeLayout(false);
+            this.mpSidebarNotes.ResumeLayout(false);
             this.mpRecentlyUsed.ResumeLayout(false);
             this.mpAccount.ResumeLayout(false);
             this.mpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ipbUserPicture)).EndInit();
-            this.metroTabControl1.ResumeLayout(false);
+            this.mtcMain.ResumeLayout(false);
             this.Home.ResumeLayout(false);
             this.Home.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -734,7 +881,7 @@
         private MetroFramework.Controls.MetroPanel mpBottomSideBarPanell;
         private MetroFramework.Controls.MetroPanel mpNotesNReminders;
 
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
+        private MetroFramework.Controls.MetroTabControl mtcMain;
         private MetroFramework.Controls.MetroTabPage Home;
         private System.Windows.Forms.Panel panelFavorites;
         private System.Windows.Forms.Panel panel2;
@@ -745,7 +892,6 @@
         private System.Windows.Forms.RichTextBox rtbNotes;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
-        private MetroFramework.Controls.MetroButton btnAddFlow;
         private System.Windows.Forms.FlowLayoutPanel flpLibrary;
         private System.Windows.Forms.ListView lvReminders;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -754,7 +900,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ToolTip ttTipDoubleClick;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel mpSidebarNotes;
+        private System.Windows.Forms.RichTextBox rtbSideBarNoteText;
         private System.Windows.Forms.ListBox lbNotes;
         public System.Windows.Forms.ListView lvFavorites;
         private MetroFramework.Components.MetroStyleManager msmForm1;
@@ -774,6 +921,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroTextBox mtbEnterUsername;
+        private System.Windows.Forms.ListBox lbRecentlyUsed;
+        private FontAwesome.Sharp.IconButton ibSearch;
+        private MetroFramework.Controls.MetroTextBox mtbSearch;
+        private MetroFramework.Controls.MetroTextBox mtbNoteTitleSidebar;
+        private FontAwesome.Sharp.IconButton btnAddFlow;
+        private MetroFramework.Controls.MetroComboBox cbCategories;
     }
 }
 

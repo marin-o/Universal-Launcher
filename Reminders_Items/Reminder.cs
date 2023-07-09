@@ -22,8 +22,7 @@ namespace Universal_Launcher.Reminders_Items
         {
         }
 
-        public string GetDate()
-        {
+        public string GetDate() {
             return DateTime.ToShortDateString();
         }
 
