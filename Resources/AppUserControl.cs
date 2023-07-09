@@ -15,12 +15,12 @@ namespace Universal_Launcher {
         public AppUserControl(string id) {
             InitializeComponent();
             Id = id;
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
         }
 
         public AppUserControl(MainApp app) {
             InitializeComponent();
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
             SetMainApp(app);
             //Parent = universalLauncherMainForm.Controls.Find("flpLibrary", true)[0];
         }
@@ -57,7 +57,7 @@ namespace Universal_Launcher {
         }
 
         private void cbAddSubApp_SelectedIndexChanged(object sender, EventArgs e) {
-            if( cbAddSubApp.SelectedIndex == 1 ) {
+            if( cbAddSubApp.SelectedIndex == 0 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateExeSubApp(this);
                 if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
@@ -65,14 +65,14 @@ namespace Universal_Launcher {
                 }
                     
             }
-            else if( cbAddSubApp.SelectedIndex == 2 ) {
+            else if( cbAddSubApp.SelectedIndex == 1 ) {
                 SubAppsUserControl uc = AppUtilities.GenerateFolderSubApp(this, mainApp);
                 if( uc != null ) {
                     flpSubApps.Controls.Add(uc);
                     mainApp.AddApp(uc.SubApp);
                 }
             }
-            cbAddSubApp.SelectedIndex = 0;
+            cbAddSubApp.SelectedIndex = -1;
         }
 
         private void lblAppName_MouseDoubleClick(object sender, MouseEventArgs e) {

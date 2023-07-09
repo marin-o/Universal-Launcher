@@ -272,18 +272,18 @@ namespace Universal_Launcher {
                 AddUc(uc);
             }
 
-            foreach (App app in apps.Favorites) {
+            foreach( App app in apps.Favorites ) {
                 AddAppToFavoritesNoRepo(app);
             }
 
-            if(apps.RecentlyUsed != null)
-                foreach (App app in apps.RecentlyUsed ) {
+            if( apps.RecentlyUsed != null ) {
+                foreach( App app in apps.RecentlyUsed ) {
                     lbRecentlyUsed.Items.Add(app);
                 }
+            }
         }
         private void AddAppToFavoritesNoRepo(App app) {
-            System.Drawing.Image img = app.Icon.ToBitmap();
-            imgListIcons.Images.Add(img);
+            imgListIcons.Images.Add(app.Icon);
             ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
             i.Tag = app;
             lvFavorites.Items.Add(i);
@@ -323,8 +323,12 @@ namespace Universal_Launcher {
         }
 
         public void AddAppToFavorites(App app) {
-            System.Drawing.Image img = app.Icon.ToBitmap();
-            imgListIcons.Images.Add(img);
+            foreach(ListViewItem item in lvFavorites.Items) {
+                if( (item.Tag as App).Name.Equals(app.Name ) ){
+                    return;
+                }
+            }
+            imgListIcons.Images.Add(app.Icon);
             ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
             i.Tag = app;
             lvFavorites.Items.Add(i);

@@ -61,11 +61,11 @@ namespace Universal_Launcher {
             this.cbAddSubApp.FormattingEnabled = true;
             this.cbAddSubApp.ItemHeight = 23;
             this.cbAddSubApp.Items.AddRange(new object[] {
-            "Add",
             "App",
             "Project"});
             this.cbAddSubApp.Location = new System.Drawing.Point(193, 3);
             this.cbAddSubApp.Name = "cbAddSubApp";
+            this.cbAddSubApp.PromptText = "Add";
             this.cbAddSubApp.Size = new System.Drawing.Size(79, 29);
             this.cbAddSubApp.TabIndex = 7;
             this.cbAddSubApp.UseSelectable = true;

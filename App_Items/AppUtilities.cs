@@ -133,10 +133,7 @@ namespace Universal_Launcher.App_Items {
         }
 
         public static AppUserControl RegenrateAUC(App app) {
-            AppUserControl uc = new AppUserControl(app as MainApp);
-            //RedrawIcons(uc);
-            //uc.SetMainApp(app as MainApp);
-            return uc;
+            return new AppUserControl(app as MainApp);
         }
 
         public static void RedrawIcons(AppUserControl uc) {
