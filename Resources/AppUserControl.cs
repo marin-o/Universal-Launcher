@@ -77,6 +77,7 @@ namespace Universal_Launcher {
 
         private void lblAppName_MouseDoubleClick(object sender, MouseEventArgs e) {
             if(e.Button == MouseButtons.Left ) {
+                tbChangeNameOrCategory.WaterMark = "Enter new name";
                 tbChangeNameOrCategory.Visible = true;
                 tbChangeNameOrCategory.Enabled = true;
             }
@@ -95,8 +96,8 @@ namespace Universal_Launcher {
                 CategoryChanged?.Invoke(oldCategory, mainApp.Category);
                 tbChangeNameOrCategory.Visible = false;
                 tbChangeNameOrCategory.Enabled = false;
-                tbChangeNameOrCategory.Text = "";
                 ChangeCategory = false;
+                tbChangeNameOrCategory.Text = "";
             }
             else if(e.KeyCode == Keys.Escape) {
                 tbChangeNameOrCategory.Visible = false;
@@ -115,7 +116,7 @@ namespace Universal_Launcher {
             tbChangeNameOrCategory.Visible = true;
             tbChangeNameOrCategory.Enabled = true;
             ChangeCategory = true;
-            tbChangeNameOrCategory.WaterMark = "Enter a category";
+            tbChangeNameOrCategory.WaterMark = "Enter a category...";
         }
     }
 }

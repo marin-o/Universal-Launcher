@@ -61,16 +61,19 @@ namespace Universal_Launcher {
 
         private void AppCard_CategoryChanged(object sender, string e) {
             string oldCategory = sender as string;
-            if(e.Equals("none",StringComparison.OrdinalIgnoreCase) ) {
-                foreach( App app in apps.Apps ) {
-                    if(oldCategory == app.Category);
+            bool notFound = true;
+
+            foreach( App app in apps.Apps ) {
+                if( oldCategory == app.Category ) {
+                    notFound = false;
                     break;
                 }
+            }
+            if( notFound )
                 apps.RemoveCategory(oldCategory);
-            }
-            else {
-                apps.AddCategory(e); 
-            }
+            if( !e.Equals("none", StringComparison.OrdinalIgnoreCase) )
+                apps.AddCategory(e);
+
             cbCategories.Items.Clear();
             cbCategories.Items.Add("None");
             cbCategories.Items.AddRange(apps.Categories.ToArray());
