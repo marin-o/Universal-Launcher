@@ -843,7 +843,6 @@
             this.Controls.Add(this.mpLoginScreen);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.mtcMain);
-            this.Controls.Add(this.mpLoginScreen);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
