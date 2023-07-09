@@ -66,3 +66,5 @@ public event EventHandler<App> AppLaunched;
 public event EventHandler<string> CategoryChanged;
 ```
 При креација или десеријализација, во главниот Form, ги додаваме евентите за секој Handler, а во AppUserControl им правиме Invoke. Користењето на EventHandler и EventHandler<TEventArgs> многу нè научи за тоа како функционираат евентите во C#.
+
+![License](./LICENSE.txt)
