@@ -60,9 +60,9 @@
             this.lvFavorites = new System.Windows.Forms.ListView();
             this.imgListIcons = new System.Windows.Forms.ImageList(this.components);
             this.tpTestChildren = new MetroFramework.Controls.MetroTabPage();
+            this.btnAddFlow = new FontAwesome.Sharp.IconButton();
             this.ibSearch = new FontAwesome.Sharp.IconButton();
             this.mtbSearch = new MetroFramework.Controls.MetroTextBox();
-            this.btnAddFlow = new MetroFramework.Controls.MetroButton();
             this.flpLibrary = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddRemeinder = new MetroFramework.Controls.MetroButton();
             this.btnRemoveNotes = new MetroFramework.Controls.MetroButton();
@@ -133,6 +133,8 @@
             // 
             this.ibDarkMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ibDarkMode.FlatAppearance.BorderSize = 0;
+            this.ibDarkMode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.ibDarkMode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.ibDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ibDarkMode.IconChar = FontAwesome.Sharp.IconChar.Moon;
             this.ibDarkMode.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(150)))), ((int)(((byte)(14)))));
@@ -321,7 +323,7 @@
             // lblCurrentUser
             // 
             this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.BackColor = System.Drawing.Color.White;
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.lblCurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentUser.Location = new System.Drawing.Point(58, 21);
             this.lblCurrentUser.Name = "lblCurrentUser";
@@ -569,9 +571,9 @@
             // 
             // tpTestChildren
             // 
+            this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.ibSearch);
             this.tpTestChildren.Controls.Add(this.mtbSearch);
-            this.tpTestChildren.Controls.Add(this.btnAddFlow);
             this.tpTestChildren.Controls.Add(this.flpLibrary);
             this.tpTestChildren.HorizontalScrollbarBarColor = true;
             this.tpTestChildren.HorizontalScrollbarHighlightOnWheel = false;
@@ -584,6 +586,27 @@
             this.tpTestChildren.VerticalScrollbarBarColor = true;
             this.tpTestChildren.VerticalScrollbarHighlightOnWheel = false;
             this.tpTestChildren.VerticalScrollbarSize = 10;
+            // 
+            // btnAddFlow
+            // 
+            this.btnAddFlow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddFlow.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatAppearance.BorderSize = 0;
+            this.btnAddFlow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAddFlow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFlow.ForeColor = System.Drawing.Color.Black;
+            this.btnAddFlow.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAddFlow.IconColor = System.Drawing.Color.Black;
+            this.btnAddFlow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAddFlow.IconSize = 25;
+            this.btnAddFlow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddFlow.Location = new System.Drawing.Point(1, 0);
+            this.btnAddFlow.Name = "btnAddFlow";
+            this.btnAddFlow.Size = new System.Drawing.Size(29, 29);
+            this.btnAddFlow.TabIndex = 9;
+            this.btnAddFlow.UseVisualStyleBackColor = false;
+            this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
             // 
             // ibSearch
             // 
@@ -634,16 +657,6 @@
             this.mtbSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mtbSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.mtbSearch.TextChanged += new System.EventHandler(this.mtbSearch_TextChanged);
-            // 
-            // btnAddFlow
-            // 
-            this.btnAddFlow.Location = new System.Drawing.Point(0, 3);
-            this.btnAddFlow.Name = "btnAddFlow";
-            this.btnAddFlow.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFlow.TabIndex = 1;
-            this.btnAddFlow.Text = "Add";
-            this.btnAddFlow.UseSelectable = true;
-            this.btnAddFlow.Click += new System.EventHandler(this.btnAddFlow_Click);
             // 
             // flpLibrary
             // 
@@ -865,7 +878,6 @@
         private System.Windows.Forms.RichTextBox rtbNotes;
 
         private MetroFramework.Controls.MetroTabPage tpTestChildren;
-        private MetroFramework.Controls.MetroButton btnAddFlow;
         private System.Windows.Forms.FlowLayoutPanel flpLibrary;
         private System.Windows.Forms.ListView lvReminders;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -899,6 +911,7 @@
         private FontAwesome.Sharp.IconButton ibSearch;
         private MetroFramework.Controls.MetroTextBox mtbSearch;
         private MetroFramework.Controls.MetroTextBox mtbNoteTitleSidebar;
+        private FontAwesome.Sharp.IconButton btnAddFlow;
     }
 }
 

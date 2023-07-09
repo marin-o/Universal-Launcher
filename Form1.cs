@@ -383,6 +383,7 @@ namespace Universal_Launcher {
                 lbRecentlyUsed.ForeColor = Color.White;
                 ibSearch.IconColor= Color.FromArgb(255,100,100,100);
                 ibSearch.BackColor = Color.FromArgb(255, 15,17,16);
+                btnAddFlow.IconColor = Color.FromArgb(255, 100, 100, 100);
             }
             else
             {
@@ -421,6 +422,7 @@ namespace Universal_Launcher {
                 lbRecentlyUsed.ForeColor = Color.Black;
                 ibSearch.IconColor = Color.Black;
                 ibSearch.BackColor = Color.White;
+                btnAddFlow.IconColor = Color.Black;
             }
 
         }
