@@ -541,6 +541,6 @@ namespace Universal_Launcher {
             return true;
         }
     }
-}}
+}
         
     
