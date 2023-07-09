@@ -9,7 +9,10 @@ namespace Universal_Launcher.App_Items {
     public class AppRepository { 
         public List<App> Apps { get; set; } = new List<App>();
         public List<App> Favorites { get; set; } = new List<App>();
-        public void AddApp(App app) {
+        public App[] RecentlyUsed { get; set; } = null;
+        private int recentlyUsedIndex = 0;
+        public int RecentlyUsedIndex { get { return recentlyUsedIndex; } }
+            public void AddApp(App app) {
             Apps.Add(app);
         }
         public void RemoveApp(App app) {
@@ -23,5 +26,17 @@ namespace Universal_Launcher.App_Items {
         public void RemoveFavorite(App app) {
             Favorites.Remove(app);
         }
+
+        public void AddRecentlyUsed(App app) {
+            if( RecentlyUsed == null ) {
+                RecentlyUsed = new App[5];
+            }
+            RecentlyUsed[recentlyUsedIndex] = app;
+            recentlyUsedIndex++;
+            if(recentlyUsedIndex >= 5) {
+                recentlyUsedIndex = 0;
+            }
+        }
+        
     }
 }

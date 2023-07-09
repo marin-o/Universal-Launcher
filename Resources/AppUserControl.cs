@@ -10,6 +10,7 @@ namespace Universal_Launcher {
         public MainApp MainApp { get { return mainApp; } }
         public string Id { get; set; }
         public event EventHandler AppDeleted;
+        public event EventHandler<App> AppLaunched;
 
         public AppUserControl(string id) {
             InitializeComponent();
@@ -44,8 +45,11 @@ namespace Universal_Launcher {
         }
 
         private void pbAppIcon_MouseDoubleClick(object sender, MouseEventArgs e) {
-            if( e.Button == MouseButtons.Left )
+            if( e.Button == MouseButtons.Left ) {
                 mainApp.Launch();
+                EventArgs eventArgs = new EventArgs();
+                AppLaunched?.Invoke(null,mainApp);
+            }
         }
 
         private void btnAddSubApp_Click(object sender, EventArgs e) {
@@ -97,5 +101,6 @@ namespace Universal_Launcher {
             Form1 parent = (Form1)ParentForm;
             parent.AddAppToFavorites(MainApp);
         }
+
     }
 }

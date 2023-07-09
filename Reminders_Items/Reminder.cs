@@ -22,9 +22,14 @@ namespace Universal_Launcher.Reminders_Items
         {
         }
 
+        public string GetDate() {
+            return DateTime.ToShortDateString();
+        }
+
         public override string ToString()
         {
-            return $"{Task} {DateTime.Date}";
+            string date = DateTime.ToShortDateString().Remove(10);
+            return $"{Task} {date}";
         }
     }
 }

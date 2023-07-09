@@ -25,5 +25,8 @@ namespace Universal_Launcher.App_Items {
         }
         public abstract void Launch();
 
+        public override string ToString() {
+            return $"\u2022 {Name}";
+        }
     }
 }

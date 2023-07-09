@@ -51,13 +51,25 @@ namespace Universal_Launcher {
             ibDarkMode_MouseClick(null, null);
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-            
-        }
-
         private void AddUc(AppUserControl uc) {
             tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Add(uc);
             uc.AppDeleted += AppCard_AppDeleted;
+            uc.AppLaunched += AppCard_AppLaunched;
+        }
+
+        private void AppCard_AppLaunched(object sender, App e) {
+            if( lbRecentlyUsed.Items.Count == 5 ) {
+                lbRecentlyUsed.Items[Apps.RecentlyUsedIndex] = e;
+            } else {
+                lbRecentlyUsed.Items.Add(e);
+            }
+            Apps.AddRecentlyUsed(e);
+        }
+        private void AppCard_AppDeleted(object sender, EventArgs e) {
+            AppUserControl uc = sender as AppUserControl;
+            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
+            apps.RemoveApp(uc.MainApp);
+            uc.Dispose();
         }
 
         private void btnAddFlow_Click(object sender, EventArgs e) {
@@ -68,12 +80,6 @@ namespace Universal_Launcher {
             }
         }
 
-        private void AppCard_AppDeleted(object sender, EventArgs e) {
-            AppUserControl uc = sender as AppUserControl;
-            tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
-            apps.RemoveApp(uc.MainApp);
-            uc.Dispose();
-        }
 
         private void btnAddNote_Click(object sender, EventArgs e) {
             CreateNote note;
@@ -92,7 +98,7 @@ namespace Universal_Launcher {
         private void btnRemoveNotes_Click(object sender, EventArgs e) {
             if( lbNotes.SelectedIndex != -1 ) {
                 if( activeNote.IsPinned ) {
-                    lblNoteTitleSideBar.Text = "";
+                    mtbNoteTitleSidebar.Text = "";
                     rtbSideBarNoteText.Text = "";
                 }
                 notes.Remove(notes.Notes[lbNotes.SelectedIndex]);
@@ -114,9 +120,9 @@ namespace Universal_Launcher {
 
                 reminders.AddReminder(newReminder.Reminder);
                 lvReminders.Items.Add(newReminder.Reminder.Task);
-                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.GetDate());
                 lvSideBarReminders.Items.Add(newReminder.Reminder.Task);
-                lvSideBarReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+                lvSideBarReminders.Items[lvSideBarReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.GetDate());
             }
         }
 
@@ -162,7 +168,7 @@ namespace Universal_Launcher {
                 notes.PinNote(note);
                 ResetLbNotes();
 
-                lblNoteTitleSideBar.Text = note.Title;
+                mtbNoteTitleSidebar.Text = note.Title;
                 rtbSideBarNoteText.Text = note.Body;
             }
         }
@@ -269,6 +275,11 @@ namespace Universal_Launcher {
             foreach (App app in apps.Favorites) {
                 AddAppToFavoritesNoRepo(app);
             }
+
+            if(apps.RecentlyUsed != null)
+                foreach (App app in apps.RecentlyUsed ) {
+                    lbRecentlyUsed.Items.Add(app);
+                }
         }
         private void AddAppToFavoritesNoRepo(App app) {
             System.Drawing.Image img = app.Icon.ToBitmap();
@@ -282,7 +293,7 @@ namespace Universal_Launcher {
                 lbNotes.Items.Add(note);
             }
             if( notes.PinnedNote != null ) {
-                lblNoteTitleSideBar.Text = notes.PinnedNote.Title;
+                mtbNoteTitleSidebar.Text = notes.PinnedNote.Title;
                 rtbSideBarNoteText.Text = notes.PinnedNote.Body;
             }
         }
@@ -290,7 +301,9 @@ namespace Universal_Launcher {
         private void PopulateReminders() {
             foreach( Reminder reminder in reminders.Reminders ) {
                 lvReminders.Items.Add(reminder.Task);
-                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(reminder.DateTime.Date.ToString());
+                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(reminder.GetDate());
+                lvSideBarReminders.Items.Add(reminder.Task);
+                lvSideBarReminders.Items[lvSideBarReminders.Items.Count - 1].SubItems.Add(reminder.GetDate());
             }
             lvReminders.Update();
         }
@@ -352,7 +365,7 @@ namespace Universal_Launcher {
                 lvSideBarReminders.ForeColor = Color.White;
                 flpLibrary.BackColor = Color.Black;
                 ipbUserPicture.BackColor = Color.FromArgb(255, 15, 17, 16);
-                ipbUserPicture.IconColor = Color.White;
+                ipbUserPicture.IconColor = Color.FromArgb(255,100,100,100);
                 lblCurrentUser.ForeColor = Color.White;
                 lvFavorites.ForeColor = Color.White;
                 label1.ForeColor = Color.White;
@@ -361,6 +374,15 @@ namespace Universal_Launcher {
                 label4.ForeColor = Color.White;
                 label5.ForeColor = Color.White;
                 label6.ForeColor = Color.White;
+                rtbSideBarNoteText.ForeColor = Color.White;
+                mtbNoteTitleSidebar.ForeColor = Color.White;
+                rtbSideBarNoteText.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mtbNoteTitleSidebar.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mpRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbRecentlyUsed.BackColor = Color.FromArgb(255, 100, 100, 100);
+                lbRecentlyUsed.ForeColor = Color.White;
+                ibSearch.IconColor= Color.FromArgb(255,100,100,100);
+                ibSearch.BackColor = Color.FromArgb(255, 15,17,16);
             }
             else
             {
@@ -390,6 +412,15 @@ namespace Universal_Launcher {
                 label4.ForeColor = Color.Black;
                 label5.ForeColor = Color.Black;
                 label6.ForeColor = Color.Black;
+                rtbSideBarNoteText.ForeColor = Color.Black;
+                mtbNoteTitleSidebar.ForeColor = Color.Black;
+                rtbSideBarNoteText.BackColor = Color.White;
+                mtbNoteTitleSidebar.BackColor = Color.White;
+                mpRecentlyUsed.BackColor = Color.White;
+                lbRecentlyUsed.BackColor = Color.White;
+                lbRecentlyUsed.ForeColor = Color.Black;
+                ibSearch.IconColor = Color.Black;
+                ibSearch.BackColor = Color.White;
             }
 
         }
@@ -416,6 +447,32 @@ namespace Universal_Launcher {
                 }
             }
         }
+
+        private void lbRecentlyUsed_MouseDoubleClick(object sender, EventArgs e) {
+            if( lbRecentlyUsed.SelectedIndex != -1 ) {
+                App app = lbRecentlyUsed.SelectedItem as App;
+                if( app != null ) {
+                    app.Launch();
+                }
+            }
+        }
+
+        private void mtbSearch_TextChanged(object sender, EventArgs e) {
+            if( mtbSearch.Text == string.Empty ) {
+                foreach( AppUserControl uc in flpLibrary.Controls ) {
+                    uc.Visible = true;
+                }
+                return;
+            }
+            foreach(AppUserControl uc in flpLibrary.Controls ) {
+                  if( uc.MainApp.Name.ToLower().Contains(mtbSearch.Text.ToLower()) ) {
+                    uc.Visible = true;
+                } else {
+                    uc.Visible = false;
+                }
+            }
+        }
+
     }
 }
         
