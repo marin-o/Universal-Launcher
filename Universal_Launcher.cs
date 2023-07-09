@@ -42,8 +42,8 @@ namespace Universal_Launcher {
             DoubleBuffered = true;
             lvFavorites.View = View.LargeIcon;
             lvFavorites.LargeImageList = imgListIcons;
-            lvFavorites.Columns.Add("App Name",100);
-            lvFavorites.Columns.Add("Icon",100);
+            lvFavorites.Columns.Add("App Name", 100);
+            lvFavorites.Columns.Add("Icon", 100);
             this.StyleManager = msmForm1;
             IsDark = true;
             DeserializeDark();
@@ -91,7 +91,7 @@ namespace Universal_Launcher {
                 lbRecentlyUsed.Items.Insert(0, e);
                 apps.AddRecentlyUsed(e);
             }
-            if(lbRecentlyUsed.Items.Count == 6 ) {
+            if( lbRecentlyUsed.Items.Count == 6 ) {
                 lbRecentlyUsed.Items.RemoveAt(5);
             }
         }
@@ -120,11 +120,10 @@ namespace Universal_Launcher {
             else {
                 note = new CreateNote();
             }
-            if (IsDark)
-            {
+            if( IsDark ) {
                 note.DarkMode(IsDark);
             }
-            if ( note.ShowDialog() == DialogResult.OK ) {
+            if( note.ShowDialog() == DialogResult.OK ) {
                 lbNotes.Items.Add(note.Note);
                 notes.Add(note.Note);
             }
@@ -150,13 +149,11 @@ namespace Universal_Launcher {
 
         private void btnAddReminder_Click(object sender, EventArgs e) {
             NewReminder newReminder = new NewReminder();
-            if (IsDark)
-            {
+            if( IsDark ) {
                 newReminder.StyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
                 newReminder.DarkMode(IsDark);
             }
-            if (newReminder.ShowDialog() == DialogResult.OK)
-            {
+            if( newReminder.ShowDialog() == DialogResult.OK ) {
                 lvReminders.CheckBoxes = true;
 
                 reminders.AddReminder(newReminder.Reminder);
@@ -227,7 +224,7 @@ namespace Universal_Launcher {
                     return;
                 }
             }
-            imgListIcons.Images.Add(app.Name,app.Icon);
+            imgListIcons.Images.Add(app.Name, app.Icon);
             ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.IndexOfKey(app.Name));
             i.Tag = app;
             lvFavorites.Items.Add(i);
@@ -334,7 +331,7 @@ namespace Universal_Launcher {
                     App app = i.Tag as App;
                     if( app != null ) {
                         app.Launch();
-                        AppCard_AppLaunched(null,app);
+                        AppCard_AppLaunched(null, app);
                     }
                 }
             }
@@ -496,12 +493,12 @@ namespace Universal_Launcher {
                 lbRecentlyUsed.Items.Add(app);
             }
 
-            foreach(string category in apps.Categories ) {
+            foreach( string category in apps.Categories ) {
                 cbCategories.Items.Add(category);
             }
         }
         private void AddAppToFavoritesNoRepo(App app) {
-            imgListIcons.Images.Add(app.Name,app.Icon);
+            imgListIcons.Images.Add(app.Name, app.Icon);
             ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.IndexOfKey(app.Name));
             i.Tag = app;
             lvFavorites.Items.Add(i);
@@ -529,19 +526,21 @@ namespace Universal_Launcher {
         private bool checkUsername() {
             if( mtbEnterUsername.Text == string.Empty )
                 return false;
-            else {
-                mtbEnterUsername.Text.Trim();
-                foreach (char c in mtbEnterUsername.Text) {
-                    if (char.IsWhiteSpace(c)) {
-                        return false;
-                    }
+            foreach( char c in mtbEnterUsername.Text ) {
+                if( !char.IsLetterOrDigit(c) {
+                    return false;
                 }
             }
+            mtbEnterUsername.Text.Trim();
+            foreach( char c in mtbEnterUsername.Text ) {
+                if( char.IsWhiteSpace(c) ) {
+                    return false;
+                }
+            }
+
             return true;
         }
-
-        
     }
-}
+}}
         
     
