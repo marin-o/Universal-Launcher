@@ -61,7 +61,8 @@ Library е делот каде корисникот може да додава �
 
 Друг дел од проектот кој ни беше доста интересен и би сакале да го опишеме е користењето на custom EventHandlers при промена на категорија, вклучување на (main) апликација и бришење на картичка.
 Во AppUserControl се чуваат инстанци од 
-```public event EventHandler AppDeleted; 
+```
+public event EventHandler AppDeleted; 
 public event EventHandler<App> AppLaunched;
 public event EventHandler<string> CategoryChanged;
 ```
