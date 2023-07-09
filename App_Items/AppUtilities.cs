@@ -113,7 +113,7 @@ namespace Universal_Launcher.App_Items {
             return null;
         }
 
-        public static AppUserControl GenerateMainAppCard(Form1 parent) {
+        public static AppUserControl GenerateMainAppCard(Universal_Launcher parent) {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Executable Files|*.exe|Shortcut Files|*.lnk|Internet Shortcuts|*.url";
             ofd.Title = "Select an Executable File, Shortcut, or Link File";

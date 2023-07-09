@@ -1,5 +1,5 @@
 ﻿namespace Universal_Launcher {
-    partial class Form1 {
+    partial class Universal_Launcher {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Universal_Launcher));
             this.mpSidePanel = new MetroFramework.Controls.MetroPanel();
             this.mpBottomSideBarPanell = new MetroFramework.Controls.MetroPanel();
             this.ibDarkMode = new FontAwesome.Sharp.IconButton();
@@ -835,16 +836,17 @@
             this.mtbEnterUsername.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.mtbEnterUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mtbEnterUsername_KeyDown);
             // 
-            // Form1
+            // Universal_Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
-            this.Controls.Add(this.mpLoginScreen);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.mtcMain);
+            this.Controls.Add(this.mpLoginScreen);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1175, 520);
-            this.Name = "Form1";
+            this.Name = "Universal_Launcher";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.mpSidePanel.ResumeLayout(false);

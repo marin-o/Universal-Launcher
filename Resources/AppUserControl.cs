@@ -108,7 +108,7 @@ namespace Universal_Launcher {
         }
 
         private void btnFavorite_Click(object sender, EventArgs e) {
-            Form1 parent = (Form1)ParentForm;
+            Universal_Launcher parent = (Universal_Launcher)ParentForm;
             parent.AddAppToFavorites(MainApp);
         }
 

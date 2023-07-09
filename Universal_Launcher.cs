@@ -17,7 +17,7 @@ using Universal_Launcher.Reminders_Items;
 
 
 namespace Universal_Launcher {
-    public partial class Form1 : MetroForm {
+    public partial class Universal_Launcher : MetroForm {
         private Note activeNote = null;
         /*
         * Reminders repository contains a list of reminders
@@ -37,7 +37,7 @@ namespace Universal_Launcher {
             }
         }
         public bool IsDark { get; set; }
-        public Form1() {
+        public Universal_Launcher() {
             InitializeComponent();
             DoubleBuffered = true;
             lvFavorites.View = View.LargeIcon;
