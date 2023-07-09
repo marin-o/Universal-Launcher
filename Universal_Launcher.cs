@@ -527,7 +527,7 @@ namespace Universal_Launcher {
             if( mtbEnterUsername.Text == string.Empty )
                 return false;
             foreach( char c in mtbEnterUsername.Text ) {
-                if( !char.IsLetterOrDigit(c) {
+                if( !char.IsLetterOrDigit(c)) {
                     return false;
                 }
             }
