@@ -78,7 +78,7 @@ namespace Universal_Launcher {
             // 
             // 
             this.tbChangeNameOrCategory.CustomButton.Image = null;
-            this.tbChangeNameOrCategory.CustomButton.Location = new System.Drawing.Point(64, 1);
+            this.tbChangeNameOrCategory.CustomButton.Location = new System.Drawing.Point(102, 1);
             this.tbChangeNameOrCategory.CustomButton.Name = "";
             this.tbChangeNameOrCategory.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.tbChangeNameOrCategory.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -98,7 +98,7 @@ namespace Universal_Launcher {
             this.tbChangeNameOrCategory.SelectionLength = 0;
             this.tbChangeNameOrCategory.SelectionStart = 0;
             this.tbChangeNameOrCategory.ShortcutsEnabled = true;
-            this.tbChangeNameOrCategory.Size = new System.Drawing.Size(86, 23);
+            this.tbChangeNameOrCategory.Size = new System.Drawing.Size(124, 23);
             this.tbChangeNameOrCategory.TabIndex = 8;
             this.tbChangeNameOrCategory.UseSelectable = true;
             this.tbChangeNameOrCategory.Visible = false;
