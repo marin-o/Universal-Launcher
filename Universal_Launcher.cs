@@ -50,6 +50,7 @@ namespace Universal_Launcher {
             IsDark = !IsDark;
             ibDarkMode_MouseClick(null, null);
             cbCategories.Items.Add("None");
+            mpLoginScreen.BringToFront();
         }
 
         private void AddUc(AppUserControl uc) {
