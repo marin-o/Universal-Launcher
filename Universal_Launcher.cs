@@ -45,7 +45,7 @@ namespace Universal_Launcher {
             lvFavorites.Columns.Add("App Name",100);
             lvFavorites.Columns.Add("Icon",100);
             this.StyleManager = msmForm1;
-            IsDark = false;
+            IsDark = true;
             DeserializeDark();
             IsDark = !IsDark;
             ibDarkMode_MouseClick(null, null);
