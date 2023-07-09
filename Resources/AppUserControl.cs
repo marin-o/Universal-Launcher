@@ -85,14 +85,14 @@ namespace Universal_Launcher {
 
         private void tbChangeNameOrCategory_KeyDown(object sender, KeyEventArgs e) {
             if(e.KeyCode == Keys.Enter && !ChangeCategory) {
-                lblAppName.Text = tbChangeNameOrCategory.Text;
-                mainApp.Name = lblAppName.Text;
+                mainApp.Name = lblAppName.Text.Trim(); ;
+                lblAppName.Text = mainApp.Name;
                 tbChangeNameOrCategory.Visible = false;
                 tbChangeNameOrCategory.Enabled = false;
                 tbChangeNameOrCategory.Text = "";
             } else if(e.KeyCode == Keys.Enter && ChangeCategory) { 
                 string oldCategory = mainApp.Category;
-                mainApp.Category = tbChangeNameOrCategory.Text;
+                mainApp.Category = tbChangeNameOrCategory.Text.Trim();
                 CategoryChanged?.Invoke(oldCategory, mainApp.Category);
                 tbChangeNameOrCategory.Visible = false;
                 tbChangeNameOrCategory.Enabled = false;
