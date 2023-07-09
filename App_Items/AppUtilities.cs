@@ -149,6 +149,24 @@ namespace Universal_Launcher.App_Items {
             }
         }
 
+        public static void RemoveFromRepo(MainApp app, AppRepository apps, ListBox lbRecentlyUsed, ListView lvFavorites, ImageList imgListIcons) {
+            if( apps.Favorites.Contains(app) ) {
+                ListViewItem l = null;
+                foreach( ListViewItem item in lvFavorites.Items ) {
+                    if( item.Text == app.Name ) {
+                        lvFavorites.Items.RemoveAt(item.Index);
+                        imgListIcons.Images.RemoveByKey(app.Name);
+                        apps.RemoveFavorite(app);
+                        break;
+                    }
+                }
+            }
+            if(lbRecentlyUsed.Items.Contains(app)) {
+                lbRecentlyUsed.Items.Remove(app);
+                apps.RemoveRecentlyUsed(app);
+            }
+        }
+
         [Serializable]
         public class AppInfo {
             public string Name { get; }

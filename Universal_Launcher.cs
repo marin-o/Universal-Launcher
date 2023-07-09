@@ -81,17 +81,25 @@ namespace Universal_Launcher {
         }
 
         private void AppCard_AppLaunched(object sender, App e) {
-            if( lbRecentlyUsed.Items.Count == 5 ) {
-                lbRecentlyUsed.Items[Apps.RecentlyUsedIndex] = e;
-            } else {
-                lbRecentlyUsed.Items.Add(e);
+            if( lbRecentlyUsed.Items.Contains(e) ) {
+                lbRecentlyUsed.Items.Remove(e);
+                lbRecentlyUsed.Items.Insert(0, e);
+                apps.RemoveRecentlyUsed(e);
+                apps.AddRecentlyUsed(e);
             }
-            Apps.AddRecentlyUsed(e);
+            else {
+                lbRecentlyUsed.Items.Insert(0, e);
+                apps.AddRecentlyUsed(e);
+            }
+            if(lbRecentlyUsed.Items.Count == 6 ) {
+                lbRecentlyUsed.Items.RemoveAt(5);
+            }
         }
         private void AppCard_AppDeleted(object sender, EventArgs e) {
             AppUserControl uc = sender as AppUserControl;
             tpTestChildren.Controls.Find("flpLibrary", true)[0].Controls.Remove(uc);
             apps.RemoveApp(uc.MainApp);
+            AppUtilities.RemoveFromRepo(uc.MainApp, apps, lbRecentlyUsed, lvFavorites, imgListIcons);
             uc.Dispose();
         }
 
@@ -219,8 +227,8 @@ namespace Universal_Launcher {
                     return;
                 }
             }
-            imgListIcons.Images.Add(app.Icon);
-            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
+            imgListIcons.Images.Add(app.Name,app.Icon);
+            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.IndexOfKey(app.Name));
             i.Tag = app;
             lvFavorites.Items.Add(i);
             Apps.AddFavorite(app);
@@ -326,6 +334,7 @@ namespace Universal_Launcher {
                     App app = i.Tag as App;
                     if( app != null ) {
                         app.Launch();
+                        AppCard_AppLaunched(null,app);
                     }
                 }
             }
@@ -420,7 +429,6 @@ namespace Universal_Launcher {
             PopulateNotes();
             DeserializeReminders(remindersPath);
             PopulateReminders();
-            
         }
 
         private void DeserializeDark() {
@@ -484,19 +492,17 @@ namespace Universal_Launcher {
                 AddAppToFavoritesNoRepo(app);
             }
 
-            if( apps.RecentlyUsed != null ) {
-                foreach( App app in apps.RecentlyUsed ) {
-                    lbRecentlyUsed.Items.Add(app);
-                }
+            foreach( App app in apps.RecentlyUsed ) {
+                lbRecentlyUsed.Items.Add(app);
             }
 
-            foreach(string cat in apps.Categories ) {
-                cbCategories.Items.Add(cat);
+            foreach(string category in apps.Categories ) {
+                cbCategories.Items.Add(category);
             }
         }
         private void AddAppToFavoritesNoRepo(App app) {
-            imgListIcons.Images.Add(app.Icon);
-            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.Count - 1);
+            imgListIcons.Images.Add(app.Name,app.Icon);
+            ListViewItem i = new ListViewItem(app.Name, imgListIcons.Images.IndexOfKey(app.Name));
             i.Tag = app;
             lvFavorites.Items.Add(i);
         }
