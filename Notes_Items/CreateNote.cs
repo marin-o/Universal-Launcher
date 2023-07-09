@@ -16,11 +16,13 @@ namespace Universal_Launcher
         public Note Note { get; set; }
         public CreateNote() {
             InitializeComponent();
+            this.StyleManager = msmNewNote;
         }
 
         public CreateNote(string body) {
             InitializeComponent();
             mtbNote.Text = body;
+            this.StyleManager = msmNewNote;
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -35,6 +37,26 @@ namespace Universal_Launcher
         private void btnCancel_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        public void DarkMode(bool IsDark)
+        {
+            if(IsDark)
+            {
+                msmNewNote.Theme = MetroFramework.MetroThemeStyle.Dark;
+                mtbTitle.ForeColor = Color.White;
+                mtbNote.ForeColor = Color.White;
+                mtbTitle.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mtbNote.BackColor = Color.FromArgb(255, 100, 100, 100);
+            }
+            else
+            {
+                msmNewNote.Theme = MetroFramework.MetroThemeStyle.Light;
+                mtbTitle.ForeColor = Color.Black;
+                mtbNote.ForeColor = Color.Black;
+                mtbTitle.BackColor = Color.White;
+                mtbNote.BackColor = Color.White;
+            }
         }
     }
 }

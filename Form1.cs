@@ -83,7 +83,11 @@ namespace Universal_Launcher {
             else {
                 note = new CreateNote();
             }
-            if( note.ShowDialog() == DialogResult.OK ) {
+            if (IsDark)
+            {
+                note.DarkMode(IsDark);
+            }
+            if ( note.ShowDialog() == DialogResult.OK ) {
                 lbNotes.Items.Add(note.Note);
                 notes.Add(note.Note);
             }
@@ -109,14 +113,20 @@ namespace Universal_Launcher {
 
         private void btnAddReminder_Click(object sender, EventArgs e) {
             NewReminder newReminder = new NewReminder();
-            if( newReminder.ShowDialog() == DialogResult.OK ) {
+            if (IsDark)
+            {
+                newReminder.StyleManager.Theme = MetroFramework.MetroThemeStyle.Dark;
+                newReminder.DarkMode(IsDark);
+            }
+            if (newReminder.ShowDialog() == DialogResult.OK)
+            {
                 lvReminders.CheckBoxes = true;
 
                 reminders.AddReminder(newReminder.Reminder);
                 lvReminders.Items.Add(newReminder.Reminder.Task);
-                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+                lvReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.GetDate());
                 lvSideBarReminders.Items.Add(newReminder.Reminder.Task);
-                lvSideBarReminders.Items[lvReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.DateTime.Date.ToString());
+                lvSideBarReminders.Items[lvSideBarReminders.Items.Count - 1].SubItems.Add(newReminder.Reminder.GetDate());
             }
         }
 
@@ -361,6 +371,8 @@ namespace Universal_Launcher {
                 label4.ForeColor = Color.White;
                 label5.ForeColor = Color.White;
                 label6.ForeColor = Color.White;
+                ibRemoveFavorite.IconColor = Color.White;
+                ibRemoveFavorite.BackColor = Color.FromArgb(255, 44, 45, 45);
             }
             else
             {
@@ -390,6 +402,8 @@ namespace Universal_Launcher {
                 label4.ForeColor = Color.Black;
                 label5.ForeColor = Color.Black;
                 label6.ForeColor = Color.Black;
+                ibRemoveFavorite.IconColor = Color.Black;
+                ibRemoveFavorite.BackColor = Color.FromArgb(255, 240, 240, 240);
             }
 
         }

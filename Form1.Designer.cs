@@ -34,8 +34,6 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mpRecentlyUsed = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.lblNoteTitleSideBar = new System.Windows.Forms.TextBox();
-            this.rtbSideBarNoteText = new System.Windows.Forms.RichTextBox();
             this.mpAccount = new MetroFramework.Controls.MetroPanel();
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.ipbUserPicture = new FontAwesome.Sharp.IconPictureBox();
@@ -78,7 +76,6 @@
             this.mpNotesNReminders.SuspendLayout();
             this.mpReminders.SuspendLayout();
             this.mpRecentlyUsed.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
             this.mpAccount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ipbUserPicture)).BeginInit();
             this.metroTabControl1.SuspendLayout();
@@ -227,8 +224,6 @@
             // metroPanel1
             // 
             this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.Controls.Add(this.lblNoteTitleSideBar);
-            this.metroPanel1.Controls.Add(this.rtbSideBarNoteText);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
@@ -239,28 +234,6 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // lblNoteTitleSideBar
-            // 
-            this.lblNoteTitleSideBar.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblNoteTitleSideBar.Enabled = false;
-            this.lblNoteTitleSideBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoteTitleSideBar.Location = new System.Drawing.Point(-2, 2);
-            this.lblNoteTitleSideBar.Name = "lblNoteTitleSideBar";
-            this.lblNoteTitleSideBar.Size = new System.Drawing.Size(213, 19);
-            this.lblNoteTitleSideBar.TabIndex = 4;
-            this.lblNoteTitleSideBar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // rtbSideBarNoteText
-            // 
-            this.rtbSideBarNoteText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbSideBarNoteText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbSideBarNoteText.Enabled = false;
-            this.rtbSideBarNoteText.Location = new System.Drawing.Point(-2, 19);
-            this.rtbSideBarNoteText.Name = "rtbSideBarNoteText";
-            this.rtbSideBarNoteText.Size = new System.Drawing.Size(213, 104);
-            this.rtbSideBarNoteText.TabIndex = 3;
-            this.rtbSideBarNoteText.Text = "";
             // 
             // mpAccount
             // 
@@ -720,9 +693,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1175, 520);
-            this.Controls.Add(this.mpLoginScreen);
             this.Controls.Add(this.mpSidePanel);
             this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.mpLoginScreen);
             this.MinimumSize = new System.Drawing.Size(1175, 520);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -733,8 +706,6 @@
             this.mpNotesNReminders.ResumeLayout(false);
             this.mpReminders.ResumeLayout(false);
             this.mpRecentlyUsed.ResumeLayout(false);
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
             this.mpAccount.ResumeLayout(false);
             this.mpAccount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ipbUserPicture)).EndInit();
@@ -784,8 +755,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ToolTip ttTipDoubleClick;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private System.Windows.Forms.RichTextBox rtbSideBarNoteText;
-        private System.Windows.Forms.TextBox lblNoteTitleSideBar;
         private System.Windows.Forms.ListBox lbNotes;
         public System.Windows.Forms.ListView lvFavorites;
         private MetroFramework.Components.MetroStyleManager msmForm1;

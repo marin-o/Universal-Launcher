@@ -17,6 +17,7 @@ namespace Universal_Launcher
        public Reminder Reminder { get; set; }
         public NewReminder() {
             InitializeComponent();
+            this.StyleManager = msmNewReminder;            
         }
 
         private void mtbTask_Validating(object sender, CancelEventArgs e)
@@ -59,6 +60,22 @@ namespace Universal_Launcher
         private void btnCancel_Click(object sender, EventArgs e)
         {
            DialogResult = DialogResult.Cancel;
+        }
+
+        public void DarkMode(bool IsDark)
+        {
+            if (IsDark)
+            {
+                lblTask.ForeColor = Color.White;
+                mtbTask.BackColor = Color.FromArgb(255, 100, 100, 100);
+                mtbTask.ForeColor = Color.White;
+            }
+            else
+            {
+                lblTask.ForeColor = Color.Black;
+                mtbTask.BackColor = Color.White;
+                mtbTask.ForeColor = Color.Black;
+            }
         }
     }
 }
